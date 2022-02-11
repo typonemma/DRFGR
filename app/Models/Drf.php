@@ -9,4 +9,9 @@ class Drf extends Model
 {
     protected $table = 'drf';
     use HasFactory;
+
+    public function searchDRFById($id)
+    {
+        
+    }
 }
