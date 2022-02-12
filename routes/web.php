@@ -20,8 +20,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/register', function () {
+    return view('register');
+});
+
+
 Route::get('/login', [LoginController::class, 'index'])->name('login.index')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate'])->name('login.authenticate');
+Route::post('/register', [RegisterController::class, 'authenticate'])->name('register.store');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::post('/drf/status/{id}', [DRFController::class, 'updateStatus'])->name('drf.status');
 Route::resource('drf', DRFController::class);
