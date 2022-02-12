@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DRFController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\SearchController;
+use App\Http\Controllers\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,14 +21,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/register', function () {
-    return view('register');
-});
 
 
 Route::get('/login', [LoginController::class, 'index'])->name('login.index')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate'])->name('login.authenticate');
-Route::post('/register', [RegisterController::class, 'authenticate'])->name('register.store');
+Route::get('/register', [RegisterController::class, 'index'])->name('register.index')->middleware('guest');
+Route::post('/register', [RegisterController::class, 'store'])->name('register.store')->middleware('guest');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::post('/drf/status/{id}', [DRFController::class, 'updateStatus'])->name('drf.status');
 Route::resource('drf', DRFController::class);
