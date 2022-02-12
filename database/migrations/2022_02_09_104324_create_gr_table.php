@@ -15,9 +15,9 @@ class CreateGrTable extends Migration
     {
         Schema::create('gr', function (Blueprint $table) {
             $table->string('id',16)->primary();
-            $table->date('Date');
-            $table->date('Date_End');
-            $table->text('Information');
+            $table->date('date');
+            $table->date('date_end');
+            $table->text('information');
             $table->string('status',3)->default('WTG');
         });
     }

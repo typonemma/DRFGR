@@ -18,4 +18,9 @@ class Drf extends Model
     {
         return self::all();
     }
+    public static function updateDRFById($data, $id)
+    {
+        return self::where('id', $id)
+        ->update($data);
+    }
 }

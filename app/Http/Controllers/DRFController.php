@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PutDRFAndGR;
 use App\Models\Drf;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreDRFAndGR;
 
 class DRFController extends Controller
 {
@@ -14,7 +16,10 @@ class DRFController extends Controller
      */
     public function index()
     {
-        // 
+        $drf = Drf::allDRF();
+        return view('',[
+            'drf' => $drf,
+        ]);
     }
 
     /**
@@ -24,7 +29,7 @@ class DRFController extends Controller
      */
     public function create()
     {
-        //
+        return view('',[]);
     }
 
     /**
@@ -33,9 +38,14 @@ class DRFController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreDRFAndGR $request)
     {
-        //
+        $validatedData = $request->validated();
+        $alpha = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $randomString = str_shuffle(($alpha),0,8);
+        $validatedData['id'] = implode($randomString ,explode('-', $validatedData['date']));
+        Drf::create($validatedData);
+        redirect(route('drf.index'))->with('success','DRF has been added successfully');
     }
 
     /**
@@ -46,7 +56,10 @@ class DRFController extends Controller
      */
     public function show($id)
     {
-        //
+        $drf = Drf::searchDRFById($id);
+        return view('drf.show', [
+            'drf' => $drf
+        ]);
     }
 
     /**
@@ -57,7 +70,10 @@ class DRFController extends Controller
      */
     public function edit($id)
     {
-        //
+        $drf = Drf::searchDRFById($id);
+        return view('',[
+            'drf' => $drf
+        ]);
     }
 
     /**
@@ -67,9 +83,11 @@ class DRFController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PutDRFAndGR $request, $id)
     {
-        //
+        $validatedData = $request->validated();
+        Drf::updateDRFById($validatedData, $id);
+        redirect(route('drf.index'))->with('success','DRF has been updated successfully');
     }
 
     /**

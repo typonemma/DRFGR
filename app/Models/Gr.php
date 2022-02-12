@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Gr extends Model
 {
     protected $table = 'gr';
+    protected $guarded = ['id'];
     use HasFactory;
 
     public static function searchGRById($id)
