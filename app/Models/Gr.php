@@ -9,4 +9,9 @@ class Gr extends Model
 {
     protected $table = 'gr';
     use HasFactory;
+
+    public static function searchGRById($id)
+    {
+        return self::find($id);
+    }
 }

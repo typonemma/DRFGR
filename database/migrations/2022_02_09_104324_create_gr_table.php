@@ -18,6 +18,7 @@ class CreateGrTable extends Migration
             $table->date('Date');
             $table->date('Date_End');
             $table->text('Information');
+            $table->string('status',3)->default('WTG');
         });
     }
 

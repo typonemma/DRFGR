@@ -16,8 +16,9 @@ class CreateDrfTable extends Migration
         Schema::create('drf', function (Blueprint $table) {
             $table->string('id',16)->primary();
             $table->date('Date');
-            $table->date('Date_End');
+            $table->date('Date_End');   
             $table->text('Information');
+            $table->string('status',3)->default('WTG');
         });
     }
 
