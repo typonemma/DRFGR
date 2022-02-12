@@ -90,14 +90,25 @@ class DRFController extends Controller
         redirect(route('drf.index'))->with('success','DRF has been updated successfully');
     }
 
+    public function updateStatus(Request $request, $id)
+    {
+        $rules = [ 'status' => 'required|alpha'];
+        $validatedData = $request->validate($rules);
+        Drf::updateDRFById($validatedData, $id);
+        redirect(route('drf.index'))->with('success','DRF has been acknowledge');
+    }
+
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        //
+        $rules = [ 'status' => 'required|alpha'];
+        $validatedData = $request->validate($rules);
+        Drf::updateDRFById($validatedData, $id);
+        redirect(route('drf.index'))->with('success','DRF has been rejected');
     }
 }
