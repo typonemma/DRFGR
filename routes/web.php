@@ -32,6 +32,7 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout')->midd
 // END AUTH
 
 // DASHBOARD ADMIN
+Route::get('/history/{month?}/{year?}', [DashboardAdminController::class, 'history'])->name('dashboardadmin.history')->where('month', '[0-9]+')->where('year', '[0-9]+');
 Route::get('/dashboardadmin/formdrf', [DashboardAdminController::class, 'createDRF'])->name('dashboardadmin.createDRF');
 Route::get('/dashboardadmin/formgr', [DashboardAdminController::class, 'createDRF'])->name('dashboardadmin.createDRF');
 Route::post('/dashboardadmin/storedrf', [DashboardAdminController::class, 'storeDRF'])->name('dashboardadmin.storeDRF');

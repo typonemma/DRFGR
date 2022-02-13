@@ -28,4 +28,11 @@ class Drf extends Model
         return self::where('id',$id)
         ->delete();
     }
+    public static function findDRFByMonth($month, $year)
+    {
+        return self::whereMonth('date', '=', $month)
+        ->whereYear('date', '=', $year)
+        ->orderBy('date', 'asc')
+        ->get();
+    }
 }

@@ -21,6 +21,16 @@ class DashboardAdminController extends Controller
         return view('');
     }
 
+    public function history($month = 0, $year = 0)
+    {
+        $drf = Drf::findDRFByMonth($month, $year);
+        $gr = Gr::findDRFByMonth($month, $year);
+        return view('', [
+            'drf' => $drf,
+            'gr' => $gr,
+        ]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
