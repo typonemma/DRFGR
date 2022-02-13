@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Http\FormRequest;
 
 class StoreDRFAndGR extends FormRequest
@@ -13,7 +14,7 @@ class StoreDRFAndGR extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return Auth::check();
     }
 
     /**
@@ -25,7 +26,6 @@ class StoreDRFAndGR extends FormRequest
     {
         return [
             'date' => 'required|date_format:d-m-Y"',
-            'date_end' => 'required|date_format:d-m-Y',
             'information' => 'required|alpha_dash',
         ];
     }

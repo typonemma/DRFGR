@@ -11,8 +11,22 @@ class Gr extends Model
     protected $guarded = ['id'];
     use HasFactory;
 
-    public static function searchGRById($id)
+    public static function findGRById($id)
     {
         return self::find($id);
+    }
+    public static function allGR()
+    {
+        return self::all();
+    }
+    public static function updateGRById($data, $id)
+    {
+        return self::where('id', $id)
+        ->update($data);
+    }
+    public static function deleteGRById($id)
+    {
+        return self::where('id',$id)
+        ->delete();
     }
 }

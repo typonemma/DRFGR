@@ -6,7 +6,7 @@ use App\Models\Gr;
 use App\Models\Drf;
 use Illuminate\Http\Request;
 
-class SearchController extends Controller
+class DashboardUserController extends Controller
 {
     public function index(Request $request)
     {

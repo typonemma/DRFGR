@@ -10,7 +10,7 @@ class Drf extends Model
     protected $table = 'drf';
     protected $guarded = ['id'];
     use HasFactory;
-    public static function searchDRFById($id)
+    public static function findDRFById($id)
     {
         return self::find($id);
     }
@@ -18,7 +18,7 @@ class Drf extends Model
     {
         return self::all();
     }
-    public static function updateDRF($data, $id)
+    public static function updateDRFById($data, $id)
     {
         return self::where('id', $id)
         ->update($data);
