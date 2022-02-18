@@ -18,7 +18,7 @@ class DashboardAdminController extends Controller
     // Home Controller
     public function index()
     {
-        return view('');
+        return view('dashboardadmin');
     }
 
     public function history($month = 0, $year = 0)
@@ -155,4 +155,3 @@ class DashboardAdminController extends Controller
         redirect(route('drf.index'))->with('success','GR has been updated successfully');
     }
 }
-

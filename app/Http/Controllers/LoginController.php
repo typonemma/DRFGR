@@ -18,7 +18,7 @@ class LoginController extends Controller
         $validatedUser = $request->validated();
         if(Auth::attempt($validatedUser)){
             $request->session()->regenerate();
-            return redirect()->intended('/dashboard');
+            return redirect()->intended('/dashboardadmin');
         }
         return back()->with('loginError','Email or password is incorrect');
     }
