@@ -50,4 +50,5 @@ Route::resource('dashboardadmin', DashboardAdminController::class)->only('index'
 
 // DASHBOARD USER
 Route::get('/dashboarduser', [DashboardUserController::class, 'index'])->name('dashboarduser.index')->middleware('auth');
+Route::get('/dashboardadmin', [DashboardAdminController::class, 'index'])->name('dashboardadmin.index')->middleware('auth');
 // END DASHBOARD USER
