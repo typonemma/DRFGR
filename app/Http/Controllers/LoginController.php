@@ -17,8 +17,12 @@ class LoginController extends Controller
     {
         $validatedUser = $request->validated();
         if(Auth::attempt($validatedUser)){
-            $request->session()->regenerate();
-            return redirect()->intended('/dashboardadmin');
+            if(auth()->user()->role_id == 0202){
+                $request->session()->regenerate();
+                return redirect()->intended('/dashboardadmin');
+            }else{
+                return back()->with('loginError','Role not allowed');
+            }
         }
         return back()->with('loginError','Invalid credentials');
     }
@@ -33,8 +37,11 @@ class LoginController extends Controller
     {
         $validatedUser = $request->validated();
         if(Auth::attempt($validatedUser)){
-            $request->session()->regenerate();
-            return redirect()->intended('/dashboardgl');
+            if(auth()->user()->role_id == 0101){
+                $request->session()->regenerate();
+                return redirect()->intended('/dashboardgl');
+            }
+            return back()->with('loginError','Role not allowed');
         }
         return back()->with('loginError','Invalid credentials');
     }
@@ -49,9 +56,13 @@ class LoginController extends Controller
     {
         $validatedUser = $request->validated();
         if (Auth::attempt($validatedUser)) {
-            return redirect('/dashboarduser');
+            if(auth()->user()->role_id == 0404){
+                $request->session()->regenerate();
+                return redirect()->intended('/dashboarduser');
+            }
+            return back()->with('loginError','Role not allowed');
         } else {
-            return redirect('/login')->with('error', 'Invalid credentials');
+            return back()->with('loginError','Invalid credentials');
         }
     }
     // END LOGIN USERS
