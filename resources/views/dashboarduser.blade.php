@@ -17,7 +17,7 @@
     </head>
     @include('layouts.usernavnar')
 
-    <body class="antialiased">
-      
+    <body class="antialiased" style="background-image: #EAD689;">
+
     </body>
 </html>

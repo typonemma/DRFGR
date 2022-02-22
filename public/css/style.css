@@ -42,7 +42,7 @@
 }
 .btn-primary:hover, .btn-primary:active, .btn-primary.active, .btn-primary.disabled, .btn-primary[disabled] {
     filter: none;
-    background-color: #DFB305;
+    background-color: #EAD689;
 }
 .btn-block {
     width: 100%;
@@ -64,28 +64,10 @@ body {
     width: 100%;
     height:100%;
     font-family: 'Open Sans', sans-serif;
-    background: #DAC15F;
+    background: #EAD689;
 
 }
-* {
-    -webkit-box-sizing:border-box;
-    -moz-box-sizing:border-box;
-    -ms-box-sizing:border-box;
-    -o-box-sizing:border-box;
-    box-sizing:border-box;
-}
-html {
-    width: 100%;
-    height:100%;
-    overflow:hidden;
-}
-body {
-    width: 100%;
-    height:100%;
-    font-family: 'Open Sans', sans-serif;
-    background: #DAC15F;
 
-}
 .login {
     position: absolute;
     top: 50%;
@@ -122,8 +104,7 @@ input {
     outline: none;
     padding: 10px;
     font-size: 13px;
-    color: #000000;
-
+    color: #ffffff;
     border: 1px solid rgba(0,0,0,0.3);
     border-radius: 4px;
     box-shadow: inset 0 -5px 45px rgba(100,100,100,0.2), 0 1px 1px rgba(255,255,255,0.2);
