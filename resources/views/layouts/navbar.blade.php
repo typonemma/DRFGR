@@ -26,7 +26,7 @@
       </ul>
     </div>
     <div class="logout my-2 my-lg-0">
-      <a href="#"><i class="bi bi-box-arrow-in-right"></i></a>
+      <a href={{ route('logout') }}><i class="bi bi-box-arrow-in-right"></i></a>
     </div>
 
 </nav>
