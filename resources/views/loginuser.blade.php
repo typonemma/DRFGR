@@ -24,6 +24,7 @@
                 <button type="submit" class="btn btn-primary btn-block btn-large">Login</button>
 
             </form>
+            <a href="{{url('registeruser')}}" class="active">Register Here</a>
         </div>
     </body>
 </html>
