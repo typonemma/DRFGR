@@ -11,10 +11,10 @@ class DashboardUserController extends Controller
     public function index(Request $request)
     {
         $id = $request->post('id');
-        $drf = Drf::searchDRFById($id);
-        $gr = Gr::searchGRById($id);
+        $drf = Drf::findDRFById($id);
+        $gr = Gr::findGRById($id);
 
-        return view('', [
+        return view('dashboarduser', [
             'drf' => $drf,
             'gr' => $gr
         ]);

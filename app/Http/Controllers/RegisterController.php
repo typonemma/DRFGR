@@ -20,6 +20,6 @@ class RegisterController extends Controller
         $validatedUser['password'] = Hash::make($validatedUser['password']);
         $validatedUser['role_id'] = "0404";
         User::create($validatedUser);
-        return redirect('/login')->with('success','Registration was successful! Please login');
+        return redirect('/loginuser')->with('success','Registration was successful! Please login');
     }
 }

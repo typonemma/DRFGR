@@ -15,7 +15,7 @@
 
 
     </head>
-    @include('layouts.usernavnar')
+    @include('layouts.usernavbar')
 
     <body class="antialiased" style="background-image: #EAD689;">
 

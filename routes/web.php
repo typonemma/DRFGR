@@ -24,23 +24,22 @@ Route::get('/', function () {
 
 // AUTH UMUM
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout')->middleware('auth');
+Route::post('/login', [LoginController::class, 'authenticate'])->name('login.authenticate')->middleware('guest');
 // END AUTH UMUM
 
 // AUTH ADMIN
 Route::get('/loginadmin', [LoginController::class, 'index'])->name('login.index')->middleware('guest');
-Route::post('/loginadmin', [LoginController::class, 'authenticateAdmin'])->name('login.authenticateAdmin')->middleware('guest');
+
 // END AUTH ADMIN
 
 // AUTH USER
 Route::get('/loginuser', [LoginController::class, 'indexUser'])->name('loginuser.index')->middleware('guest');
-Route::post('/loginuser', [LoginController::class, 'authenticateUser'])->name('loginuser.authenticateUser')->middleware('guest');
 Route::get('/registeruser', [RegisterController::class, 'index'])->name('register.index')->middleware('guest');
 Route::post('/registeruser', [RegisterController::class, 'store'])->name('register.store')->middleware('guest');
 // END AUTH USER
 
 // AUTH GL
 Route::get('/logingl', [LoginController::class, 'indexGL'])->name('logingl.index')->middleware('guest');
-Route::post('/logingl', [LoginController::class, 'authenticateGL'])->name('logingl.authenticateGL')->middleware('guest');
 // END AUTH GL
 
 
