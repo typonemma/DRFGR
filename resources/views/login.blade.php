@@ -17,7 +17,7 @@
     <body class="antialiased">
        <div class="login">
         <h1>Login</h1>
-            <form method="post" action="{{ route('login.authenticate') }}">
+            <form method="post" action="{{ route('login.authenticateAdmin') }}">
                 @csrf
                 <input type="text" name="email" placeholder="Email" required="required" />
                 <input type="password" name="password" placeholder="Password" required="required" />
