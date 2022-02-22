@@ -20,8 +20,14 @@
         <li class="nav-item ">
           <a class="nav-link" href="#">Home </a>
         </li>
-        <li class="nav-item ">
-          <a class="nav-link" href="#">History</a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Form
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="#">Goods Receive Form</a>
+            <a class="dropdown-item" href="#">Dispatch Request Form</a>
+          </div>
         </li>
       </ul>
     </div>
