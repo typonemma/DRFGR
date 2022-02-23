@@ -16,8 +16,8 @@ class User
      */
     public function handle(Request $request, Closure $next)
     {
-        if(auth()->guest() || auth()->user()->role_id != 0404){
-            abort(403);
+        if(auth()->guest() || auth()->user()->role_id != '0404'){
+            return back();
         }
         return $next($request);
     }

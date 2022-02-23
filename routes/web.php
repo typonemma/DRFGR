@@ -36,6 +36,11 @@ Route::get('/loginadmin', [LoginController::class, 'index'])->name('login.index'
 Route::get('/loginuser', [LoginController::class, 'indexUser'])->name('loginuser.index')->middleware('guest');
 Route::get('/registeruser', [RegisterController::class, 'index'])->name('register.index')->middleware('guest');
 Route::post('/registeruser', [RegisterController::class, 'store'])->name('register.store')->middleware('guest');
+Route::post('/dashboarduser/storedrf', [DashboardUserController::class, 'storeDRF'])->name('dashboarduser.storeDRF')->middleware('user');
+Route::post('/dashboarduser/storegr', [DashboardUserController::class, 'storeGR'])->name('dashboarduser.storeGR')->middleware('user');
+Route::get('/dashboarduser/formdrf', [DashboardUserController::class, 'createDRF'])->name('dashboarduser.formDRF')->middleware('user');
+Route::get('/dashboarduser/formgr', [DashboardUserController::class, 'createGR'])->name('dashboarduser.formGR')->middleware('user');
+Route::get('/dashboarduser/{id?}', [DashboardUserController::class, 'index'])->name('dashboarduser.index')->middleware('user');
 // END AUTH USER
 
 // AUTH GL
@@ -46,13 +51,11 @@ Route::get('/logingl', [LoginController::class, 'indexGL'])->name('logingl.index
 // DASHBOARD ADMIN
 Route::get('/history/{month?}/{year?}', [DashboardAdminController::class, 'history'])->name('dashboardadmin.history')->where('month', '[0-9]+')->where('year', '[0-9]+')->middleware('admin');
 Route::get('/dashboardadmin/formdrf', [DashboardAdminController::class, 'createDRF'])->name('dashboardadmin.createDRF')->middleware('admin');
-Route::get('/dashboardadmin/formgr', [DashboardAdminController::class, 'createDRF'])->name('dashboardadmin.createDRF')->middleware('admin');
-Route::post('/dashboardadmin/storedrf', [DashboardAdminController::class, 'storeDRF'])->name('dashboardadmin.storeDRF')->middleware('admin');
-Route::post('/dashboardadmin/storegr', [DashboardAdminController::class, 'storeGR'])->name('dashboardadmin.storeGR')->middleware('admin');
-Route::get('/dashboardadmin/showdrf/{id}', [DashboardAdminController::class, 'showDRF'])->name('dashboardadmin.showDRF')->middleware('admin');
-Route::get('/dashboardadmin/showgr/{id}', [DashboardAdminController::class, 'showGR'])->name('dashboardadmin.showGR')->middleware('admin');
+Route::get('/dashboardadmin/formgr', [DashboardAdminController::class, 'createGR'])->name('dashboardadmin.createGR')->middleware('admin');
 Route::get('/dashboardadmin/editdrf/{id}', [DashboardAdminController::class, 'editDRF'])->name('dashboardadmin.editDRF')->middleware('admin');
 Route::get('/dashboardadmin/editgr/{id}', [DashboardAdminController::class, 'editGR'])->name('dashboardadmin.editGR')->middleware('admin');
+Route::get('/dashboardadmin/showdrf/{id}', [DashboardAdminController::class, 'showDRF'])->name('dashboardadmin.showDRF')->middleware('admin');
+Route::get('/dashboardadmin/showgr/{id}', [DashboardAdminController::class, 'showGR'])->name('dashboardadmin.showGR')->middleware('admin');
 Route::put('/dashboardadmin/updatedrf/{id}', [DashboardAdminController::class, 'updateDRF'])->name('dashboardadmin.updateDRF')->middleware('admin');
 Route::put('/dashboardadmin/updategr/{id}', [DashboardAdminController::class, 'updateGR'])->name('dashboardadmin.updateGR')->middleware('admin');
 Route::delete('/dashboardadmin/destroydrf/{id}', [DashboardAdminController::class, 'destroyDRF'])->name('dashboardadmin.destroyDRF')->middleware('admin');

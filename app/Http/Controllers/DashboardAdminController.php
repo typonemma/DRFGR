@@ -39,11 +39,11 @@ class DashboardAdminController extends Controller
     // Form Controller
     public function createDRF()
     {
-        return view('/dashboardadmin/formdrf');
+        return view('formdrf');
     }
     public function createGR()
     {
-        return view('/dashboardadmin/formgr');
+        return view('formgr');
     }
 
     /**

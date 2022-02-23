@@ -25,8 +25,8 @@
               Form
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" href="{{url('dashboardadmin/formgr')}}">Goods Receive Form</a>
-              <a class="dropdown-item" href="#">Dispatch Request Form</a>
+              <a class="dropdown-item" href="{{route('dashboarduser.formGR')}}">Goods Receive Form</a>
+              <a class="dropdown-item" href="{{route('dashboarduser.formDRF')}}">Dispatch Request Form</a>
             </div>
           </li>
       </ul>

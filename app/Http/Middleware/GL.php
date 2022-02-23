@@ -16,8 +16,8 @@ class GL
      */
     public function handle(Request $request, Closure $next)
     {
-        if(auth()->guest() || auth()->user()->role_id != 0101){
-            abort(403);
+        if(auth()->guest() || auth()->user()->role_id != '0101'){
+            return back();
         }
         return $next($request);
     }

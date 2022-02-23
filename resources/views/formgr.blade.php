@@ -19,8 +19,8 @@
     @include('layouts.usernavbar')
 
     <body class="antialiased" style="background-image: #EAD689;">
-      <form action="#">
-
+      <form action="#" method="post">
+  @csrf
   <header>
     <h2>Goods Receive Form</h2>
   </header>
