@@ -10,7 +10,6 @@
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="{{asset('css/style.css')}}">
         <link rel="stylesheet" href="{{asset('css/form.css')}}">
         <!-- Styles -->
 
@@ -97,7 +96,7 @@
   </div>
 
   <div>
-    <label class="desc" id="title1" for="Field1">In date</label>
+    <label class="desc" id="title1" for="Field1">Nomor Model</label>
     <div>
       <input id="Field3" name="Field1" type="text" class="field text fn" value="" size="8" tabindex="1" placeholder="Instrument Models">
     </div>
@@ -111,7 +110,7 @@
 
   <div>
     <div>
-      <input id="saveForm" name="saveForm" type="submit" value="Add More">
+      	<button type="submit" class="btn btn-block btn-large"><i class="bi bi-plus"></i>Add More</button>
     </div>
   </div>
 
@@ -139,7 +138,7 @@
 
   <div>
 		<div>
-  		<input id="saveForm" name="saveForm" type="submit" value="Submit">
+  		<button type="submit" class="btn btn-block btn-large"><i class="bi bi-check-lg"></i>Submit</button>
     </div>
 	</div>
 

@@ -11,11 +11,6 @@ body {
 form header {
   margin: 0 0 20px 0;
 }
-
-
-form header h2{
-  font-weight: bold;
-}
 form header div {
   font-size: 90%;
   color: #999;
@@ -87,49 +82,10 @@ textarea:focus {
   color: #ffffff;
 }
 
-
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: #EAD689;
   opacity: 1; /* Firefox */
 }
-
-.btn {
-    color: #000000;
-    border-radius: 5px;
-    border-color: black;
-    border-radius: 5px;
-    border: 5px solid #000000;
-}
-.btn:hover, .btn:active, .btn.active, .btn.disabled, .btn[disabled] {
-    background-color: #DAC15F;
-}
-.btn-large {
-    padding: 9px 14px;
-    font-size: 15px;
-    line-height: normal;
-    border-radius: 5px;
-    border: 5px solid #000000;
-}
-.btn:hover {
-  color: #000000;
-  border-radius: 5px;
-  border-color: black;
-  border-radius: 5px;
-  border: 5px solid #000000;
-}
-
-
-.btn-block {
-    width: 50%;
-    display:block;
-}
-
-legend{
-  font-size: 16px;
-}
-
-
-
 
 @media (max-width: 600px) {
   form > div {
