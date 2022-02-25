@@ -179,7 +179,7 @@
     <fieldset>
 
       <legend id="title8" class="desc">
-        Post Work Document :
+     Post Work Document :
       </legend>
 
       <div>
@@ -193,31 +193,146 @@
           <label class="choice" for="Field10_1">Time</label>
         </div>
         <div>
-          <input id="Field10_2" name="Field10" type="radio" value="Third Choice" tabindex="7">
-          <label class="choice" for="Field10_2">FAT/SAT REPORT</label>
+          <input id="Field10_5" name="Field10" type="radio" value="Third Choice" tabindex="7">
+          <label class="choice" for="Field10_3">FAT/SAT REPORT</label>
         </div>
         <div>
-          <input id="Field10_2" name="Field10" type="radio" value="Third Choice" tabindex="7">
-          <label class="choice" for="Field10_2">Work Completition Certificate </label>
+          <input id="Field10_4" name="Field10" type="radio" value="Third Choice" tabindex="7">
+          <label class="choice" for="Field10_4">Work Completition Certificate </label>
         </div>
         <div>
-          <input id="Field10_2" name="Field10" type="radio" value="Third Choice" tabindex="7">
-          <label class="choice" for="Field10_2">Site Survey</label>
+          <input id="Field10_5" name="Field10" type="radio" value="Third Choice" tabindex="7">
+          <label class="choice" for="Field10_5">Site Survey</label>
         </div>
         <div>
-          <input id="Field10_2" name="Field10" type="radio" value="Third Choice" tabindex="7">
-          <label class="choice" for="Field102">Delivery </label>
+          <input id="Field10_8" name="Field10" type="radio" value="Third Choice" tabindex="7">
+          <label class="choice" for="Field10_6">Delivery </label>
         </div>
         <div>
-          <input id="Field10_2" name="Field10" type="radio" value="Third Choice" tabindex="7">
-          <label class="choice" for="Field10_2">Other </label>
+          <input id="Field10_7" name="Field10" type="radio" value="Third Choice" tabindex="7">
+          <label class="choice" for="Field10_7">Other </label>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+
+  <div>
+    <fieldset>
+
+      <legend id="title8" class="desc">
+        Work Type
+      </legend>
+
+      <div>
+        <input id="radioDefault_11" name="Field11" type="hidden" value="">
+        <div>
+          <input id="Field11_0" name="Field11" type="radio" value="First Choice" tabindex="5" checked="checked">
+          <label class="choice" for="Field11_0">Calibration</label>
+        </div>
+        <div>
+          <input id="Field11_1" name="Field11" type="radio" value="Second Choice" tabindex="6">
+          <label class="choice" for="Field11_1">Bench Repair</label>
+        </div>
+        <div>
+          <input id="Field11_2" name="Field11" type="radio" value="Third Choice" tabindex="7">
+          <label class="choice" for="Field11_2">Call Out</label>
+        </div>
+        <div>
+          <input id="Field11_3" name="Field11" type="radio" value="Third Choice" tabindex="7">
+          <label class="choice" for="Field11_3">VPS Work  </label>
+        </div>
+        <div>
+          <input id="Field11_4" name="Field11" type="radio" value="Third Choice" tabindex="7">
+          <label class="choice" for="Field11_4">Setup/Commisioning </label>
+        </div>
+        <div>
+          <input id="Field11_5" name="Field11" type="radio" value="Third Choice" tabindex="7">
+          <label class="choice" for="Field11_5">Not Delivery </label>
+        </div>
+        <div>
+          <input id="Field11_6" name="Field11" type="radio" value="Third Choice" tabindex="7">
+          <label class="choice" for="Field11_6">Conducting Training </label>
+        </div>
+        <div>
+          <input id="Field11_7" name="Field11" type="radio" value="Third Choice" tabindex="7">
+          <label class="choice" for="Field11_7">S/W & H/W Modification </label>
+        </div>
+        <div>
+          <input id="Field11_8" name="Field11" type="radio" value="Third Choice" tabindex="7">
+          <label class="choice" for="Field11_8">TroubleShooting </label>
+        </div>
+        <div>
+          <input id="Field11_9" name="Field11" type="radio" value="Third Choice" tabindex="7">
+          <label class="choice" for="Field11_9">Sales Support  </label>
+        </div>
+        <div>
+          <input id="Field11_10" name="Field11" type="radio" value="Third Choice" tabindex="7">
+          <label class="choice" for="Field11_10">Project Support </label>
+        </div>
+        <div>
+          <input id="Field11_11" name="Field11" type="radio" value="Third Choice" tabindex="7">
+          <label class="choice" for="Field11_11">Site  </label>
+        </div>
+        <div>
+          <input id="Field11_12" name="Field11" type="radio" value="Third Choice" tabindex="7">
+          <label class="choice" for="Field11_12">Other  </label>
         </div>
       </div>
     </fieldset>
   </div>
 
 
+  <div>
+    <label class="desc" id="title12" for="Field12">
+      Description
+    </label>
 
+    <div>
+      <textarea id="Field12" name="Field12" spellcheck="true" rows="10" cols="50" tabindex="4" placeholder="work Description"></textarea>
+    </div>
+  </div>
+
+  <div>
+    <label class="desc" id="title13" for="Field12">GL Initial:</label>
+    <div>
+      <input id="Field12" name="Field12" type="text" class="field text fn" value="" size="8" tabindex="1"placeholder="GL Initial">
+    </div>
+  </div>
+
+  <div>
+    <label class="desc" id="title13" for="Field13">Engineer Signed:</label>
+    <div>
+      <input id="Field13" name="Field13" type="text" class="field text fn" value="" size="8" tabindex="1"placeholder="Signed 1">
+    </div>
+    <div>
+      <input id="Field13" name="Field13" type="text" class="field text fn" value="" size="8" tabindex="1"placeholder="Signed 2">
+    </div>
+  </div>
+
+  <div>
+    <fieldset>
+
+      <legend id="title14" class="desc">
+      Current Work Status :
+      </legend>
+
+      <div>
+        <input id="radioDefault_14" name="Field14" type="hidden" value="">
+        <div>
+          <input id="Field14_0" name="Field14" type="radio" value="First Choice" tabindex="5" checked="checked">
+          <label class="choice" for="Field14_0">Completed</label>
+        </div>
+        <div>
+          <input id="Field14_1" name="Field14" type="radio" value="Second Choice" tabindex="6">
+          <label class="choice" for="FField14_1">Pending</label>
+        </div>
+        <div>
+          <input id="Field14_2" name="Field14" type="radio" value="Third Choice" tabindex="7">
+          <label class="choice" for="Field14_3">Canceled</label>
+        </div>
+      </div>
+    </fieldset>
+  </div>
 
 
 
