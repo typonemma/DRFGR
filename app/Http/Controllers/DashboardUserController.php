@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreDRF;
+use App\Http\Requests\StoreGR;
 use App\Models\Gr;
 use App\Models\Drf;
 use Illuminate\Http\Request;
-use App\Http\Requests\StoreDRFAndGR;
 
 class DashboardUserController extends Controller
 {
@@ -27,7 +28,7 @@ class DashboardUserController extends Controller
     {
         return view('formgr');
     }
-    public function storeDRF(StoreDRFAndGR $request)
+    public function storeDRF(StoreDRF $request)
     {
         $validatedData = $request->validated();
         $numeric = '1234567890';
@@ -37,7 +38,7 @@ class DashboardUserController extends Controller
         Drf::create($validatedData);
         redirect(route('dashboarduser.index'))->with('success','DRF has been added successfully');
     }
-    public function storeGR(StoreDRFAndGR $request)
+    public function storeGR(StoreGR $request)
     {
         $validatedData = $request->validated();
         $numeric = '1234567890';

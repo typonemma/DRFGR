@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\PutDRFAndGR;
+use App\Http\Requests\PutDRF;
 use App\Models\Gr;
 use App\Models\Drf;
+use App\Http\Requests\PutGR;
 use Illuminate\Http\Request;
-use App\Http\Requests\StoreDRFAndGR;
+use App\Http\Requests\StoreGR;
+use App\Http\Requests\StoreDRF;
 
 class DashboardAdminController extends Controller
 {
@@ -54,7 +56,7 @@ class DashboardAdminController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function storeDRF(StoreDRFAndGR $request)
+    public function storeDRF(StoreDRF $request)
     {
         $validatedData = $request->validated();
         $alpha = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -64,7 +66,7 @@ class DashboardAdminController extends Controller
         Drf::create($validatedData);
         redirect(route('dashboardadmin.index'))->with('success','DRF has been added successfully');
     }
-    public function storeGR(StoreDRFAndGR $request)
+    public function storeGR(StoreGR $request)
     {
         $validatedData = $request->validated();
         $alpha = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -123,13 +125,13 @@ class DashboardAdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function updateDRF(PutDRFAndGR $request, $id)
+    public function updateDRF(PutDRF $request, $id)
     {
         $validatedData = $request->validated();
         Drf::updateDRFById($validatedData, $id);
         redirect(route('dashboardadmin.index'))->with('success','DRF has been updated successfully');
     }
-    public function updateGR(PutDRFAndGR $request, $id)
+    public function updateGR(PutGR $request, $id)
     {
         $validatedData = $request->validated();
         Gr::updateGRById($validatedData, $id);

@@ -2,10 +2,9 @@
 
 namespace App\Http\Requests;
 
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Http\FormRequest;
 
-class PutDRFAndGR extends FormRequest
+class PutGR extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -14,7 +13,7 @@ class PutDRFAndGR extends FormRequest
      */
     public function authorize()
     {
-        return Auth::check();
+        return false;
     }
 
     /**
@@ -25,7 +24,7 @@ class PutDRFAndGR extends FormRequest
     public function rules()
     {
         return [
-            'information' => 'required|alpha_dash'
+            //
         ];
     }
 }
