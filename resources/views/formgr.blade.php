@@ -104,7 +104,7 @@
       <input id="Field7" name="Field7" type="text" class="field text fn" value="" size="8" tabindex="1" placeholder="Serial Number">
     </div>
     <div>
-      <input id="Field7" name="Field7" type="text" class="field text fn" value="" size="8" tabindex="1" placeholder="Fault Reporty">
+      <input id="Field7" name="Field7" type="text" class="field text fn" value="" size="8" tabindex="1" placeholder="Fault Report">
     </div>
   </div>
 
