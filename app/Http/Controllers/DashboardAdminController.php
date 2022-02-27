@@ -21,8 +21,10 @@ class DashboardAdminController extends Controller
         return view('dashboardadmin');
     }
 
-    public function history($month = 0, $year = 0)
+    public function history(Request $request)
     {
+        $month = $request->query->get('month'); // get month from query string
+        $year = $request->query->get('year'); // get year from query string
         $drf = Drf::findDRFByMonth($month, $year);
         $gr = Gr::findDRFByMonth($month, $year);
         return view('', [
