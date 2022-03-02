@@ -25,6 +25,14 @@
   </header>
 
   <div>
+    <label class="desc" id="title1" for="Field2"> GR Number</label>
+    <div>
+      <input id="Field2" name="id" type="text" class="field text fn" value="" size="8" tabindex="1">
+    </div>
+  </div>
+
+
+  <div>
     <fieldset>
 
       <legend id="title5" class="desc">
@@ -32,26 +40,26 @@
       </legend>
 
       <div>
-        <input id="radioDefault_1" name="Field1" type="hidden" value="">
+        <input id="radioDefault_1" name="for" type="hidden" value="">
         <div>
-          <input id="Field1_0" name="Field1" type="radio" value="First Choice" tabindex="5" checked="checked">
-          <label class="choice" for="Field1_0">Investigation</label>
+          <input id="Field1_0" name="for" type="radio" value="First Choice" tabindex="5" checked="checked">
+          <label class="choice" for="for">Investigation</label>
         </div>
         <div>
-          <input id="Field5_1" name="Field5" type="radio" value="Second Choice" tabindex="6">
-          <label class="choice" for="Field1_1">Service Note</label>
+          <input id="Field5_1" name="for" type="radio" value="Second Choice" tabindex="6">
+          <label class="choice" for="for">Service Note</label>
         </div>
         <div>
-          <input id="Field1_2" name="Field1" type="radio" value="Third Choice" tabindex="7">
-          <label class="choice" for="Field1_2">Repair</label>
+          <input id="Field1_2" name="for" type="radio" value="Third Choice" tabindex="7">
+          <label class="choice" for="for">Repair</label>
         </div>
         <div>
-          <input id="Field1_3" name="Field1" type="radio" value="Third Choice" tabindex="7">
-          <label class="choice" for="Field1_3">Calibration</label>
+          <input id="Field1_3" name="for" type="radio" value="Third Choice" tabindex="7">
+          <label class="choice" for="for">Calibration</label>
         </div>
         <div>
-          <input id="Field1_3" name="Field1" type="radio" value="Third Choice" tabindex="7">
-          <label class="choice" for="Field1_3">Other</label>
+          <input id="Field1_3" name="for" type="radio" value="Third Choice" tabindex="7">
+          <label class="choice" for="for">Other</label>
         </div>
       </div>
     </fieldset>
@@ -61,21 +69,21 @@
   <div>
     <label class="desc" id="title1" for="Field2">Customer Name</label>
     <div>
-      <input id="Field2" name="Field2" type="text" class="field text fn" value="" size="8" tabindex="1">
+      <input id="Field2" name="customer_name" type="text" class="field text fn" value="" size="8" tabindex="1">
     </div>
   </div>
 
   <div>
     <label class="desc" id="title1" for="Field3">Customer Adress</label>
     <div>
-      <input id="Field3" name="Field3" type="text" class="field text fn" value="" size="8" tabindex="1">
+      <input id="Field3" name="customer_adress" type="text" class="field text fn" value="" size="8" tabindex="1">
     </div>
   </div>
 
   <div>
     <label class="desc" id="title1" for="Field4">Customer Fax or Telephone</label>
     <div>
-      <input id="Field4" name="Field4" type="text" class="field text fn" value="" size="8" tabindex="1">
+      <input id="Field4" name="customer_telephone" type="text" class="field text fn" value="" size="8" tabindex="1">
     </div>
   </div>
 
@@ -84,27 +92,27 @@
   <div>
     <label class="desc" id="title1" for="Field5">Contact Person</label>
     <div>
-      <input id="Field5" name="Field5" type="text" class="field text fn" value="" size="8" tabindex="1">
+      <input id="Field5" name="contact_person" type="text" class="field text fn" value="" size="8" tabindex="1">
     </div>
   </div>
 
   <div>
     <label class="desc" id="title1" for="Field6">In date</label>
     <div>
-      <input id="Field6" name="Field6" type="text" class="field text fn" value="" size="8" tabindex="1">
+      <input id="Field6" name="in_date" type="text" class="field text fn" value="" size="8" tabindex="1">
     </div>
   </div>
 
   <div>
     <label class="desc" id="title1" for="Field7">Nomor Model</label>
     <div>
-      <input id="Field7" name="Field7" type="text" class="field text fn" value="" size="8" tabindex="1" placeholder="Instrument Models">
+      <input id="Field7" name="instrument_model" type="text" class="field text fn" value="" size="8" tabindex="1" placeholder="Instrument Models">
     </div>
     <div>
-      <input id="Field7" name="Field7" type="text" class="field text fn" value="" size="8" tabindex="1" placeholder="Serial Number">
+      <input id="Field7" name="serial_number" type="text" class="field text fn" value="" size="8" tabindex="1" placeholder="Serial Number">
     </div>
     <div>
-      <input id="Field7" name="Field7" type="text" class="field text fn" value="" size="8" tabindex="1" placeholder="Fault Report">
+      <input id="Field7" name="fault_report" type="text" class="field text fn" value="" size="8" tabindex="1" placeholder="Fault Report">
     </div>
   </div>
 
@@ -114,14 +122,7 @@
     </div>
   </div>
 
-  <div>
-    <label class="desc" id="title8" for="Field8">
-      Email
-    </label>
-    <div>
-      <input id="Field8" name="Field8" type="email" spellcheck="false" value="" maxlength="255" tabindex="3">
-   </div>
-  </div>
+
 
   <div>
     <label class="desc" id="title9" for="Field9">
@@ -129,7 +130,7 @@
     </label>
 
     <div>
-      <textarea id="Field9" name="Field9" spellcheck="true" rows="10" cols="50" tabindex="4"></textarea>
+      <textarea id="Field9" name="description" spellcheck="true" rows="10" cols="50" tabindex="4"></textarea>
     </div>
   </div>
 
