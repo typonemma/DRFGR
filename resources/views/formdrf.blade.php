@@ -40,19 +40,19 @@
           <label class="choice" for="Field2_0">Analyzer, GL</label>
         </div>
         <div>
-          <input id="Field2_1" name="cc" type="radio" value="Second Choice" tabindex="6">
+          <input id="Field2_1" name="cc" type="radio" value="SLC, GL" tabindex="6">
           <label class="choice" for="Field2_1">SLC, GL</label>
         </div>
         <div>
-          <input id="Field2_2" name="cc" type="radio" value="Third Choice" tabindex="7">
+          <input id="Field2_2" name="cc" type="radio" value="SUC, GL" tabindex="7">
           <label class="choice" for="Field2_2">SUC, GL</label>
         </div>
         <div>
-          <input id="Field2_3" name="cc" type="radio" value="Third Choice" tabindex="7">
+          <input id="Field2_3" name="cc" type="radio" value="SYS, GL" tabindex="7">
           <label class="choice" for="Field2_3">SYS, GL</label>
         </div>
         <div>
-          <input id="Field2_4" name="cc" type="radio" value="Third Choice" tabindex="7">
+          <input id="Field2_4" name="cc" type="radio" value="PCI, GL" tabindex="7">
           <label class="choice" for="Field2_4">PCI, GL</label>
         </div>
       </div>
@@ -64,9 +64,19 @@
     <div>
       <input id="Field3" name="cea_project" type="text" class="field text fn" value="" size="8" tabindex="1" placeholder="Project Number">
     </div>
+    @error('cea_project')
+      <div class="invalid-feedback">
+        {{ $message }}
+      </div>
+    @enderror
     <div>
       <input id="Field3" name="cea_svo" type="text" class="field text fn" value="" size="8" tabindex="1" placeholder="SVO Numbers">
     </div>
+    @error('cea_svo')
+      <div class="invalid-feedback">
+        {{ $message }}
+      </div>
+    @enderror
   </div>
 
 
@@ -74,18 +84,43 @@
     <label class="desc" id="title4" for="Field4">Customer Information :</label>
     <div>
       <input id="Field4" name="ci_company_name" type="text" class="field text fn" value="" size="8" tabindex="1" placeholder="Company Name">
+    @error('ci_company_name')
+      <div class="invalid-feedback">
+        {{ $message }}
+      </div>
+    @enderror
     </div>
     <div>
       <input id="Field4" name="ci_phone_company" type="text" class="field text fn" value="" size="8" tabindex="1" placeholder="Phone Company">
+    @error('ci_phone_company')
+      <div class="invalid-feedback">
+        {{ $message }}
+      </div>
+    @enderror
     </div>
     <div>
       <input id="Field4" name="ci_contact_person" type="text" class="field text fn" value="" size="8" tabindex="1" placeholder="Contact Person">
+      @error('ci_contact_person')
+        <div class="invalid-feedback">
+          {{ $message }}
+        </div>
+    @enderror
     </div>
     <div>
       <input id="Field4" name="ci_email_company" type="text" class="field text fn" value="" size="8" tabindex="1" placeholder="Email Company">
+      @error('ci_email_company')
+      <div class="invalid-feedback">
+        {{ $message }}
+      </div>
+    @enderror
     </div>
     <div>
       <input id="Field4" name="ci_address" type="text" class="field text fn" value="" size="8" tabindex="1" placeholder="Address">
+      @error('ci_address')
+      <div class="invalid-feedback">
+        {{ $message }}
+      </div>
+    @enderror
     </div>
   </div>
 
@@ -93,9 +128,19 @@
     <label class="desc" id="title5" for="Field5">Dispatch Information</label>
     <div>
       <input id="Field5" name="di_date" type="text" class="field text fn" value="" size="8" tabindex="1" placeholder="Date : 2022-03-30">
+      @error('di_date')
+      <div class="invalid-feedback">
+        {{ $message }}
+      </div>
+    @enderror
     </div>
     <div>
       <input id="Field5" name="di_duration" type="text" class="field text fn" value="" size="8" tabindex="1" placeholder="Duration">
+      @error('di_duration')
+      <div class="invalid-feedback">
+        {{ $message }}
+      </div>
+    @enderror
     </div>
   </div>
 
@@ -137,6 +182,11 @@
     <label class="desc" id="title7" for="Field7">SiteWork Location</label>
     <div>
       <input id="Field7" name="sitework_location" type="text" class="field text fn" value="" size="8" tabindex="1" placeholder="Location SiteWork">
+      @error('sitework_location')
+      <div class="invalid-feedback">
+        {{ $message }}
+      </div>
+    @enderror
     </div>
   </div>
 
@@ -169,9 +219,19 @@
     <label class="desc" id="title9" for="Field9">Scope:</label>
     <div>
       <input id="Field9" name="scope_instrument_name" type="text" class="field text fn" value="" size="8" tabindex="1"placeholder="Instrument Name">
+      @error('scope_instrument_name')
+      <div class="invalid-feedback">
+        {{ $message }}
+      </div>
+    @enderror
     </div>
     <div>
       <input id="Field9" name="scope_model_code" type="text" class="field text fn" value="" size="8" tabindex="1" placeholder="Model Code">
+      @error('scope_model_code')
+      <div class="invalid-feedback">
+        {{ $message }}
+      </div>
+    @enderror
     </div>
   </div>
 
@@ -289,6 +349,11 @@
 
     <div>
       <textarea id="Field12" name="description" spellcheck="true" rows="10" cols="50" tabindex="4" placeholder="work Description"></textarea>
+      @error('description')
+      <div class="invalid-feedback">
+        {{ $message }}
+      </div>
+    @enderror
     </div>
   </div>
 
@@ -296,6 +361,11 @@
     <label class="desc" id="title13" for="Field12">GL Initial:</label>
     <div>
       <input id="Field12" name="gl_initial" type="text" class="field text fn" value="" size="8" tabindex="1"placeholder="GL Initial">
+      @error('gl_initial')
+      <div class="invalid-feedback">
+        {{ $message }}
+      </div>
+    @enderror
     </div>
   </div>
 
@@ -310,6 +380,11 @@
 
       <div>
         <input id="radioDefault_14" name="current_work_status" type="hidden" value="">
+        @error('current_work_status')
+      <div class="invalid-feedback">
+        {{ $message }}
+      </div>
+    @enderror
         <div>
           <input id="Field14_0" name="current_work_status" type="radio" value="Completed" tabindex="5" checked="checked">
           <label class="choice" for="Field14_0">Completed</label>

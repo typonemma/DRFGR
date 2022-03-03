@@ -7,6 +7,7 @@ use App\Models\Ivsp;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreDRF;
 use App\Http\Requests\StoreIVSP;
+use App\Models\IvspNomorModel;
 use Carbon\Carbon;
 
 class DashboardUserController extends Controller
@@ -27,7 +28,7 @@ class DashboardUserController extends Controller
     }
     public function createGR()
     {
-        return view('formivsp');
+        return view('formgr');
     }
     public function storeDRF(StoreDRF $request)
     {
@@ -44,10 +45,11 @@ class DashboardUserController extends Controller
         $validatedData = $request->validated();
         $numeric = '1234567890';
         $randomNumerics = substr(str_shuffle($numeric), 0, 4);
-        $validatedData['in_date'] = Carbon::now()->format('Y-m-d');
         $validatedData['id'] = "IVSP-" . substr($validatedData['in_date'],2,2) . "-" . $randomNumerics;
         $id = $validatedData['id'];
         Ivsp::create($validatedData);
+        $validatedData['ivsp_id'] = $id;
+        IvspNomorModel::create($validatedData);
         return redirect()->intended(route('dashboarduser.formGR'))->with('success','GR has been added successfully. Your id is ' . $id);
     }
 

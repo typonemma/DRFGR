@@ -30,6 +30,7 @@ class StoreIVSP extends FormRequest
             'customer_telephone' => 'required|numeric',
             'contact_person' => 'required',
             'description' => 'required',
+            'in_date' => 'required|date_format:Y-m-d',
             'instrument_model' => 'required',
             'serial_number' => 'required',
             'fault_report' => 'required',
