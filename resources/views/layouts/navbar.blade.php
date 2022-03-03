@@ -107,4 +107,8 @@ nav{
   height: 32px;
 }
 
+.logout .dropdown-item:hover{
+  background-color: transparent !important;
+}
+
 </style>
