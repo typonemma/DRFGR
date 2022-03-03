@@ -86,9 +86,9 @@ class DashboardAdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function showDRF($id)
+    public function showDRF()
     {
-        $drf = Drf::findDRFById($id);
+        $drf = Drf::allDRF();
         return view('',[
             'drf' => $drf
         ]);
@@ -130,15 +130,17 @@ class DashboardAdminController extends Controller
      */
     public function updateDRF(PutDRF $request, $id)
     {
-        $validatedData = $request->validated();
-        Drf::updateDRFById($validatedData, $id);
-        redirect(route('dashboardadmin.index'))->with('success','DRF has been updated successfully');
+        $update['process'] = 'ACK By Admin';
+        $drf = Drf::findDRFById($id);
+        $update['number_of_process'] = $drf['number_of_process'] + 1;
+        Drf::updateDRFById($update, $id);
+        redirect(route('dashboardadmin.showDRF'))->with('success','DRF has been updated successfully');
     }
     public function updateGR(PutIVSP $request, $id)
     {
         $validatedData = $request->validated();
         Ivsp::updateIVSPById($validatedData, $id);
-        redirect(route('dashboardadmin.index'))->with('success','GR has been updated successfully');
+        redirect(route('dashboardadmin.showGR'))->with('success','GR has been updated successfully');
     }
 
     /**

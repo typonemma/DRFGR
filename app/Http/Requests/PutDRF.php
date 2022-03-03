@@ -24,7 +24,6 @@ class PutDRF extends FormRequest
     public function rules()
     {
         return [
-            //
         ];
     }
 }

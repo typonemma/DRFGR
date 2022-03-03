@@ -11,14 +11,21 @@ use App\Models\IvspNomorModel;
 
 class DashboardUserController extends Controller
 {
-    public function index(Request $request, $id = 0)
+    public function index(Request $request, $id = '')
     {
-        $drf = Drf::findDRFById($id);
+        $id = $request->query->get('search');
         $ivsp = Ivsp::findIVSPById($id);
-
+        $drf = Drf::findDRFById($id);
+        if($ivsp){
+        $date = strtotime($ivsp['in_date'] . '. + 5 days ');
+        $ivsp['estimate'] = date('Y-m-d',$date);
+        }else if($drf){
+        $date = strtotime($drf['di_date'] . '. + ' . $drf['di_duration'] . ' days ');
+        $drf['estimate'] = date('Y-m-d',$date);
+        }
         return view('dashboarduser', [
             'drf' => $drf,
-            'ivsp' => $ivsp
+            'ivsp' => $ivsp,
         ]);
     }
     public function createDRF()

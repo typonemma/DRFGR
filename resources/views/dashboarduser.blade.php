@@ -22,10 +22,23 @@
     @include('layouts.usernavbar')
 
     <body>
-      <form class="search-container">
-        <input type="text" id="search-bar" placeholder="Cari IVSP atau DRF...">
-
+      <form class="search-container" action="{{ route('dashboarduser.index') }}" method='GET'>
+        <input type="text" id="search-bar" name="search" placeholder="Cari IVSP atau DRF..." value="{{ old('search') }}">
         <button class="btn">Search</button>
       </form>
+      
+      @if($ivsp)
+      {{ $ivsp->id }}
+      {{ $ivsp->process }}
+      {{ $ivsp->in_date }}
+      {{ $ivsp->estimate }}
+      @elseif ($drf)
+      {{ $drf->id }}
+      {{ $drf->process }}
+      {{ $drf->di_date }}
+      {{ $drf->estimate }}
+      @endif
+
+
     </body>
 </html>

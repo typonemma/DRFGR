@@ -24,6 +24,8 @@ class CreateIvspTable extends Migration
             $table->date('in_date')->default(DB::raw('CURRENT_TIMESTAMP'));
             // $table->string('email',50);
             $table->text('description');
+            $table->string('process',50)->default('Waiting');
+            $table->integer('number_of_process')->default(0);
         });
     }
 

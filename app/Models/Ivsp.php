@@ -9,6 +9,8 @@ class Ivsp extends Model
 {
     public $timestamps = false;
     protected $table = 'ivsp';
+    public $incrementing = false;
+    protected $keyType = 'string';
     protected $fillable = [
         'id',
         'for',

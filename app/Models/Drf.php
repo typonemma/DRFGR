@@ -7,8 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Drf extends Model
 {
+    use HasFactory;
     public $timestamps = false;
     protected $table = 'drf';
+    public $incrementing = false;
+    protected $keyType = 'string';
     protected $fillable = [
         'id',
         'cc',
@@ -32,14 +35,13 @@ class Drf extends Model
         'gl_initial',
         'current_work_status',
     ];
-    use HasFactory;
     public static function findDRFById($id)
     {
         return self::find($id);
     }
     public static function allDRF()
     {
-        return self::all();
+        return self::all()->sortBy('number_of_process');
     }
     public static function updateDRFById($data, $id)
     {

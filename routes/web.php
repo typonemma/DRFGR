@@ -40,7 +40,7 @@ Route::post('/dashboarduser/storedrf', [DashboardUserController::class, 'storeDR
 Route::post('/dashboarduser/storegr', [DashboardUserController::class, 'storeGR'])->name('dashboarduser.storeGR')->middleware('user');
 Route::get('/dashboarduser/formdrf', [DashboardUserController::class, 'createDRF'])->name('dashboarduser.formDRF')->middleware('user');
 Route::get('/dashboarduser/formgr', [DashboardUserController::class, 'createGR'])->name('dashboarduser.formGR')->middleware('user');
-Route::get('/dashboarduser/{id?}', [DashboardUserController::class, 'index'])->name('dashboarduser.index')->middleware('user');
+Route::get('/dashboarduser', [DashboardUserController::class, 'index'])->name('dashboarduser.index')->middleware('user');
 // END AUTH USER
 
 // AUTH GL
@@ -53,8 +53,8 @@ Route::get('/dashboardadmin/formdrf', [DashboardAdminController::class, 'createD
 Route::get('/dashboardadmin/formgr', [DashboardAdminController::class, 'createGR'])->name('dashboardadmin.createGR')->middleware('admin');
 Route::get('/dashboardadmin/editdrf/{id}', [DashboardAdminController::class, 'editDRF'])->name('dashboardadmin.editDRF')->middleware('admin');
 Route::get('/dashboardadmin/editgr/{id}', [DashboardAdminController::class, 'editGR'])->name('dashboardadmin.editGR')->middleware('admin');
-Route::get('/dashboardadmin/showdrf/{id}', [DashboardAdminController::class, 'showDRF'])->name('dashboardadmin.showDRF')->middleware('admin');
-Route::get('/dashboardadmin/showgr/{id}', [DashboardAdminController::class, 'showGR'])->name('dashboardadmin.showGR')->middleware('admin');
+Route::get('/dashboardadmin/showdrf', [DashboardAdminController::class, 'showDRF'])->name('dashboardadmin.showDRF')->middleware('admin');
+Route::get('/dashboardadmin/showgr', [DashboardAdminController::class, 'showGR'])->name('dashboardadmin.showGR')->middleware('admin');
 Route::put('/dashboardadmin/updatedrf/{id}', [DashboardAdminController::class, 'updateDRF'])->name('dashboardadmin.updateDRF')->middleware('admin');
 Route::put('/dashboardadmin/updategr/{id}', [DashboardAdminController::class, 'updateGR'])->name('dashboardadmin.updateGR')->middleware('admin');
 Route::delete('/dashboardadmin/destroydrf/{id}', [DashboardAdminController::class, 'destroyDRF'])->name('dashboardadmin.destroyDRF')->middleware('admin');
