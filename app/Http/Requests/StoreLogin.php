@@ -25,7 +25,7 @@ class StoreLogin extends FormRequest
     {
         return [
             'email' => 'required|email:dns',
-            'password' => 'required'
+            'password' => 'required|min:6'
         ];
     }
 }

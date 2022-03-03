@@ -17,9 +17,12 @@
         </li>
       </ul>
     </div>
+    <form action="{{ route('logout') }}" method="POST">
     <div class="logout my-2 my-lg-0">
-      <a href={{ route('logout') }}><i class="bi bi-box-arrow-in-right"></i></a>
+      @csrf
+      <button type='submit' class="dropdown-item"><i class="bi bi-box-arrow-in-right"></i> Logout</button>
     </div>
+  </form>
 
 </nav>
 

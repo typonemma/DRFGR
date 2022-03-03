@@ -21,7 +21,18 @@
             <form method="post" action="{{ route('login.authenticate') }}">
                 @csrf
                 <input type="text" name="email" placeholder="Email" required="required" />
+                @error('email')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
                 <input type="password" name="password" placeholder="Password" required="required" />
+                @error('password')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
+                {{ session('loginError') }}
                 <button type="submit" class="btn btn-primary btn-block btn-large">Login</button>
             </form>
         </div>
