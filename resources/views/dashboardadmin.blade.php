@@ -12,6 +12,7 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
         <link rel="stylesheet" type="text/css" href="css/navbar.css">
         <link rel="stylesheet" href="{{asset('css/form.css')}}">
+          <link rel="stylesheet" href="{{asset('css/admindashboard.css')}}">
 
             <!--Calling bootstrap-->
             <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -31,5 +32,52 @@
     @include('layouts.navbar')
     <body class="antialiased" style="background-image: #EAD689;">
 
+      <section class="statis mt-4 text-center">
+     <div class="row">
+       <div class="col-md-6 col-lg-3 mb-4 mb-lg-0">
+         <div class="box  p-3" >
+           <i class="uil-eye"></i>
+           <h3>2222</h3>
+           <p class="lead">Lorem</p>
+         </div>
+       </div>
+       <div class="col-md-6 col-lg-3 mb-4 mb-lg-0">
+         <div class="box  p-3">
+           <i class="uil-user"></i>
+           <h3>2222</h3>
+           <p class="lead">Lorem</p>
+         </div>
+       </div>
+       <div class="col-md-6 col-lg-3 mb-4 mb-md-0">
+         <div class="box  p-3">
+           <i class="uil-shopping-cart"></i>
+           <h3>2222</h3>
+           <p class="lead">Lorem</p>
+         </div>
+       </div>
+       <div class="col-md-6 col-lg-3">
+         <div class="box  p-3">
+           <i class="uil-feedback"></i>
+           <h3>2222</h3>
+           <p class="lead">Lorem</p>
+         </div>
+       </div>
+     </div>
+   </section>
+
+   <header class="ml-4 mt-4">
+     <h2  style=" font-weight: bold;">In Progress</h2>
+   </header>
+   <section class="statis mt-4 text-center">
+  <div class="row">
+    <div class="col-md-6 col-lg-12 mb-4 mb-lg-0">
+      <div class="box  p-3" >
+        <i class="uil-eye"></i>
+        <h3>DRF NUMBER</h3>
+        <p class="lead">DRF/GR</p>
+      </div>
+    </div>
+  </div>
+</section>
     </body>
 </html>

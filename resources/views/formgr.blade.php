@@ -34,23 +34,23 @@
       <div>
         <input id="radioDefault_1" name="for" type="hidden" value="">
         <div>
-          <input id="Field1_0" name="for" type="radio" value="First Choice" tabindex="5" checked="checked">
+          <input id="Field1_0" name="for" type="radio" value="Investigation" tabindex="5" checked="checked">
           <label class="choice" for="for">Investigation</label>
         </div>
         <div>
-          <input id="Field5_1" name="for" type="radio" value="Second Choice" tabindex="6">
+          <input id="Field5_1" name="for" type="radio" value="Service Note" tabindex="6">
           <label class="choice" for="for">Service Note</label>
         </div>
         <div>
-          <input id="Field1_2" name="for" type="radio" value="Third Choice" tabindex="7">
+          <input id="Field1_2" name="for" type="radio" value="Repair" tabindex="7">
           <label class="choice" for="for">Repair</label>
         </div>
         <div>
-          <input id="Field1_3" name="for" type="radio" value="Third Choice" tabindex="7">
+          <input id="Field1_3" name="for" type="radio" value="Calibration" tabindex="7">
           <label class="choice" for="for">Calibration</label>
         </div>
         <div>
-          <input id="Field1_3" name="for" type="radio" value="Third Choice" tabindex="7">
+          <input id="Field1_3" name="for" type="radio" value="Other" tabindex="7">
           <label class="choice" for="for">Other</label>
         </div>
       </div>

@@ -2,6 +2,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<link rel="stylesheet" href="{{asset('css/dashboardadmin.css')}}">
 <nav class="navbar navbar-expand-lg navbar-light ">
     <h1 class="navbar-header mr-4" href="#">Yokogawa</h1>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -20,7 +21,7 @@
     <form action="{{ route('logout') }}" method="POST">
     <div class="logout my-2 my-lg-0">
       @csrf
-      <button type='submit' class="dropdown-item"><i class="bi bi-box-arrow-in-right"></i> Logout</button>
+      <button type='submit' class="dropdown-item"><i class="bi bi-box-arrow-in-right"></i> </button>
     </div>
   </form>
 
