@@ -13,8 +13,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--Calling Icon CSS-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-<!-- Styles   -->
-<link rel="stylesheet" href="{{asset('css/form.css')}}">
+    <!-- Styles   -->
+    <link rel="stylesheet" href="{{asset('css/form.css')}}">
+    <link rel="stylesheet" href="{{asset('css/userdashboard.css')}}">
 <nav class="navbar navbar-expand-lg navbar-light ">
     <h1 class="navbar-header mr-4" href="#">Yokogawa</h1>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -125,4 +126,7 @@ nav{
   height: 32px;
 }
 
+.logout .dropdown-item:hover{
+  background-color: transparent !important;
+}
 </style>

@@ -21,7 +21,11 @@
     </head>
     @include('layouts.usernavbar')
 
-    <body class="antialiased" style="background-image: #EAD689;">
+    <body>
+      <form class="search-container">
+        <input type="text" id="search-bar" placeholder="Cari IVSP atau DRF...">
 
+        <button class="btn">Search</button>
+      </form>
     </body>
 </html>

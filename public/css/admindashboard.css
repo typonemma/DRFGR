@@ -1,0 +1,8 @@
+.box{
+  background-color: : transparent !important;
+  border-color: #242424;
+  border-style: double;
+  position: relative;
+  border-radius:  5px;
+  border-width: 5px;
+}
