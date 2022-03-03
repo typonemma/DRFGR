@@ -3,12 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
         <title>Yokogawa-Form DRF</title>
-
-
-
-
     </head>
     @include('layouts.usernavbar')
 
@@ -65,17 +60,13 @@
       <input id="Field3" name="cea_project" type="text" class="field text fn" value="" size="8" tabindex="1" placeholder="Project Number">
     </div>
     @error('cea_project')
-      <div class="invalid-feedback">
         {{ $message }}
-      </div>
     @enderror
     <div>
       <input id="Field3" name="cea_svo" type="text" class="field text fn" value="" size="8" tabindex="1" placeholder="SVO Numbers">
     </div>
     @error('cea_svo')
-      <div class="invalid-feedback">
         {{ $message }}
-      </div>
     @enderror
   </div>
 
@@ -85,41 +76,30 @@
     <div>
       <input id="Field4" name="ci_company_name" type="text" class="field text fn" value="" size="8" tabindex="1" placeholder="Company Name">
     @error('ci_company_name')
-      <div class="invalid-feedback">
         {{ $message }}
-      </div>
     @enderror
     </div>
     <div>
       <input id="Field4" name="ci_phone_company" type="text" class="field text fn" value="" size="8" tabindex="1" placeholder="Phone Company">
     @error('ci_phone_company')
-      <div class="invalid-feedback">
         {{ $message }}
-      </div>
     @enderror
     </div>
     <div>
       <input id="Field4" name="ci_contact_person" type="text" class="field text fn" value="" size="8" tabindex="1" placeholder="Contact Person">
       @error('ci_contact_person')
-        <div class="invalid-feedback">
           {{ $message }}
-        </div>
     @enderror
     </div>
     <div>
       <input id="Field4" name="ci_email_company" type="text" class="field text fn" value="" size="8" tabindex="1" placeholder="Email Company">
       @error('ci_email_company')
-      <div class="invalid-feedback">
         {{ $message }}
-      </div>
     @enderror
-    </div>
     <div>
       <input id="Field4" name="ci_address" type="text" class="field text fn" value="" size="8" tabindex="1" placeholder="Address">
       @error('ci_address')
-      <div class="invalid-feedback">
         {{ $message }}
-      </div>
     @enderror
     </div>
   </div>
@@ -129,17 +109,13 @@
     <div>
       <input id="Field5" name="di_date" type="text" class="field text fn" value="" size="8" tabindex="1" placeholder="Date : 2022-03-30">
       @error('di_date')
-      <div class="invalid-feedback">
         {{ $message }}
-      </div>
     @enderror
     </div>
     <div>
       <input id="Field5" name="di_duration" type="text" class="field text fn" value="" size="8" tabindex="1" placeholder="Duration">
       @error('di_duration')
-      <div class="invalid-feedback">
         {{ $message }}
-      </div>
     @enderror
     </div>
   </div>
@@ -183,7 +159,6 @@
     <div>
       <input id="Field7" name="sitework_location" type="text" class="field text fn" value="" size="8" tabindex="1" placeholder="Location SiteWork">
       @error('sitework_location')
-      <div class="invalid-feedback">
         {{ $message }}
       </div>
     @enderror
@@ -220,7 +195,6 @@
     <div>
       <input id="Field9" name="scope_instrument_name" type="text" class="field text fn" value="" size="8" tabindex="1"placeholder="Instrument Name">
       @error('scope_instrument_name')
-      <div class="invalid-feedback">
         {{ $message }}
       </div>
     @enderror
@@ -228,7 +202,6 @@
     <div>
       <input id="Field9" name="scope_model_code" type="text" class="field text fn" value="" size="8" tabindex="1" placeholder="Model Code">
       @error('scope_model_code')
-      <div class="invalid-feedback">
         {{ $message }}
       </div>
     @enderror
@@ -350,7 +323,6 @@
     <div>
       <textarea id="Field12" name="description" spellcheck="true" rows="10" cols="50" tabindex="4" placeholder="work Description"></textarea>
       @error('description')
-      <div class="invalid-feedback">
         {{ $message }}
       </div>
     @enderror
@@ -362,7 +334,6 @@
     <div>
       <input id="Field12" name="gl_initial" type="text" class="field text fn" value="" size="8" tabindex="1"placeholder="GL Initial">
       @error('gl_initial')
-      <div class="invalid-feedback">
         {{ $message }}
       </div>
     @enderror
@@ -381,7 +352,6 @@
       <div>
         <input id="radioDefault_14" name="current_work_status" type="hidden" value="">
         @error('current_work_status')
-      <div class="invalid-feedback">
         {{ $message }}
       </div>
     @enderror

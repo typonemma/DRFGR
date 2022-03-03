@@ -62,6 +62,9 @@
     <label class="desc" id="title1" for="Field2">Customer Name</label>
     <div>
       <input id="Field2" name="customer_name" type="text" class="field text fn" value="" size="8" tabindex="1">
+        @error('customer_name')
+          {{ $message }}
+        @enderror
     </div>
   </div>
 
@@ -69,6 +72,9 @@
     <label class="desc" id="title1" for="Field3">Customer Adress</label>
     <div>
       <input id="Field3" name="customer_address" type="text" class="field text fn" value="" size="8" tabindex="1">
+        @error('customer_address')
+          {{ $message }}
+        @enderror
     </div>
   </div>
 
@@ -76,6 +82,9 @@
     <label class="desc" id="title1" for="Field4">Customer Fax or Telephone</label>
     <div>
       <input id="Field4" name="customer_telephone" type="text" class="field text fn" value="" size="8" tabindex="1">
+        @error('customer_telephone')
+          {{ $message }}
+        @enderror
     </div>
   </div>
 
@@ -85,6 +94,9 @@
     <label class="desc" id="title1" for="Field5">Contact Person</label>
     <div>
       <input id="Field5" name="contact_person" type="text" class="field text fn" value="" size="8" tabindex="1">
+      @error('contact_person')
+          {{ $message }}
+        @enderror
     </div>
   </div>
 
@@ -92,6 +104,9 @@
     <label class="desc" id="title1" for="Field6">In date</label>
     <div>
       <input id="Field6" name="in_date" type="text" class="field text fn" value="" size="8" tabindex="1">
+      @error('in_date')
+          {{ $message }}
+        @enderror
     </div>
   </div>
 
@@ -99,12 +114,21 @@
     <label class="desc" id="title1" for="Field7">Nomor Model</label>
     <div>
       <input id="Field7" name="instrument_model" type="text" class="field text fn" value="" size="8" tabindex="1" placeholder="Instrument Models">
+      @error('instrument_model')
+          {{ $message }}
+        @enderror
     </div>
     <div>
       <input id="Field7" name="serial_number" type="text" class="field text fn" value="" size="8" tabindex="1" placeholder="Serial Number">
+      @error('serial_number')
+          {{ $message }}
+        @enderror
     </div>
     <div>
       <input id="Field7" name="fault_report" type="text" class="field text fn" value="" size="8" tabindex="1" placeholder="Fault Report">
+      @error('fault_report')
+          {{ $message }}
+        @enderror
     </div>
   </div>
 
@@ -123,6 +147,9 @@
 
     <div>
       <textarea id="Field9" name="description" spellcheck="true" rows="10" cols="50" tabindex="4"></textarea>
+      @error('description')
+          {{ $message }}
+        @enderror
     </div>
   </div>
 
