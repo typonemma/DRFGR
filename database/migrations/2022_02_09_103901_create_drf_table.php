@@ -15,7 +15,7 @@ class CreateDrfTable extends Migration
     public function up()
     {
         Schema::create('drf', function (Blueprint $table) {
-            $table->string('id',16)->primary();
+            $table->string('id',10)->primary();
             $table->string('to',30)->default('Service Dapaterment Head');
             $table->string('cc',30);
             $table->string('cea_project',100);
@@ -26,7 +26,7 @@ class CreateDrfTable extends Migration
             $table->string('ci_email_company',100);
             $table->string('ci_address',255);
             $table->date('di_date')->default(DB::raw('CURRENT_TIMESTAMP'));
-            $table->date('di_date_end');
+            $table->integer('di_duration');
             $table->integer('number_of_engineering');
             $table->string('sitework_location',255);
             $table->string('lodging_recomendation',255);
@@ -36,8 +36,8 @@ class CreateDrfTable extends Migration
             $table->string('work_type',100);
             $table->text('description');
             $table->string('gl_initial',255);
-            $table->string('engineer_signed_1',255);
-            $table->string('engineer_signed_2',255);
+            // $table->string('engineer_signed_1',255);
+            // $table->string('engineer_signed_2',255);
             $table->string('current_work_status',255);
         });
     }

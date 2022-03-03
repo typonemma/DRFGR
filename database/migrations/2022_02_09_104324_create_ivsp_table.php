@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateGrTable extends Migration
+class CreateIvspTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class CreateGrTable extends Migration
      */
     public function up()
     {
-        Schema::create('gr', function (Blueprint $table) {
+        Schema::create('ivsp', function (Blueprint $table) {
             $table->string('id',12)->primary();
             $table->string('for',30);
             $table->string('customer_name',100);
@@ -22,7 +22,7 @@ class CreateGrTable extends Migration
             $table->string('customer_telephone',16);
             $table->string('contact_person',100);
             $table->date('in_date')->default(DB::raw('CURRENT_TIMESTAMP'));
-            $table->string('email',50);
+            // $table->string('email',50);
             $table->text('description');
         });
     }

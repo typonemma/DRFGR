@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreGR extends FormRequest
+class StoreIVSP extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +13,7 @@ class StoreGR extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -29,9 +29,8 @@ class StoreGR extends FormRequest
             'customer_address' => 'required',
             'customer_telephone' => 'required|numeric',
             'contact_person' => 'required',
-            'email' => 'required|email:dns',
             'description' => 'required',
-            'instrumental_model' => 'required',
+            'instrument_model' => 'required',
             'serial_number' => 'required',
             'fault_report' => 'required',
         ];

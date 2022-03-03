@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddGrToInformationTable extends Migration
+class AddIvspToInformationTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,8 +14,8 @@ class AddGrToInformationTable extends Migration
     public function up()
     {
         Schema::table('information', function (Blueprint $table) {
-            $table->string('gr_id',16)->nullable();
-            $table->foreign('gr_id')->references('id')->on('gr');
+            $table->string('ivsp_id',16)->nullable();
+            $table->foreign('ivsp_id')->references('id')->on('ivsp');
         });
     }
 

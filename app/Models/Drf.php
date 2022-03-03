@@ -7,8 +7,31 @@ use Illuminate\Database\Eloquent\Model;
 
 class Drf extends Model
 {
+    public $timestamps = false;
     protected $table = 'drf';
-    protected $guarded = ['id'];
+    protected $fillable = [
+        'id',
+        'cc',
+        'cea_project',
+        'cea_svo',
+        'ci_company_name',
+        'ci_phone_company',
+        'ci_contact_person',
+        'ci_email_company',
+        'ci_address',
+        'di_date',
+        'di_duration',
+        'number_of_engineering',
+        'sitework_location',
+        'lodging_recomendation',
+        'scope_instrument_name',
+        'scope_model_code',
+        'post_work_document',
+        'work_type',
+        'description',
+        'gl_initial',
+        'current_work_status',
+    ];
     use HasFactory;
     public static function findDRFById($id)
     {

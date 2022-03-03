@@ -18,20 +18,12 @@
     @include('layouts.usernavbar')
 
     <body class="antialiased" style="background-image: #EAD689;">
-      <form action="#" method="post">
+      <form action="{{ route('dashboarduser.storeGR') }}" method="post">
   @csrf
   <header>
     <h2>Goods Receive Form</h2>
   </header>
-
-  <div>
-    <label class="desc" id="title1" for="Field2"> GR Number</label>
-    <div>
-      <input id="Field2" name="id" type="text" class="field text fn" value="" size="8" tabindex="1">
-    </div>
-  </div>
-
-
+  {{ session('success') }}
   <div>
     <fieldset>
 
@@ -76,7 +68,7 @@
   <div>
     <label class="desc" id="title1" for="Field3">Customer Adress</label>
     <div>
-      <input id="Field3" name="customer_adress" type="text" class="field text fn" value="" size="8" tabindex="1">
+      <input id="Field3" name="customer_address" type="text" class="field text fn" value="" size="8" tabindex="1">
     </div>
   </div>
 

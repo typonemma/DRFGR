@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\PutDRF;
-use App\Models\Gr;
+use Carbon\Carbon;
 use App\Models\Drf;
-use App\Http\Requests\PutGR;
+use App\Models\Ivsp;
 use Illuminate\Http\Request;
-use App\Http\Requests\StoreGR;
+use App\Http\Requests\PutDRF;
+use App\Http\Requests\PutIVSP;
 use App\Http\Requests\StoreDRF;
+use App\Http\Requests\StoreIVSP;
 
 class DashboardAdminController extends Controller
 {
@@ -28,7 +29,7 @@ class DashboardAdminController extends Controller
         $month = $request->query->get('month'); // get month from query string
         $year = $request->query->get('year'); // get year from query string
         $drf = Drf::findDRFByMonth($month, $year);
-        $gr = Gr::findDRFByMonth($month, $year);
+        $gr = Ivsp::findIVSPByMonth($month, $year);
         return view('', [
             'drf' => $drf,
             'gr' => $gr,
@@ -59,22 +60,24 @@ class DashboardAdminController extends Controller
     public function storeDRF(StoreDRF $request)
     {
         $validatedData = $request->validated();
-        $alpha = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        $randomString = str_shuffle(($alpha),0,8);
-        $validatedData['id'] = implode($randomString ,explode('-', $validatedData['date']));
+        $numeric = '1234567890';
+        $validatedData['di_date'] = Carbon::now()->format('Y-m-d');
+        $randomNumerics = substr(str_shuffle($numeric), 0, 3);
+        $validatedData['id'] = "DRF-" . substr($validatedData['di_date'],2,2) . "-" . $randomNumerics;
         $validatedData['date_end'] = strtotime("+7 day", $validatedData['date']);
         Drf::create($validatedData);
-        redirect(route('dashboardadmin.index'))->with('success','DRF has been added successfully');
+        return redirect()->intended(route('dashboarduser.formDRF'))->with('success','DRF has been added successfully');
     }
-    public function storeGR(StoreGR $request)
+    public function storeGR(StoreIVSP $request)
     {
         $validatedData = $request->validated();
-        $alpha = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        $randomString = str_shuffle(($alpha),0,8);
-        $validatedData['id'] = implode($randomString ,explode('-', $validatedData['date']));
-        $validatedData['date_end'] = strtotime("+5 day", $validatedData['date']);
-        Gr::create($validatedData);
-        redirect(route('dashboardadmin.index'))->with('success','GR has been added successfully');
+        $numeric = '1234567890';
+        $randomNumerics = substr(str_shuffle($numeric), 0, 4);
+        $validatedData['in_date'] = Carbon::now()->format('Y-m-d');
+        $validatedData['id'] = "IVSP-" . substr($validatedData['in_date'],2,2) . "-" . $randomNumerics;
+        $id = $validatedData['id'];
+        Ivsp::create($validatedData);
+        return redirect()->intended(route('dashboarduser.formGR'))->with('success','GR has been added successfully Your id is ' . $id);
     }
 
     /**
@@ -92,9 +95,9 @@ class DashboardAdminController extends Controller
     }
     public function showGR($id)
     {
-        $gr = Gr::findGRById($id);
+        $ivsp = Ivsp::findIVSPById($id);
         return view('', [
-            'gr' => $gr
+            'ivsp' => $ivsp
         ]);
     }
 
@@ -113,9 +116,9 @@ class DashboardAdminController extends Controller
     }
     public function editGR($id)
     {
-        $gr = Gr::findGRById($id);
+        $ivsp = Ivsp::findIVSPById($id);
         return view('', [
-            'gr' => $gr
+            'ivsp' => $ivsp
         ]);
     }
     /**
@@ -131,10 +134,10 @@ class DashboardAdminController extends Controller
         Drf::updateDRFById($validatedData, $id);
         redirect(route('dashboardadmin.index'))->with('success','DRF has been updated successfully');
     }
-    public function updateGR(PutGR $request, $id)
+    public function updateGR(PutIVSP $request, $id)
     {
         $validatedData = $request->validated();
-        Gr::updateGRById($validatedData, $id);
+        Ivsp::updateIVSPById($validatedData, $id);
         redirect(route('dashboardadmin.index'))->with('success','GR has been updated successfully');
     }
 
@@ -155,7 +158,7 @@ class DashboardAdminController extends Controller
     {
         $rules = [ 'status' => 'required|alpha'];
         $validatedData = $request->validate($rules);
-        Gr::updateGRById($validatedData, $id);
+        Ivsp::updateIVSPById($validatedData, $id);
         redirect(route('drf.index'))->with('success','GR has been updated successfully');
     }
 }
