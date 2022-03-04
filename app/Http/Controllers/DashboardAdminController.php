@@ -30,7 +30,7 @@ class DashboardAdminController extends Controller
         $year = $request->query->get('year'); // get year from query string
         $drf = Drf::findDRFByMonth($month, $year);
         $gr = Ivsp::findIVSPByMonth($month, $year);
-        return view('', [
+        return view('/dashboardadmin/history', [
             'drf' => $drf,
             'gr' => $gr,
         ]);
