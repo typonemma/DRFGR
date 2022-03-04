@@ -140,8 +140,25 @@ input#search-bar{
      display:block;
  }
 
+.report-table{
+  display: flex;
+  margin: 0 auto;
+  position: absolute;
+  left: 37%;
+  top: 65%;
+  transform: translateY(-50%);
+  border-spacing: 30px;
 
+}
 
+ th, td{
+  padding: 15px;
+}
+
+table, th, td{
+  border: 1px solid black;
+  border-collapse: collapse;
+}
 
 
 @media (max-width: 600px) {
@@ -178,24 +195,108 @@ input#search-bar{
     transform: translateY(-50%);
   }
 
+    .report-table{
+      display: flex;
+      margin: 0 auto;
+      position: absolute;
+      left:  25%;
+      top: 65%;
+      transform: translateY(-50%);
+      border-spacing: 30px;
+    }
+
+    th, td{
+     padding: 5px;
+   }
+
+
 
 }
 
-@media (min-width: 900px) {
+
+/*Android Device lebih kecil dari 480*/
+@media only screen and (max-device-width: 480px) {
+  .search-container{
+    width: 300px;
+    display: flex;
+    margin: 0 auto;
+    position: absolute;
+    left: 3%;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+    .report-table{
+      display: flex;
+      margin: 0 auto;
+      position: absolute;
+      left:  3%;
+      top: 65%;
+      transform: translateY(-50%);
+      border-spacing: 30px;
+    }
+
+    th, td{
+      padding: 3px;
+    }
+}
+
+/*Buat Ipad*/
+@media only screen and (max-device-width: 900px) {
+  .search-container{
+    width: 300px;
+    display: flex;
+    margin: 0 auto;
+    position: absolute;
+    left: 10%;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+    .report-table{
+      display: flex;
+      margin: 0 auto;
+      position: absolute;
+      left:  10%;
+      top: 65%;
+      transform: translateY(-50%);
+      border-spacing: 30px;
+    }
+
+    th, td{
+      padding: 3px;
+    }
+}
+
+
+@media (min-width: 900px) (max-width:1099) {
   form > div > label,
 	legend {
   	text-align: right;
   }
 
   .search-container{
-    width: 600px;
+    width: 300px;
     display: flex;
     margin: 0 auto;
     position: absolute;
-    left: 20%;
+    left: 10%;
     top: 50%;
     transform: translateY(-50%);
   }
+
+    .report-table{
+      display: flex;
+      margin: 0 auto;
+      position: absolute;
+      left:  15%;
+      top: 65%;
+      transform: translateY(-50%);
+      border-spacing: 30px;
+    }
+
+
+
 }
 
 
@@ -205,13 +306,6 @@ input#search-bar{
   	text-align: right;
   }
 
-  .search-container{
-    width: 700px;
-    display: flex;
-    margin: 0 auto;
-    position: absolute;
-    left: 28%;
-    top: 50%;
-    transform: translateY(-50%);
-  }
+
+
 }
