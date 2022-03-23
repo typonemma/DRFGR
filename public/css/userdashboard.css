@@ -160,6 +160,18 @@ table, th, td{
   border-collapse: collapse;
 }
 
+.button-wrapper {
+
+
+}
+
+.button-wrapper span.label {
+  background: #00bfff;
+   cursor: pointer;
+   color: #fff;
+}
+
+
 
 @media (max-width: 600px) {
   form > div {

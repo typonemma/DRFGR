@@ -37,29 +37,29 @@
        <div class="col-md-6 col-lg-3 mb-4 mb-lg-0">
          <div class="box  p-3" >
            <i class="uil-eye"></i>
-           <h3>2222</h3>
-           <p class="lead">Lorem</p>
+           <h3>0</h3>
+           <p class="lead">This Week GR</p>
          </div>
        </div>
        <div class="col-md-6 col-lg-3 mb-4 mb-lg-0">
          <div class="box  p-3">
            <i class="uil-user"></i>
-           <h3>2222</h3>
-           <p class="lead">Lorem</p>
+           <h3>0</h3>
+           <p class="lead">This Week drf</p>
          </div>
        </div>
        <div class="col-md-6 col-lg-3 mb-4 mb-md-0">
          <div class="box  p-3">
            <i class="uil-shopping-cart"></i>
-           <h3>2222</h3>
-           <p class="lead">Lorem</p>
+           <h3>0</h3>
+           <p class="lead">This Month GR</p>
          </div>
        </div>
        <div class="col-md-6 col-lg-3">
          <div class="box  p-3">
            <i class="uil-feedback"></i>
-           <h3>2222</h3>
-           <p class="lead">Lorem</p>
+           <h3>0</h3>
+           <p class="lead">This Month drf</p>
          </div>
        </div>
      </div>

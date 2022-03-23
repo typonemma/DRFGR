@@ -131,7 +131,15 @@
           {{ $message }}
         @enderror
     </div>
+    <div>
+      <textarea id="Field9" name="description" spellcheck="true" rows="10" cols="50" tabindex="4" placeholder="Put your description...."></textarea>
+      @error('description')
+          {{ $message }}
+        @enderror
+    </div>
   </div>
+
+
 
   <div>
     <div>
@@ -141,17 +149,7 @@
 
 
 
-  <div>
-    <label class="desc" id="title9" for="Field9">
-      Description
-    </label>
 
-    <div>
-      <textarea id="Field9" name="description" spellcheck="true" rows="10" cols="50" tabindex="4" placeholder="Put your description...."></textarea>
-      @error('description')
-          {{ $message }}
-        @enderror
-    </div>
   </div>
 
 
