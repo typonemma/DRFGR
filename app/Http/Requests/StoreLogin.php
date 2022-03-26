@@ -13,7 +13,7 @@ class StoreLogin extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -25,7 +25,7 @@ class StoreLogin extends FormRequest
     {
         return [
             'email' => 'required|email:dns',
-            'password' => 'required'
+            'password' => 'required|min:6'
         ];
     }
 }

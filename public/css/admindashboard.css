@@ -1,0 +1,12 @@
+.box{
+  background-color: : transparent !important;
+  border-color: #242424;
+  border-style: double;
+  position: relative;
+  border-radius:  5px;
+  border-width: 5px;
+}
+
+label{margin-left: 20px;}
+#datepicker{width:180px; margin: 0 20px 20px 20px;}
+#datepicker > span:hover{cursor: pointer;}

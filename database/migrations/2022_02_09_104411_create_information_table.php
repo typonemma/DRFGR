@@ -15,7 +15,7 @@ class CreateInformationTable extends Migration
     {
         Schema::create('information', function (Blueprint $table) {
             $table->id();
-            $table->integer('Total_Count_DAY');
+            $table->integer('total_count_day');
         });
     }
 

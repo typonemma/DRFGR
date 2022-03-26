@@ -16,7 +16,10 @@
         $('#datepicker').datepicker({
             uiLibrary: 'bootstrap4'
         });
+<<<<<<< HEAD
         
+=======
+>>>>>>> development
     </script>
 </body>
 </html>
