@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\Drf;
 use App\Models\Ivsp;
 use Illuminate\Http\Request;
+use App\Models\IvspNomorModel;
 use App\Http\Requests\StoreDRF;
 use App\Http\Requests\StoreIVSP;
-use App\Models\IvspNomorModel;
 
 class DashboardUserController extends Controller
 {
@@ -59,6 +60,8 @@ class DashboardUserController extends Controller
         $ivspNomorModelData['instrument_model'] = $validatedData['instrument_model'];
         $ivspNomorModelData['serial_number'] = $validatedData['serial_number'];
         $ivspNomorModelData['fault_report'] = $validatedData['fault_report'];
+        $ivspNomorModelData['created_at'] = Carbon::now();
+        $ivspNomorModelData['updated_at'] = Carbon::now();
         IvspNomorModel::insert($ivspNomorModelData);
         return redirect()->intended(route('dashboarduser.formGR'))->with('success','GR has been added successfully. Your id is ' . $id);
     }

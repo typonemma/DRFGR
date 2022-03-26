@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Ivsp extends Model
 {
@@ -45,9 +46,18 @@ class Ivsp extends Model
     }
     public static function findIVSPByMonth($month, $year)
     {
-        return self::whereMonth('date', $month)
-        ->whereYear('date', $year)
-        ->orderBy('in_date', 'asc')
+        return self::whereMonth('created_at', $month)
+        ->whereYear('created_at', $year)
         ->get();
+    }
+    public static function findIVSPThisWeek()
+    {
+        return self::whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])
+        ->get()->count();
+    }
+    public static function findIVSPThisMonth()
+    {
+        return self::whereMonth('created_at', Carbon::now()->month)
+        ->get()->count();
     }
 }

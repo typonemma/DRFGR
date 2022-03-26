@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class Drf extends Model
 {
@@ -55,9 +56,18 @@ class Drf extends Model
     }
     public static function findDRFByMonth($month, $year)
     {
-        return self::whereMonth('date', $month)
-        ->whereYear('date', $year)
-        ->orderBy('in_date', 'asc')
+        return self::whereMonth('created_at', $month)
+        ->whereYear('created_at', $year)
         ->get();
+    }
+    public static function findDRFThisWeek()
+    {
+        return self::whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])
+        ->get()->count();
+    }
+    public static function findDRFThisMonth()
+    {
+        return self::whereMonth('created_at', Carbon::now()->month)
+        ->get()->count();
     }
 }
