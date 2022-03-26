@@ -39,7 +39,6 @@
           </div>
         </div>
 
-    <input id="datepicker" width="276" />
     <script>
         $('#datepicker').datepicker({
             uiLibrary: 'bootstrap4'
