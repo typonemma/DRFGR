@@ -21,7 +21,16 @@ class DashboardAdminController extends Controller
     // Home Controller
     public function index()
     {
-        return view('dashboardadmin');
+        $drfMonth = Drf::findDRFThisMonth();
+        $drfWeek = Drf::findDRFThisWeek();
+        $grMonth = Ivsp::findIVSPThisMonth();
+        $grWeek = Ivsp::findIVSPThisWeek();
+        return view('dashboardadmin',[
+            'drfMonth' => $drfMonth,
+            'drfWeek' => $drfWeek,
+            'grMonth' => $grMonth,
+            'grWeek' => $grWeek,
+        ]);
     }
 
     public function history()
