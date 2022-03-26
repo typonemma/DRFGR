@@ -39,7 +39,7 @@ class CreateDrfTable extends Migration
             // $table->string('engineer_signed_1',255);
             // $table->string('engineer_signed_2',255);
             $table->string('current_work_status',255);
-            $table->string('process',50)->default('Waiting');
+            $table->string('process',50)->default('Waiting For ACK');
         });
     }
 

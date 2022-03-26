@@ -54,8 +54,11 @@ class DashboardUserController extends Controller
         $validatedData['id'] = "IVSP-" . substr($validatedData['in_date'],2,2) . "-" . $randomNumerics;
         $id = $validatedData['id'];
         Ivsp::create($validatedData);
-        $validatedData['ivsp_id'] = $id;
-        IvspNomorModel::create($validatedData);
+        $ivspNomorModelData['ivsp_id'] = $id;
+        $ivspNomorModelData['instrument_model'] = $validatedData['instrument_model'];
+        $ivspNomorModelData['serial_number'] = $validatedData['serial_number'];
+        $ivspNomorModelData['fault_report'] = $validatedData['fault_report'];
+        IvspNomorModel::insert($ivspNomorModelData);
         return redirect()->intended(route('dashboarduser.formGR'))->with('success','GR has been added successfully. Your id is ' . $id);
     }
 
