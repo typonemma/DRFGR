@@ -39,14 +39,6 @@
           <label class="choice" for="Field2_1">SLC, GL</label>
         </div>
         <div>
-          <input id="Field2_2" name="cc" type="radio" value="SUC, GL" tabindex="7">
-          <label class="choice" for="Field2_2">SUC, GL</label>
-        </div>
-        <div>
-          <input id="Field2_3" name="cc" type="radio" value="SYS, GL" tabindex="7">
-          <label class="choice" for="Field2_3">SYS, GL</label>
-        </div>
-        <div>
           <input id="Field2_4" name="cc" type="radio" value="PCI, GL" tabindex="7">
           <label class="choice" for="Field2_4">PCI, GL</label>
         </div>
@@ -218,31 +210,31 @@
       <div>
         <input id="radioDefault_10" name="post_work_document" type="hidden" value="">
         <div>
-          <input id="Field10_0" name="post_work_document" type="radio" value="Service / Investigation Report" tabindex="5" checked="checked">
+          <input id="Field10_0" name="post_work_document" type="checkbox" value="Service / Investigation Report" tabindex="5" checked="checked">
           <label class="choice" for="Field10_0">Service / Investigation Report</label>
         </div>
         <div>
-          <input id="Field10_1" name="post_work_document" type="radio" value="Time" tabindex="6">
+          <input id="Field10_1" name="post_work_document" type="checkbox" value="Time" tabindex="6">
           <label class="choice" for="Field10_1">Time</label>
         </div>
         <div>
-          <input id="Field10_5" name="post_work_document" type="radio" value="FAT/SAT REPORT" tabindex="7">
+          <input id="Field10_5" name="post_work_document" type="checkbox" value="FAT/SAT REPORT" tabindex="7">
           <label class="choice" for="Field10_3">FAT/SAT REPORT</label>
         </div>
         <div>
-          <input id="Field10_4" name="post_work_document" type="radio" value="Work Completition Certificate" tabindex="7">
+          <input id="Field10_4" name="post_work_document" type="checkbox" value="Work Completition Certificate" tabindex="7">
           <label class="choice" for="Field10_4">Work Completition Certificate</label>
         </div>
         <div>
-          <input id="Field10_5" name="post_work_document" type="radio" value="Site Survey" tabindex="7">
+          <input id="Field10_5" name="post_work_document" type="checkbox" value="Site Survey" tabindex="7">
           <label class="choice" for="Field10_5">Site Survey</label>
         </div>
         <div>
-          <input id="Field10_8" name="post_work_document" type="radio" value="Delivery" tabindex="7">
+          <input id="Field10_8" name="post_work_document" type="checkbox" value="Delivery" tabindex="7">
           <label class="choice" for="Field10_6">Delivery</label>
         </div>
         <div>
-          <input id="Field10_7" name="post_work_document" type="radio" value="Other" tabindex="7">
+          <input id="Field10_7" name="post_work_document" type="checkbox" value="Other" tabindex="7">
           <label class="choice" for="Field10_7">Other</label>
         </div>
       </div>
@@ -259,55 +251,51 @@
       <div>
         <input id="radioDefault_11" name="work_type" type="hidden" value="">
         <div>
-          <input id="Field11_0" name="work_type" type="radio" value="Calibration" tabindex="5" checked="checked">
+          <input id="Field11_0" name="work_type" type="checkbox" value="Calibration" tabindex="5" checked="checked">
           <label class="choice" for="Field11_0">Calibration</label>
         </div>
         <div>
-          <input id="Field11_1" name="work_type" type="radio" value="Bench Repair" tabindex="6">
+          <input id="Field11_1" name="work_type" type="checkbox" value="Bench Repair" tabindex="6">
           <label class="choice" for="Field11_1">Bench Repair</label>
         </div>
         <div>
-          <input id="Field11_2" name="work_type" type="radio" value="Call Out" tabindex="7">
+          <input id="Field11_2" name="work_type" type="checkbox" value="Call Out" tabindex="7">
           <label class="choice" for="Field11_2">Call Out</label>
         </div>
         <div>
-          <input id="Field11_3" name="work_type" type="radio" value="VPS Work" tabindex="7">
-          <label class="choice" for="Field11_3">VPS Work</label>
-        </div>
-        <div>
-          <input id="Field11_4" name="work_type" type="radio" value="Setup/Commisioning" tabindex="7">
+          <input id="Field11_4" name="work_type" type="checkbox" value="Setup/Commisioning" tabindex="7">
           <label class="choice" for="Field11_4">Setup/Commisioning</label>
         </div>
         <div>
-          <input id="Field11_5" name="work_type" type="radio" value="Not Delivery" tabindex="7">
+          <input id="Field11_5" name="work_type" type="checkbox" value="Not Delivery" tabindex="7">
           <label class="choice" for="Field11_5">Not Delivery</label>
         </div>
         <div>
-          <input id="Field11_6" name="work_type" type="radio" value="Conducting Training" tabindex="7">
+          <input id="Field11_6" name="work_type" type="checkbox" value="Conducting Training" tabindex="7">
           <label class="choice" for="Field11_6">Conducting Training</label>
         </div>
         <div>
-          <input id="Field11_7" name="work_type" type="radio" value="S/W & H/W Modification" tabindex="7">
+          <input id="Field11_7" name="work_type" type="checkbox" value="S/W & H/W Modification" tabindex="7">
           <label class="choice" for="Field11_7">S/W & H/W Modification</label>
         </div>
         <div>
-          <input id="Field11_8" name="work_type" type="radio" value="TroubleShooting" tabindex="7">
+          <input id="Field11_8" name="work_type" type="checkbox" value="TroubleShooting" tabindex="7">
           <label class="choice" for="Field11_8">TroubleShooting</label>
         </div>
         <div>
-          <input id="Field11_9" name="work_type" type="radio" value="Sales Support" tabindex="7">
+          <input id="Field11_9" name="work_type" type="checkbox" value="Sales Support" tabindex="7">
           <label class="choice" for="Field11_9">Sales Support</label>
         </div>
         <div>
-          <input id="Field11_10" name="work_type" type="radio" value="Project Support" tabindex="7">
+          <input id="Field11_10" name="work_type" type="checkbox" value="Project Support" tabindex="7">
           <label class="choice" for="Field11_10">Project Support</label>
         </div>
         <div>
-          <input id="Field11_11" name="work_type" type="radio" value="Site" tabindex="7">
+          <input id="Field11_11" name="work_type" type="checkbox" value="Site" tabindex="7">
           <label class="choice" for="Field11_11">Site</label>
         </div>
         <div>
-          <input id="Field11_12" name="work_type" type="radio" value="Other" tabindex="7">
+          <input id="Field11_12" name="work_type" type="checkbox" value="Other" tabindex="7">
           <label class="choice" for="Field11_12">Other</label>
         </div>
       </div>
@@ -321,7 +309,7 @@
     </label>
 
     <div>
-      <textarea id="Field12" name="description" spellcheck="true" rows="10" cols="50" tabindex="4" placeholder="work Description"></textarea>
+      <textarea id="Field12" name="description" spellcheck="true" rows="10" cols="50" tabindex="4" placeholder="Work Description"></textarea>
       @error('description')
         {{ $message }}
       </div>
@@ -329,47 +317,26 @@
     </div>
   </div>
 
-  <div>
-    <label class="desc" id="title13" for="Field12">GL Initial:</label>
-    <div>
-      <input id="Field12" name="gl_initial" type="text" class="field text fn" value="" size="8" tabindex="1"placeholder="GL Initial">
-      @error('gl_initial')
+
+  <div class="button-wrapper">
+    <label class="desc" id="title12" for="Field12">
+        Upload File
+    </label>
+    <input type="file" name="upload" id="upload" class="upload-box" placeholder="Upload File">
+      @error('description')
         {{ $message }}
-      </div>
+
     @enderror
     </div>
   </div>
 
 
 
-  <div>
-    <fieldset>
 
-      <legend id="title14" class="desc">
-      Current Work Status :
-      </legend>
 
-      <div>
-        <input id="radioDefault_14" name="current_work_status" type="hidden" value="">
-        @error('current_work_status')
-        {{ $message }}
-      </div>
-    @enderror
-        <div>
-          <input id="Field14_0" name="current_work_status" type="radio" value="Completed" tabindex="5" checked="checked">
-          <label class="choice" for="Field14_0">Completed</label>
-        </div>
-        <div>
-          <input id="Field14_1" name="current_work_status" type="radio" value="Pending" tabindex="6">
-          <label class="choice" for="FField14_1">Pending</label>
-        </div>
-        <div>
-          <input id="Field14_2" name="current_work_status" type="radio" value="Canceled" tabindex="7">
-          <label class="choice" for="Field14_3">Canceled</label>
-        </div>
-      </div>
-    </fieldset>
-  </div>
+
+
+
 
 
 
@@ -379,7 +346,6 @@
   	<button type="submit" class="btn btn-block btn-large"><i class="bi bi-check-lg"></i>Submit</button>
     </div>
 	</div>
-
 </form>
-  </body>
+</body>
 </html>

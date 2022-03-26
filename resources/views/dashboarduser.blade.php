@@ -26,18 +26,49 @@
         <input type="text" id="search-bar" name="search" placeholder="Cari IVSP atau DRF..." value="{{ old('search') }}">
         <button class="btn">Search</button>
       </form>
-      
-      @if($ivsp)
-      {{ $ivsp->id }}
-      {{ $ivsp->process }}
-      {{ $ivsp->in_date }}
-      {{ $ivsp->estimate }}
-      @elseif ($drf)
-      {{ $drf->id }}
-      {{ $drf->process }}
-      {{ $drf->di_date }}
-      {{ $drf->estimate }}
-      @endif
+
+      <div class="report-table">
+        <table style="width:100%;">
+          <tr>
+            <th>ID</th>
+            <th>Process</th>
+            <th>In Date</th>
+            <th>Estimate</th>
+          </tr>
+          <tr>
+            <td>
+              @if($ivsp)
+              {{ $ivsp->id }}
+              @elseif ($drf)
+              {{ $drf->id }}
+              @endif
+            </td>
+            <td>
+              @if($ivsp)
+              {{ $ivsp->process }}
+              @elseif ($drf)
+              {{ $drf->process }}
+              @endif
+            </td>
+            <td>
+              @if($ivsp)
+              {{ $ivsp->in_date }}
+              @elseif ($drf)
+              {{ $drf->di_date }}
+              @endif
+            </td>
+            <td>
+              @if($ivsp)
+              {{ $ivsp->estimate }}
+              @elseif ($drf)
+              {{ $drf->estimate }}
+              @endif
+            </td>
+          </tr>
+        </table>
+      </div>
+
+
 
 
     </body>

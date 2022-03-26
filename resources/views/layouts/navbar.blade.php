@@ -11,10 +11,10 @@
     <div class="collapse navbar-collapse " id="navbarNavDropdown">
       <ul class="navbar-nav">
         <li class="nav-item ">
-          <a class="nav-link" href="#">Home </a>
+          <a class="nav-link" href="{{url('')}}">Home </a>
         </li>
         <li class="nav-item ">
-          <a class="nav-link" href="#">History</a>
+          <a class="nav-link" href="{{url('/dashboardadmin/history')}}">History</a>
         </li>
       </ul>
     </div>
