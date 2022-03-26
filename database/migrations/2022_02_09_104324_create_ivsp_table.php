@@ -26,6 +26,7 @@ class CreateIvspTable extends Migration
             $table->text('description');
             $table->string('process',50)->default('Waiting For ACK');
             $table->integer('number_of_process')->default(0);
+            $table->string('gr_file',255);
         });
     }
 

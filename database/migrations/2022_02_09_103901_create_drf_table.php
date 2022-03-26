@@ -36,10 +36,14 @@ class CreateDrfTable extends Migration
             $table->string('work_type',100);
             $table->text('description');
             $table->string('gl_initial',255);
-            // $table->string('engineer_signed_1',255);
-            // $table->string('engineer_signed_2',255);
             $table->string('current_work_status',255);
             $table->string('process',50)->default('Waiting For ACK');
+            $table->integer('number_of_process')->default(0);
+            // 1 = Admin
+            // 2 = GL
+            // 3 = Engineer
+            // 4 = Manager
+            $table->string('drf_file',255);
         });
     }
 

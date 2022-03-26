@@ -49,6 +49,7 @@ class DashboardUserController extends Controller
     public function storeGR(StoreIVSP $request)
     {
         $validatedData = $request->validated();
+        dd($validatedData);
         $numeric = '1234567890';
         $randomNumerics = substr(str_shuffle($numeric), 0, 4);
         $validatedData['id'] = "IVSP-" . substr($validatedData['in_date'],2,2) . "-" . $randomNumerics;

@@ -47,7 +47,7 @@ class Ivsp extends Model
     {
         return self::whereMonth('date', $month)
         ->whereYear('date', $year)
-        ->orderBy('date', 'asc')
+        ->orderBy('in_date', 'asc')
         ->get();
     }
 }

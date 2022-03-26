@@ -26,7 +26,6 @@
         <!-- Styles   -->
 
 
-
     </head>
 
     @include('layouts.navbar')

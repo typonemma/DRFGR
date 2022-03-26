@@ -26,7 +26,7 @@ class StoreDRF extends FormRequest
         return [
             // 'to' => 'required',
             'cc' => 'required|max:20',
-            'cea_project' => 'required|numeric',
+            'cea_project' => 'required|alpha_num',
             'cea_svo' => 'required|numeric',
             'ci_company_name' => 'required',
             'ci_phone_company' => 'required|numeric|digits_between:10,15',

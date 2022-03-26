@@ -55,9 +55,9 @@ class Drf extends Model
     }
     public static function findDRFByMonth($month, $year)
     {
-        return self::whereMonth('date', '=', $month)
-        ->whereYear('date', '=', $year)
-        ->orderBy('date', 'asc')
+        return self::whereMonth('date', $month)
+        ->whereYear('date', $year)
+        ->orderBy('in_date', 'asc')
         ->get();
     }
 }

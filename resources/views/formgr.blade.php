@@ -132,8 +132,8 @@
         @enderror
     </div>
     <div>
-      <textarea id="Field9" name="description" spellcheck="true" rows="10" cols="50" tabindex="4" placeholder="Put your description...."></textarea>
-      @error('description')
+      <textarea id="Field9" name="desc" spellcheck="true" rows="10" cols="50" tabindex="4" placeholder="Put your description...."></textarea>
+      @error('desc')
           {{ $message }}
         @enderror
     </div>

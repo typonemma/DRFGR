@@ -24,17 +24,39 @@ class DashboardAdminController extends Controller
         return view('dashboardadmin');
     }
 
-    public function history(Request $request)
+    public function history()
     {
-        $month = $request->query->get('month'); // get month from query string
-        $year = $request->query->get('year'); // get year from query string
-        $drf = Drf::findDRFByMonth($month, $year);
-        $gr = Ivsp::findIVSPByMonth($month, $year);
-        return view('/dashboardadmin/history', [
-            'drf' => $drf,
-            'gr' => $gr,
-        ]);
+        return view('history');
     }
+
+    public function historyDRF(Request $request)
+    {
+        $month = $request->query->get('month');
+        $year = $request->query->get('year');
+        if($month && $year){
+        $drf = Drf::findDRFByMonthAndYear($month, $year);
+        return view('historydrf', [
+            'drf' => $drf,
+        ]);
+        }else{
+            return view('historydrf');
+        }
+    }
+
+    function historyIVSP(Request $request)
+    {
+        $month = $request->query->get('month');
+        $year = $request->query->get('year');
+        if($month && $year){
+        $ivsp = Ivsp::findIvspByMonthAndYear($month, $year);
+        return view('historygr', [
+            'ivsp' => $ivsp,
+        ]);
+        }else{
+            return view('historydrf');
+        }
+    }
+
 
     /**
      * Show the form for creating a new resource.
