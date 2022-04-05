@@ -30,7 +30,16 @@
 
     @include('layouts.navbar')
     <body class="antialiased" style="background-image: #EAD689;">
-
+      <div class="row justify-content-md-center">
+        <div class="col-md-6 col-lg-11 mb-12 mb-lg-0" >
+              <input id="datepicker" width="276" />
+        </div>
+      </div>
+  <script>
+      $('#datepicker').datepicker({
+          uiLibrary: 'bootstrap4'
+      });
+  </script>
 
     </body>
 </html>
