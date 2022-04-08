@@ -30,16 +30,29 @@
 
     @include('layouts.navbar')
     <body class="antialiased" style="background-image: #EAD689;">
-      <div class="row justify-content-md-center">
-        <div class="col-md-6 col-lg-11 mb-12 mb-lg-0" >
-              <input id="datepicker" width="276" />
+      <div class="row justify-content-md-left">
+        <div class="col-md-2 ml ml-4">
+          <form class="POST" enctype="multipart/form-data" method="post">
+            <input type="month" name="datepicker" id="start" min="2020-12" value="2020-12">
+          </form>
         </div>
+        <button type="submit" value="submit" id="submit" name="submit">Submit </button>
+
       </div>
-  <script>
+
+
+    <script>
       $('#datepicker').datepicker({
           uiLibrary: 'bootstrap4'
       });
-  </script>
 
+      $(document).ready(function() {
+        $('datepicker').datepicker({
+          onSelect : function (dateText, inst){
+            $('#formId').submit();
+          }
+        })
+      })
+    </script>
     </body>
 </html>
