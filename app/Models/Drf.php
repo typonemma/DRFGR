@@ -56,18 +56,18 @@ class Drf extends Model
     }
     public static function findDRFByMonth($month, $year)
     {
-        return self::whereMonth('created_at', $month)
-        ->whereYear('created_at', $year)
+        return self::whereMonth('di_date', $month)
+        ->whereYear('di_date', $year)
         ->get();
     }
     public static function findDRFThisWeek()
     {
-        return self::whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])
+        return self::whereBetween('di_date', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])
         ->get()->count();
     }
     public static function findDRFThisMonth()
     {
-        return self::whereMonth('created_at', Carbon::now()->month)
+        return self::whereMonth('di_date', Carbon::now()->month)
         ->get()->count();
     }
 }

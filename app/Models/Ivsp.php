@@ -46,18 +46,18 @@ class Ivsp extends Model
     }
     public static function findIVSPByMonth($month, $year)
     {
-        return self::whereMonth('created_at', $month)
-        ->whereYear('created_at', $year)
+        return self::whereMonth('in_date', $month)
+        ->whereYear('in_date', $year)
         ->get();
     }
     public static function findIVSPThisWeek()
     {
-        return self::whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])
+        return self::whereBetween('in_date', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])
         ->get()->count();
     }
     public static function findIVSPThisMonth()
     {
-        return self::whereMonth('created_at', Carbon::now()->month)
+        return self::whereMonth('in_date', Carbon::now()->month)
         ->get()->count();
     }
 }
