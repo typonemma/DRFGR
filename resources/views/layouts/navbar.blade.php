@@ -8,10 +8,10 @@
     <div class="collapse navbar-collapse " id="navbarNavDropdown">
       <ul class="navbar-nav">
         <li class="nav-item ">
-          <a class="nav-link" href="{{url('')}}">Home </a>
+          <a class="nav-link" href="{{route('dashboardadmin.index')}}">Home </a>
         </li>
         <li class="nav-item ">
-          <a class="nav-link" href="{{url('/dashboardadmin/history')}}">History</a>
+          <a class="nav-link" href="{{route('dashboardadmin.history')}}">History</a>
         </li>
       </ul>
     </div>

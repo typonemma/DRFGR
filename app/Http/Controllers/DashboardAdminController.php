@@ -40,13 +40,14 @@ class DashboardAdminController extends Controller
 
     public function historyDRF(Request $request)
     {
-        $month = $request->query->get('month');
-        $year = $request->query->get('year');
-        if($month && $year){
-        $drf = Drf::findDRFByMonthAndYear($month, $year);
-        return view('historydrf', [
-            'drf' => $drf,
-        ]);
+        $monthAndYear = $request->query->get('datepicker');
+        if($monthAndYear){
+            $month = intval(substr($monthAndYear, 5, 2));
+            $year = intval(substr($monthAndYear, 0, 4));
+            $drf = Drf::findDRFByMonthAndYear($month, $year);
+            return view('drfhistory', [
+                'drf' => $drf,
+            ]);
         }else{
             return view('drfhistory');
         }
@@ -54,13 +55,14 @@ class DashboardAdminController extends Controller
 
     function historyIVSP(Request $request)
     {
-        $month = $request->query->get('month');
-        $year = $request->query->get('year');
-        if($month && $year){
-        $ivsp = Ivsp::findIvspByMonthAndYear($month, $year);
-        return view('historyivsp', [
-            'ivsp' => $ivsp,
-        ]);
+        $monthAndYear = $request->query->get('datepicker');
+        if($monthAndYear){
+            $month = intval(substr($monthAndYear, 5, 2));
+            $year = intval(substr($monthAndYear, 0, 4));
+            $ivsp = Ivsp::findIvspByMonthAndYear($month, $year);
+            return view('historyivsp', [
+                'ivsp' => $ivsp,
+            ]);
         }else{
             return view('ivsphistory');
         }

@@ -44,7 +44,7 @@ class Ivsp extends Model
         return self::where('id',$id)
         ->delete();
     }
-    public static function findIVSPByMonth($month, $year)
+    public static function findIvspByMonthAndYear($month, $year)
     {
         return self::whereMonth('in_date', $month)
         ->whereYear('in_date', $year)

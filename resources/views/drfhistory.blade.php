@@ -32,11 +32,13 @@
     <body class="antialiased" style="background-image: #EAD689;">
       <div class="row justify-content-md-left">
         <div class="col-md-2 ml ml-4">
-          <form class="POST" enctype="multipart/form-data" method="post">
+          <form class="POST" method="GET" action='{{ route('dashboardadmin.historyDRF') }}'>
             <input type="month" name="datepicker" id="start" min="2020-12" value="2020-12">
+            <button type="submit" value="submit" id="submit" name="submit">Submit </button>
           </form>
+          
         </div>
-        <button type="submit" value="submit" id="submit" name="submit">Submit </button>
+        
 
       </div>
 

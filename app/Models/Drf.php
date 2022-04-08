@@ -54,7 +54,7 @@ class Drf extends Model
         return self::where('id',$id)
         ->delete();
     }
-    public static function findDRFByMonth($month, $year)
+    public static function findDRFByMonthAndYear($month, $year)
     {
         return self::whereMonth('di_date', $month)
         ->whereYear('di_date', $year)
@@ -68,6 +68,7 @@ class Drf extends Model
     public static function findDRFThisMonth()
     {
         return self::whereMonth('di_date', Carbon::now()->month)
+        ->whereYear('di_date', Carbon::now()->year)
         ->get()->count();
     }
 }
