@@ -48,7 +48,7 @@ class DashboardAdminController extends Controller
             'drf' => $drf,
         ]);
         }else{
-            return view('historydrf');
+            return view('drfhistory');
         }
     }
 
@@ -62,7 +62,7 @@ class DashboardAdminController extends Controller
             'ivsp' => $ivsp,
         ]);
         }else{
-            return view('historydrf');
+            return view('ivsphistory');
         }
     }
 
