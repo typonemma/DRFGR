@@ -23,13 +23,13 @@ class DashboardAdminController extends Controller
     {
         $drfMonth = Drf::findDRFThisMonth();
         $drfWeek = Drf::findDRFThisWeek();
-        $grMonth = Ivsp::findIVSPThisMonth();
-        $grWeek = Ivsp::findIVSPThisWeek();
+        $ivspMonth = Ivsp::findIVSPThisMonth();
+        $ivspWeek = Ivsp::findIVSPThisWeek();
         return view('dashboardadmin',[
             'drfMonth' => $drfMonth,
             'drfWeek' => $drfWeek,
-            'grMonth' => $grMonth,
-            'grWeek' => $grWeek,
+            'ivspMonth' => $ivspMonth,
+            'ivspWeek' => $ivspWeek,
         ]);
     }
 
@@ -58,7 +58,7 @@ class DashboardAdminController extends Controller
         $year = $request->query->get('year');
         if($month && $year){
         $ivsp = Ivsp::findIvspByMonthAndYear($month, $year);
-        return view('historygr', [
+        return view('historyivsp', [
             'ivsp' => $ivsp,
         ]);
         }else{
@@ -77,9 +77,9 @@ class DashboardAdminController extends Controller
     {
         return view('formdrf');
     }
-    public function createGR()
+    public function createIVSP()
     {
-        return view('formgr');
+        return view('formivsp');
     }
 
     /**
@@ -99,7 +99,7 @@ class DashboardAdminController extends Controller
         Drf::create($validatedData);
         return redirect()->intended(route('dashboarduser.formDRF'))->with('success','DRF has been added successfully');
     }
-    public function storeGR(StoreIVSP $request)
+    public function storeIVSP(StoreIVSP $request)
     {
         $validatedData = $request->validated();
         $numeric = '1234567890';
@@ -108,7 +108,7 @@ class DashboardAdminController extends Controller
         $validatedData['id'] = "IVSP-" . substr($validatedData['in_date'],2,2) . "-" . $randomNumerics;
         $id = $validatedData['id'];
         Ivsp::create($validatedData);
-        return redirect()->intended(route('dashboarduser.formGR'))->with('success','GR has been added successfully Your id is ' . $id);
+        return redirect()->intended(route('dashboarduser.formIVSP'))->with('success','IVSP has been added successfully Your id is ' . $id);
     }
 
     /**
@@ -124,7 +124,7 @@ class DashboardAdminController extends Controller
             'drf' => $drf
         ]);
     }
-    public function showGR($id)
+    public function showIVSP($id)
     {
         $ivsp = Ivsp::findIVSPById($id);
         return view('', [
@@ -145,7 +145,7 @@ class DashboardAdminController extends Controller
             'drf' => $drf
         ]);
     }
-    public function editGR($id)
+    public function editIVSP($id)
     {
         $ivsp = Ivsp::findIVSPById($id);
         return view('', [
@@ -167,11 +167,11 @@ class DashboardAdminController extends Controller
         Drf::updateDRFById($update, $id);
         redirect(route('dashboardadmin.showDRF'))->with('success','DRF has been updated successfully');
     }
-    public function updateGR(PutIVSP $request, $id)
+    public function updateIVSP(PutIVSP $request, $id)
     {
         $validatedData = $request->validated();
         Ivsp::updateIVSPById($validatedData, $id);
-        redirect(route('dashboardadmin.showGR'))->with('success','GR has been updated successfully');
+        redirect(route('dashboardadmin.showIVSP'))->with('success','IVSP has been updated successfully');
     }
 
     /**
@@ -187,11 +187,11 @@ class DashboardAdminController extends Controller
         Drf::updateDRFById($validatedData, $id);
         redirect(route('drf.index'))->with('success','DRF has been updated successfully');
     }
-    public function destroyGR(Request $request, $id)
+    public function destroyIVSP(Request $request, $id)
     {
         $rules = [ 'status' => 'required|alpha'];
         $validatedData = $request->validate($rules);
         Ivsp::updateIVSPById($validatedData, $id);
-        redirect(route('drf.index'))->with('success','GR has been updated successfully');
+        redirect(route('ivsp.index'))->with('success','IVSP has been updated successfully');
     }
 }

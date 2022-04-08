@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Yokogawa-Form GR</title>
+        <title>Yokogawa-Form IVSP</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -19,7 +19,7 @@
     @include('layouts.usernavbar')
 
     <body class="antialiased" style="background-image: #EAD689;">
-      <form action="{{ route('dashboarduser.storeGR') }}" method="post">
+      <form action="{{ route('dashboarduser.storeIVSP') }}" method="post">
   @csrf
   <header>
     <h2>Goods Receive Form</h2>

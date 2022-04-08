@@ -33,9 +33,9 @@ class DashboardUserController extends Controller
     {
         return view('formdrf');
     }
-    public function createGR()
+    public function createIVSP()
     {
-        return view('formgr');
+        return view('formivsp');
     }
     public function storeDRF(StoreDRF $request)
     {
@@ -47,7 +47,7 @@ class DashboardUserController extends Controller
         Drf::create($validatedData);
         return redirect()->intended(route('dashboarduser.formDRF'))->with('success','DRF has been added successfully. Your id is ' . $id);
     }
-    public function storeGR(StoreIVSP $request)
+    public function storeIVSP(StoreIVSP $request)
     {
         $validatedData = $request->validated();
         dd($validatedData);
@@ -63,7 +63,7 @@ class DashboardUserController extends Controller
         $ivspNomorModelData['created_at'] = Carbon::now();
         $ivspNomorModelData['updated_at'] = Carbon::now();
         IvspNomorModel::insert($ivspNomorModelData);
-        return redirect()->intended(route('dashboarduser.formGR'))->with('success','GR has been added successfully. Your id is ' . $id);
+        return redirect()->intended(route('dashboarduser.formIVSP'))->with('success','IVSP has been added successfully. Your id is ' . $id);
     }
 
 

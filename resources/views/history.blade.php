@@ -16,9 +16,11 @@
         <section class="statis mt-4 ">
           <div class="row justify-content-md-center">
             <div class="col-md-6 col-lg-11 mb-12 mb-lg-0">
-              <form action="#">
+              <a href="{{ route('dashboardadmin.historyDRF') }}">History DRF</a>
+              {{-- <form action="#">
+                @csrf
                 <input type="submit" value="History DRF" class="box  col-lg-12 text-left"  style="background:#2A363B; border-radius: 10px; height:100px; color:#EAD689; font-size:32px;" />
-              </form>
+              </form> --}}
             </div>
           </div>
         </section>
@@ -26,9 +28,10 @@
         <section class="statis mt-4 ">
           <div class="row justify-content-md-center">
               <div class="col-md-6 col-lg-11 mb-12 mb-lg-0" >
-              <form action="#">
+                <a href="{{ route('dashboardadmin.historyIVSP') }}">History GR</a>
+              {{-- <form action="#">
                 <input type="submit" value="History GR" class="box  col-lg-12 text-left justify-content-center"  style="background:#2A363B; border-radius: 10px; height:100px; color:#EAD689; font-size:32px;" />
-              </form>
+              </form> --}}
             </div>
           </div>
         </section>

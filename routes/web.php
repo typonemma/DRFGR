@@ -37,9 +37,9 @@ Route::get('/loginuser', [LoginController::class, 'indexUser'])->name('loginuser
 Route::get('/registeruser', [RegisterController::class, 'index'])->name('register.index')->middleware('guest');
 Route::post('/registeruser', [RegisterController::class, 'store'])->name('register.store')->middleware('guest');
 Route::post('/dashboarduser/storedrf', [DashboardUserController::class, 'storeDRF'])->name('dashboarduser.storeDRF')->middleware('user');
-Route::post('/dashboarduser/storegr', [DashboardUserController::class, 'storeGR'])->name('dashboarduser.storeGR')->middleware('user');
+Route::post('/dashboarduser/storeivsp', [DashboardUserController::class, 'storeIVSP'])->name('dashboarduser.storeIVSP')->middleware('user');
 Route::get('/dashboarduser/formdrf', [DashboardUserController::class, 'createDRF'])->name('dashboarduser.formDRF')->middleware('user');
-Route::get('/dashboarduser/formgr', [DashboardUserController::class, 'createGR'])->name('dashboarduser.formGR')->middleware('user');
+Route::get('/dashboarduser/formivsp', [DashboardUserController::class, 'createIVSP'])->name('dashboarduser.formIVSP')->middleware('user');
 Route::get('/dashboarduser', [DashboardUserController::class, 'index'])->name('dashboarduser.index')->middleware('user');
 // END AUTH USER
 
@@ -50,16 +50,19 @@ Route::get('/logingl', [LoginController::class, 'indexGL'])->name('logingl.index
 
 // DASHBOARD ADMIN
 Route::get('/dashboardadmin/formdrf', [DashboardAdminController::class, 'createDRF'])->name('dashboardadmin.createDRF')->middleware('admin');
-Route::get('/dashboardadmin/formgr', [DashboardAdminController::class, 'createGR'])->name('dashboardadmin.createGR')->middleware('admin');
+Route::get('/dashboardadmin/formivsp', [DashboardAdminController::class, 'createIVSP'])->name('dashboardadmin.createIVSP')->middleware('admin');
 Route::get('/dashboardadmin/editdrf/{id}', [DashboardAdminController::class, 'editDRF'])->name('dashboardadmin.editDRF')->middleware('admin');
-Route::get('/dashboardadmin/editgr/{id}', [DashboardAdminController::class, 'editGR'])->name('dashboardadmin.editGR')->middleware('admin');
+Route::get('/dashboardadmin/editivsp/{id}', [DashboardAdminController::class, 'editIVSP'])->name('dashboardadmin.editIVSP')->middleware('admin');
 Route::get('/dashboardadmin/showdrf', [DashboardAdminController::class, 'showDRF'])->name('dashboardadmin.showDRF')->middleware('admin');
-Route::get('/dashboardadmin/showgr', [DashboardAdminController::class, 'showGR'])->name('dashboardadmin.showGR')->middleware('admin');
+Route::get('/dashboardadmin/showivsp', [DashboardAdminController::class, 'showIVSP'])->name('dashboardadmin.showIVSP')->middleware('admin');
 Route::put('/dashboardadmin/updatedrf/{id}', [DashboardAdminController::class, 'updateDRF'])->name('dashboardadmin.updateDRF')->middleware('admin');
-Route::put('/dashboardadmin/updategr/{id}', [DashboardAdminController::class, 'updateGR'])->name('dashboardadmin.updateGR')->middleware('admin');
+Route::put('/dashboardadmin/updateivsp/{id}', [DashboardAdminController::class, 'updateIVSP'])->name('dashboardadmin.updateIVSP')->middleware('admin');
 Route::delete('/dashboardadmin/destroydrf/{id}', [DashboardAdminController::class, 'destroyDRF'])->name('dashboardadmin.destroyDRF')->middleware('admin');
-Route::delete('/dashboardadmin/destroygr/{id}', [DashboardAdminController::class, 'destroyGR'])->name('dashboardadmin.destroyGR')->middleware('admin');
-Route::get('/dashboardadmin/history', [DashboardAdminController::class, 'history'])->name('dashboardadmin.history')->where('month', '[0-9]+')->where('year', '[0-9]+')->middleware('admin');
+Route::delete('/dashboardadmin/destroyivsp/{id}', [DashboardAdminController::class, 'destroyIVSP'])->name('dashboardadmin.destroyIVSP')->middleware('admin');
+Route::get('/dashboardadmin/history', [DashboardAdminController::class, 'history'])->name('dashboardadmin.history')->middleware('admin');
+Route::get('/dashboardadmin/historyivsp', [DashboardAdminController::class, 'historyIVSP'])->name('dashboardadmin.historyIVSP')->middleware('admin');
+Route::get('/dashboardadmin/historydrf', [DashboardAdminController::class, 'historyDRF'])->name('dashboardadmin.historyDRF')->middleware('admin');
+
 Route::resource('dashboardadmin', DashboardAdminController::class)->only('index')->middleware('admin');
 // END DASHBOARD ADMIN
 
