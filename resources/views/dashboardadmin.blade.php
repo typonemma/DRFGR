@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>YOkogawa</title>
+        <title>Dashboard Admin - Yokogawa </title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -65,20 +65,7 @@
      </div>
    </section>
 
-   <header class="ml-4 mt-4">
-     <h2  style=" font-weight: bold;">In Progress</h2>
-   </header>
-   <section class="statis mt-4 text-center">
-     <div class="row">
-       <div class="col-md-6 col-lg-12 mb-4 mb-lg-0">
-         <div class="box  p-3" >
-           <i class="uil-eye"></i>
-           <h3>DRF NUMBER</h3>
-           <p class="lead">DRF/GR</p>
-         </div>
-       </div>
-     </div>
-   </section>
+
 
     </body>
 </html>
