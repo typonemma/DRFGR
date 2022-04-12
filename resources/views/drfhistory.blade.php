@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>YOkogawa</title>
+        <title>Yokogawa  - DRF History</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -12,8 +12,8 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
         <link rel="stylesheet" type="text/css" href="css/navbar.css">
         <link rel="stylesheet" href="{{asset('css/form.css')}}">
-          <link rel="stylesheet" href="{{asset('css/admindashboard.css')}}">
-
+        <link rel="stylesheet" href="{{asset('css/admindashboard.css')}}">
+        <link rel="stylesheet" href="{{asset('css/history.css')}}">
             <!--Calling bootstrap-->
             <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -23,24 +23,26 @@
         		<meta name="viewport" content="width=device-width, initial-scale=1">
             <!--Calling Icon CSS-->
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-        <!-- Styles   -->
+
 
 
     </head>
 
     @include('layouts.navbar')
     <body class="antialiased" style="background-image: #EAD689;">
-      <div class="row justify-content-md-left">
-        <div class="col-md-2 ml ml-4">
+      <div class="row justify-content-md-left" style="display: flex;">
+        <div class="">
           <form class="POST" method="GET" action='{{ route('dashboardadmin.historyDRF') }}'>
-            <input type="month" name="datepicker" id="start" min="2020-12" value="2020-12">
-            <button type="submit" value="submit" id="submit" name="submit">Submit </button>
+            <input type="month" name="datepicker" id="start" min="2022-01" value="2022-01">
+            <button type="submit" value="submit" id="submit" name="submit" style="border-radius:5px; " class="mt-4 ">Submit </button>
           </form>
-          
         </div>
-        
-
       </div>
+
+
+
+
+
 
 
     <script>

@@ -328,24 +328,13 @@
 
     @enderror
     </div>
-  </div>
-
-
-
-
-
-
-
-
-
-
-
 
   <div>
 		<div>
   	<button type="submit" class="btn btn-block btn-large"><i class="bi bi-check-lg"></i>Submit</button>
     </div>
 	</div>
+
 </form>
 </body>
 </html>
