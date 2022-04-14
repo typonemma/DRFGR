@@ -51,8 +51,11 @@
           <label class="choice" for="for">Calibration</label>
         </div>
         <div>
-          <input id="Field1_3" name="for" type="radio" value="Other" tabindex="7">
-          <label class="choice" for="for">Other</label>
+          <input id="CheckOther" name="for" type="radio" value="Other" tabindex="7" onclick="ShowHideDiv()">
+          <label class="choice" for="for"  name="Other_A" value="Other">Other</label>
+        </div>
+        <div id="dvtext" style="display: none">
+         <input type="text" id="textBoxOther" placeholder="Other"/>
         </div>
       </div>
     </fieldset>
@@ -171,8 +174,14 @@ $(document).ready(function(){
       $clone.insertBefore( ".add-row" );
    });
 
-
 });
+
+function ShowHideDiv() {
+        var chkYes = document.getElementById("CheckOther");
+        var dvtext = document.getElementById("dvtext");
+        dvtext.style.display = chkYes.checked ? "block" : "none";
+    }
+
 </script>
 
 

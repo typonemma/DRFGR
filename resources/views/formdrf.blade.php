@@ -234,8 +234,11 @@
           <label class="choice" for="Field10_6">Delivery</label>
         </div>
         <div>
-          <input id="Field10_7" name="post_work_document" type="checkbox" value="Other" tabindex="7">
+          <input id="CheckOther" name="post_work_document" type="checkbox" value="Other" tabindex="7" onclick="ShowHideDiv()">
           <label class="choice" for="Field10_7">Other</label>
+        </div>
+        <div id="dvtext" style="display: none">
+         <input type="text" id="textBoxOther" placeholder="Other"/>
         </div>
       </div>
     </fieldset>
@@ -295,8 +298,11 @@
           <label class="choice" for="Field11_11">Site</label>
         </div>
         <div>
-          <input id="Field11_12" name="work_type" type="checkbox" value="Other" tabindex="7">
-          <label class="choice" for="Field11_12">Other</label>
+          <input id="CheckOther2" name="work_type" type="checkbox" value="Other" tabindex="7" onclick="ShowHideDiv2()">
+          <label class="choice" for="Field10_7">Other</label>
+        </div>
+        <div id="dvtext2" style="display: none">
+         <input type="text" id="textBoxOther" placeholder="Other"/>
         </div>
       </div>
     </fieldset>
@@ -328,13 +334,27 @@
 
     @enderror
     </div>
-
-  <div>
-		<div>
-  	<button type="submit" class="btn btn-block btn-large"><i class="bi bi-check-lg"></i>Submit</button>
+    <div>
+      	<div>
+          <button type="submit" class="btn btn-block btn-large"><i class="bi bi-check-lg"></i>Submit</button>
+        </div>
+      </div>
     </div>
-	</div>
+  </form>
 
-</form>
+  <script type="text/javascript">
+  function ShowHideDiv() {
+          var chkYes = document.getElementById("CheckOther");
+          var dvtext = document.getElementById("dvtext");
+          dvtext.style.display = chkYes.checked ? "block" : "none";
+      }
+
+  function ShowHideDiv2() {
+          var chkYes = document.getElementById("CheckOther2");
+          var dvtext = document.getElementById("dvtext2");
+          dvtext2.style.display = chkYes.checked ? "block" : "none";
+      }
+  </script>
+
 </body>
 </html>
