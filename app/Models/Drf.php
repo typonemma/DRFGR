@@ -71,4 +71,10 @@ class Drf extends Model
         ->whereYear('di_date', Carbon::now()->year)
         ->get()->count();
     }
+
+    public static function checkDRFid()
+    {
+        $result = self::whereYear('di_date',Carbon::now()->year)->get()->sortByDesc('id')->first();
+        return ($result) ? $result->id : NULL;
+    }
 }

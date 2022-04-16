@@ -13,6 +13,8 @@ use App\Http\Requests\StoreIVSP;
 
 class DashboardAdminController extends Controller
 {
+    
+
     /**
      * Display a listing of the resource.
      *
@@ -47,9 +49,13 @@ class DashboardAdminController extends Controller
             $drf = Drf::findDRFByMonthAndYear($month, $year);
             return view('drfhistory', [
                 'drf' => $drf,
+                'datepicker' => $monthAndYear,
             ]);
         }else{
-            return view('drfhistory');
+            return view('drfhistory', [
+                'drf' => [],
+                'datepicker' => '',
+            ]);
         }
     }
 
@@ -90,28 +96,6 @@ class DashboardAdminController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function storeDRF(StoreDRF $request)
-    {
-        $validatedData = $request->validated();
-        $numeric = '1234567890';
-        $validatedData['di_date'] = Carbon::now()->format('Y-m-d');
-        $randomNumerics = substr(str_shuffle($numeric), 0, 3);
-        $validatedData['id'] = "DRF-" . substr($validatedData['di_date'],2,2) . "-" . $randomNumerics;
-        $validatedData['date_end'] = strtotime("+7 day", $validatedData['date']);
-        Drf::create($validatedData);
-        return redirect()->intended(route('dashboarduser.formDRF'))->with('success','DRF has been added successfully');
-    }
-    public function storeIVSP(StoreIVSP $request)
-    {
-        $validatedData = $request->validated();
-        $numeric = '1234567890';
-        $randomNumerics = substr(str_shuffle($numeric), 0, 4);
-        $validatedData['in_date'] = Carbon::now()->format('Y-m-d');
-        $validatedData['id'] = "IVSP-" . substr($validatedData['in_date'],2,2) . "-" . $randomNumerics;
-        $id = $validatedData['id'];
-        Ivsp::create($validatedData);
-        return redirect()->intended(route('dashboarduser.formIVSP'))->with('success','IVSP has been added successfully Your id is ' . $id);
-    }
 
     /**
      * Display the specified resource.
@@ -119,9 +103,9 @@ class DashboardAdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function showDRF()
+    public function showDRF($id)
     {
-        $drf = Drf::allDRF();
+        $drf = Drf::findDRFById($id);
         return view('',[
             'drf' => $drf
         ]);

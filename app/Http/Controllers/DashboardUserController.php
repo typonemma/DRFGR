@@ -40,28 +40,44 @@ class DashboardUserController extends Controller
     public function storeDRF(StoreDRF $request)
     {
         $validatedData = $request->validated();
-        $numeric = '1234567890';
-        $randomNumerics = substr(str_shuffle($numeric), 0, 3);
-        $validatedData['id'] = "DRF-" . substr($validatedData['di_date'],2,2) . "-" . $randomNumerics;
-        $id = $validatedData['id'];
+        $lastDRF = DRF::checkDRFid();
+        if($lastDRF){
+            $number = (int)substr($lastDRF, -3);
+            $number++;
+            $validatedData['id'] = "DRF-" . substr($validatedData['di_date'],2,2) . "-" . str_pad($number,3,"0",STR_PAD_LEFT);
+            $id = $validatedData['id'];
+        }else {
+            $validatedData['id'] = "DRF-" . substr($validatedData['di_date'],2,2) . "-001";
+            $id = $validatedData['id'];
+        }
+        
         Drf::create($validatedData);
         return redirect()->intended(route('dashboarduser.formDRF'))->with('success','DRF has been added successfully. Your id is ' . $id);
     }
     public function storeIVSP(StoreIVSP $request)
     {
         $validatedData = $request->validated();
-        dd($validatedData);
-        $numeric = '1234567890';
-        $randomNumerics = substr(str_shuffle($numeric), 0, 4);
-        $validatedData['id'] = "IVSP-" . substr($validatedData['in_date'],2,2) . "-" . $randomNumerics;
-        $id = $validatedData['id'];
+        $lastIVSP = DRF::checkDRFid();
+        if($lastIVSP){
+            $number = (int)substr($lastIVSP, -4);
+            $number++;
+            $validatedData['id'] = "IVSP-" . substr($validatedData['in_date'],2,2) . "-" . str_pad($number,4,"0",STR_PAD_LEFT);
+            $id = $validatedData['id'];
+        }else {
+            $validatedData['id'] = "IVSP-" . substr($validatedData['in_date'],2,2) . "-0001";
+            $id = $validatedData['id'];
+        }
         Ivsp::create($validatedData);
-        $ivspNomorModelData['ivsp_id'] = $id;
-        $ivspNomorModelData['instrument_model'] = $validatedData['instrument_model'];
-        $ivspNomorModelData['serial_number'] = $validatedData['serial_number'];
-        $ivspNomorModelData['fault_report'] = $validatedData['fault_report'];
-        $ivspNomorModelData['created_at'] = Carbon::now();
-        $ivspNomorModelData['updated_at'] = Carbon::now();
+        for ($i = 0; $i < count($validatedData['instrument_model']); $i++)
+        {
+            $ivspNomorModelData[$i]['ivsp_id'] = $id;
+            $ivspNomorModelData[$i]['instrument_model'] = $validatedData['instrument_model'][$i];
+            $ivspNomorModelData[$i]['serial_number'] = $validatedData['serial_number'][$i];
+            $ivspNomorModelData[$i]['fault_report'] = $validatedData['fault_report'][$i];
+            $ivspNomorModelData[$i]['desc'] = $validatedData['desc'][$i];
+            $ivspNomorModelData[$i]['created_at'] = Carbon::now();
+            $ivspNomorModelData[$i]['updated_at'] = Carbon::now();
+        }
         IvspNomorModel::insert($ivspNomorModelData);
         return redirect()->intended(route('dashboarduser.formIVSP'))->with('success','IVSP has been added successfully. Your id is ' . $id);
     }

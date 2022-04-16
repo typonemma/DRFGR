@@ -60,4 +60,9 @@ class Ivsp extends Model
         return self::whereMonth('in_date', Carbon::now()->month)
         ->get()->count();
     }
+    public static function checkIVSPid()
+    {
+        $result = self::whereYear('in_date',Carbon::now()->year)->get()->sortByDesc('id')->first();
+        return ($result) ? $result->id : NULL;
+    }
 }

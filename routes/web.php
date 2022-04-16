@@ -53,8 +53,8 @@ Route::get('/dashboardadmin/formdrf', [DashboardAdminController::class, 'createD
 Route::get('/dashboardadmin/formivsp', [DashboardAdminController::class, 'createIVSP'])->name('dashboardadmin.createIVSP')->middleware('admin');
 Route::get('/dashboardadmin/editdrf/{id}', [DashboardAdminController::class, 'editDRF'])->name('dashboardadmin.editDRF')->middleware('admin');
 Route::get('/dashboardadmin/editivsp/{id}', [DashboardAdminController::class, 'editIVSP'])->name('dashboardadmin.editIVSP')->middleware('admin');
-Route::get('/dashboardadmin/showdrf', [DashboardAdminController::class, 'showDRF'])->name('dashboardadmin.showDRF')->middleware('admin');
-Route::get('/dashboardadmin/showivsp', [DashboardAdminController::class, 'showIVSP'])->name('dashboardadmin.showIVSP')->middleware('admin');
+Route::get('/dashboardadmin/showdrf/{id}', [DashboardAdminController::class, 'showDRF'])->name('dashboardadmin.showDRF')->middleware('admin');
+Route::get('/dashboardadmin/showivsp/{id}', [DashboardAdminController::class, 'showIVSP'])->name('dashboardadmin.showIVSP')->middleware('admin');
 Route::put('/dashboardadmin/updatedrf/{id}', [DashboardAdminController::class, 'updateDRF'])->name('dashboardadmin.updateDRF')->middleware('admin');
 Route::put('/dashboardadmin/updateivsp/{id}', [DashboardAdminController::class, 'updateIVSP'])->name('dashboardadmin.updateIVSP')->middleware('admin');
 Route::delete('/dashboardadmin/destroydrf/{id}', [DashboardAdminController::class, 'destroyDRF'])->name('dashboardadmin.destroyDRF')->middleware('admin');

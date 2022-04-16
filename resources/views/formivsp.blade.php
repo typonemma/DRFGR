@@ -117,25 +117,25 @@
   <div class="add">
     <label class="desc" id="title1" for="Field7">Nomor Model</label>
     <div>
-      <input id="Field7" name="instrument_model" type="text" class="field text fn" value="" size="8" tabindex="1" placeholder="Instrument Models">
+      <input id="Field7" name="instrument_model[]" type="text" class="field text fn" value="" size="8" tabindex="1" placeholder="Instrument Models">
       @error('instrument_model')
           {{ $message }}
         @enderror
     </div>
     <div>
-      <input id="Field7" name="serial_number" type="text" class="field text fn" value="" size="8" tabindex="1" placeholder="Serial Number">
+      <input id="Field7" name="serial_number[]" type="text" class="field text fn" value="" size="8" tabindex="1" placeholder="Serial Number">
       @error('serial_number')
           {{ $message }}
         @enderror
     </div>
     <div>
-      <input id="Field7" name="fault_report" type="text" class="field text fn" value="" size="8" tabindex="1" placeholder="Fault Report">
+      <input id="Field7" name="fault_report[]" type="text" class="field text fn" value="" size="8" tabindex="1" placeholder="Fault Report">
       @error('fault_report')
           {{ $message }}
         @enderror
     </div>
     <div>
-      <textarea id="Field9" name="desc" spellcheck="true" rows="10" cols="50" tabindex="4" placeholder="Put your description...."></textarea>
+      <textarea id="Field9" name="desc[]" spellcheck="true" rows="10" cols="50" tabindex="4" placeholder="Put your description...."></textarea>
       @error('desc')
           {{ $message }}
         @enderror

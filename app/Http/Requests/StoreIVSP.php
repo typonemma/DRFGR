@@ -28,12 +28,12 @@ class StoreIVSP extends FormRequest
             'customer_name' => 'required',
             'customer_address' => 'required',
             'customer_telephone' => 'required|numeric',
-            'contact_person' => 'required',
-            'description' => 'required',
+            'contact_person' => 'required|numeric',
             'in_date' => 'required|date_format:Y-m-d',
-            'instrument_model' => 'required',
-            'serial_number' => 'required',
+            'desc' => 'required',
             'fault_report' => 'required',
+            'serial_number' => 'required',
+            'instrument_model' => 'required'
         ];
     }
 }

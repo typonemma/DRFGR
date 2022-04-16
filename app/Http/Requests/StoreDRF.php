@@ -42,9 +42,7 @@ class StoreDRF extends FormRequest
             'scope_model_code' => 'required',
             'post_work_document' => 'required|max:50',
             'work_type' => 'required|max:50',
-            'description' => 'required',
-            'gl_initial' => 'required|max:50',
-            'current_work_status' => 'required|max:20',
+            'description' => 'required'
         ];
     }
 }
