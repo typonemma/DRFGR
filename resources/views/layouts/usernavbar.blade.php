@@ -107,12 +107,12 @@ nav{
 
 .navbar .navbar-header{
 
-    color: black !important;
+    color: #2A363B !important;
     font-family: 'DM Sans', sans-serif;
 }
 
 .navbar li a, .navbar {
-    color: #242424; !important;
+    color: #2A363B; !important;
     font-size: 18px;
     transition: all 0.6s 0s;
 }
@@ -128,7 +128,7 @@ nav{
 
 .logout i {
   font-size: 2rem;
-  color: #242424;
+  color: #2A363B;
   width: 32px;
   height: 32px;
 }

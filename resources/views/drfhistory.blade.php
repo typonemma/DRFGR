@@ -39,18 +39,21 @@
         </div>
       </div>
 
-    @forelse ($drf as $d)
-    <div class="card" style="width: 18rem;">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">{{ $d->id }}</h5>
-        <p class="card-text">{{ $d->ci_company_name }}</p>
-        <a href="{{ route('dashboardadmin.showDRF') }}/{{ $d->id }}" class="btn btn-primary">Go somewhere</a>
+  @forelse ($drf as $d)
+      <div class="card " style="max-width: 18rem;">
+        <div class="card-header">{{ $d->id }}</div>
+        <div class="card-body">
+          <h5 class="card-title">{{ $d->ci_company_name }}</h5>
+          <p class="card-text">{{ $d->desc}}.</p>
+        </div>
       </div>
-    </div>
-    @empty
-      <h3>Null</h3>
-    @endforelse
+      @empty
+        <h3>Null</h3>
+      @endforelse
+
+
+
+
 
 
 
