@@ -27,13 +27,14 @@ class DashboardAdminController extends Controller
         $drfWeek = Drf::findDRFThisWeek();
         $ivspMonth = Ivsp::findIVSPThisMonth();
         $ivspWeek = Ivsp::findIVSPThisWeek();
-        $drfWaiting = Drf::findDRFWaiting();
-        return view('dashboardadmin',[
+        $drfAdmin = Drf::findDRFAdmin();
+        $ivspAdmin = Ivsp::findIVSPAdmin();
+        return view('dashboard',[
             'drfMonth' => $drfMonth,
             'drfWeek' => $drfWeek,
             'ivspMonth' => $ivspMonth,
             'ivspWeek' => $ivspWeek,
-            'drf' => $drfWaiting,
+            'drf' => $drfAdmin,
         ]);
     }
 

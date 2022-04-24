@@ -65,4 +65,27 @@ class Ivsp extends Model
         $result = self::whereYear('in_date',Carbon::now()->year)->get()->sortByDesc('id')->first();
         return ($result) ? $result->id : NULL;
     }
+    public static function findIVSPAdmin()
+    {
+        return self::where('number_of_process', 0)
+        ->get();
+    }
+    public static function findIVSPGL()
+    {
+        return self::where('number_of_process', 1)
+        ->get();
+    }
+    public static function findIVSPEngineer()
+    {
+        return self::where('number_of_process', 2)
+        ->orWhere('number_of_process', 3)
+        ->get();
+    }
+
+    public static function findIVSPManager()
+    {
+        return self::where('number_of_process', 4)
+        ->orWhere('number_of_process', 5)
+        ->get();
+    }
 }

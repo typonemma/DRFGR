@@ -78,9 +78,29 @@ class Drf extends Model
         return ($result) ? $result->id : NULL;
     }
 
-    public static function findDRFWaiting()
+    public static function findDRFAdmin()
     {
         return self::where('number_of_process', 0)
+        ->get();
+    }
+
+    public static function findDRFGL()
+    {
+        return self::where('number_of_process', 1)
+        ->get();
+    }
+
+    public static function findDRFEngineer()
+    {
+        return self::where('number_of_process', 2)
+        ->orWhere('number_of_process', 3)
+        ->get();
+    }
+
+    public static function findDRFManager()
+    {
+        return self::where('number_of_process', 4)
+        ->orWhere('number_of_process', 5)
         ->get();
     }
 }
