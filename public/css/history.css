@@ -4,18 +4,45 @@ button{
   padding: 9px 14px;
   font-size: 15px;
   line-height: normal;
-  border: 5px solid #000000;
+  border: 5px solid #2A363B;
   background-color: #DAC15F;
 }
 
 button:hover, button:active{
   background-color: #EAD689;
-  color: #000000;
-  border-color: black;
-  border: 5px solid #000000;
+  color: #2A363B;
 }
 
 .row{
   display: flex;
   float: right;
 }
+
+.card{
+  background-color: #EAD689 !important;
+  border: 5px solid #2A363B !important;
+  border-radius: 5px !important;
+  color: #2A363B;
+  margin-top: 80px;
+  width: 18rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 480px) {
+  .row{
+    display: flex;
+    float: right;
+    margin-bottom: 20px;
+  }
+
+  .card{
+    margin-top: 40px;
+    margin-bottom: 40px;
+    width: 16rem;
+    border: 5px black;
+  }
+
+
+       }

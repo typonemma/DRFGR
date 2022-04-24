@@ -3,7 +3,6 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
         <title>Dashboard Admin - Yokogawa </title>
 
         <!-- Fonts -->
@@ -45,7 +44,7 @@
          <div class="box  p-3">
            <i class="uil-user"></i>
            <h3>{{ $drfWeek }}</h3>
-           <p class="lead">This Week drf</p>
+           <p class="lead">This Week DRF</p>
          </div>
        </div>
        <div class="col-md-6 col-lg-3 mb-4 mb-md-0">
@@ -59,7 +58,7 @@
          <div class="box  p-3">
            <i class="uil-feedback"></i>
            <h3>{{ $drfMonth }}</h3>
-           <p class="lead">This Month drf</p>
+           <p class="lead">This Month DRF</p>
          </div>
        </div>
      </div>

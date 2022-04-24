@@ -41,6 +41,19 @@
           </div>
         </div>
 
+        @forelse ($ivsp as $i)
+        <div class="card" style="width: 18rem;">
+          <img src="..." class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">{{ $i->id }}</h5>
+            <p class="card-text">{{ $i->ci_company_name }}</p>
+            <a href="{{ route('dashboardadmin.showIVSP') }}/{{ $i->id }}" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+        @empty
+          <h3>Null</h3>
+        @endforelse
+
 
     <script>
       $('#datepicker').datepicker({
