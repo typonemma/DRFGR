@@ -77,4 +77,10 @@ class Drf extends Model
         $result = self::whereYear('di_date',Carbon::now()->year)->get()->sortByDesc('id')->first();
         return ($result) ? $result->id : NULL;
     }
+
+    public static function findDRFWaiting()
+    {
+        return self::where('number_of_process', 0)
+        ->get();
+    }
 }

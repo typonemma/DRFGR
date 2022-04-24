@@ -27,11 +27,13 @@ class DashboardAdminController extends Controller
         $drfWeek = Drf::findDRFThisWeek();
         $ivspMonth = Ivsp::findIVSPThisMonth();
         $ivspWeek = Ivsp::findIVSPThisWeek();
+        $drfWaiting = Drf::findDRFWaiting();
         return view('dashboardadmin',[
             'drfMonth' => $drfMonth,
             'drfWeek' => $drfWeek,
             'ivspMonth' => $ivspMonth,
             'ivspWeek' => $ivspWeek,
+            'drf' => $drfWaiting,
         ]);
     }
 
@@ -95,6 +97,7 @@ class DashboardAdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    // Show Controller
     public function showDRF($id)
     {
         $drf = Drf::findDRFById($id);
@@ -137,19 +140,19 @@ class DashboardAdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function updateDRF(PutDRF $request, $id)
+    public function updateDRF(Request $request, $id)
     {
         $update['process'] = 'ACK By Admin';
-        $drf = Drf::findDRFById($id);
-        $update['number_of_process'] = $drf['number_of_process'] + 1;
+        $update['number_of_process'] = 1;
         Drf::updateDRFById($update, $id);
-        redirect(route('dashboardadmin.showDRF'))->with('success','DRF has been updated successfully');
+        redirect(route('dashboardadmin.showDRF'))->with('success','DRF has been acknowledged successfully');
     }
-    public function updateIVSP(PutIVSP $request, $id)
+    public function updateIVSP(Request $request, $id)
     {
-        $validatedData = $request->validated();
-        Ivsp::updateIVSPById($validatedData, $id);
-        redirect(route('dashboardadmin.showIVSP'))->with('success','IVSP has been updated successfully');
+        $update['process'] = 'ACK By Admin';
+        $update['number_of_process'] = 1;
+        Ivsp::updateIVSPById($update, $id);
+        redirect(route('dashboardadmin.showIVSP'))->with('success','IVSP has been acknowledged successfully');
     }
 
     /**
