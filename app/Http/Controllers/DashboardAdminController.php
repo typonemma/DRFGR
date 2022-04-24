@@ -81,14 +81,6 @@ class DashboardAdminController extends Controller
      * @return \Illuminate\Http\Response
      */
     // Form Controller
-    public function createDRF()
-    {
-        return view('formdrf');
-    }
-    public function createIVSP()
-    {
-        return view('formivsp');
-    }
 
     /**
      * Store a newly created resource in storage.
