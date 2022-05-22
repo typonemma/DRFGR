@@ -44,13 +44,13 @@
         <div class="card-header">{{ $d->id }}</div>
         <div class="card-body">
           <h5 class="card-title">{{ $d->ci_company_name }}</h5>
-          <p class="card-text">{{ $d->desc}}.</p>
+          <p class="card-text">{{ $d->desc}}</p>
+          <a href="#" class="text-secondary">More</a>
         </div>
       </div>
       @empty
-        <h3>Null</h3>
+        <h3 class="mt-4 ml-4">Tidak ada apapun bulan ini!</h3>
       @endforelse
-
 
 
 
