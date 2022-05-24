@@ -125,7 +125,7 @@ class DashboardAdminController extends Controller
     public function editDRF($id)
     {
         $drf = Drf::findDRFById($id);
-        return view('',[
+        return view('adddrf',[
             'drf' => $drf
         ]);
     }

@@ -36,7 +36,7 @@
       <div class="row top-tittle mt-4">
         <h1 class="col-md-8  font-weight-bold id-h1">DRF</h1>
         <p class="col-md-2"></p>
-        <a class="col-md-2 text-secondary edit"href="#"/>Edit</a>
+        <a class="col-md-2 text-secondary edit"href="{{route ('dashboardadmin.editDRF')}}"/>Edit</a>
       </div>
 
       <div class="row top-tittle mt-4">
@@ -46,14 +46,16 @@
 
 
 
+
+
         <div class="row sop_top mt-4">
           <p class="col-md-8 text">Acknowledge by Admin</p>
-            <p class="col-md-2"></p>
-            <form action="{{ route('dashboardadmin.updateDRF',$drf->id) }}" method="post">
+
+            <form action="{{ route('dashboardadmin.updateDRF',$drf->id) }}" method="post" class="col-md-4">
               @method('PUT')
               @csrf
-          <button class="col-sm-2 submit-btn" id="submit" style="" type="submit">Submit</button>
-        </form>
+              <button class=" submit-btn" id="submit" style="" type="submit">Submit</button>
+          </form>
         </div>
 
 

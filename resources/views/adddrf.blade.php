@@ -11,7 +11,7 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
         <link rel="stylesheet" type="text/css" href="css/navbar.css">
         <link rel="stylesheet" href="{{asset('css/form.css')}}">
-        <link rel="stylesheet" href="{{asset('css/sopdrfgr.css')}}">
+        <link rel="stylesheet" href="{{asset('css/admindashboard.css')}}">
 
             <!--Calling bootstrap-->
             <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -22,8 +22,7 @@
         		<meta name="viewport" content="width=device-width, initial-scale=1">
             <!--Calling Icon CSS-->
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-
-
+        <!-- Styles   -->
 
 
 
@@ -31,28 +30,7 @@
     @include('layouts.navbar')
     <body class="antialiased" style="background-image: #EAD689;">
 
-
-      <div class="row top-tittle mt-4">
-        <h1 class="col-md-8  font-weight-bold id-h1">DRF</h1>
-        <p class="col-md-2"></p>
-
-      </div>
-
-      <div class="row top-tittle mt-4">
-        <h2 class="col-md-8  font-weight-bold id-h2">Status : </h2>
-      </div>
-
-
-
-
-        <div class="row sop_top mt-4">
-          <p class="col-md-8 text">Review by GroupLeader</p>
-            <p class="col-md-2"></p>
-          <button class="col-sm-2 submit-btn" id="submit" style="">Submit</button>
-        </div>
-
-
-
+      <h5 style="font-weight:bold;">Add DRF</h5>
 
 
 

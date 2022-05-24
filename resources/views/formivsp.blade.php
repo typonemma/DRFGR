@@ -75,7 +75,7 @@
   <div>
     <label class="desc" id="title1" for="Field3">Customer Adress</label>
     <div>
-      <input id="Field3" name="customer_address" type="text" class="field text fn" value="" size="8" tabindex="1" placeholder="Customer Adress">
+      <input id="Field3" name="customer_address" type="text" class="field text fn" value="{{ old('customer_address') }}" size="8" tabindex="1" placeholder="Customer Adress">
         @error('customer_address')
           {{ $message }}
         @enderror
@@ -85,7 +85,7 @@
   <div>
     <label class="desc" id="title1" for="Field4">Customer Fax or Telephone</label>
     <div>
-      <input id="Field4" name="customer_telephone" type="text" class="field text fn" value="" size="8" tabindex="1" placeholder="Fax or Telephone">
+      <input id="Field4" name="customer_telephone" type="text" class="field text fn" value="{{ old('customer_telephone') }}" size="8" tabindex="1" placeholder="Fax or Telephone">
         @error('customer_telephone')
           {{ $message }}
         @enderror
@@ -97,7 +97,7 @@
   <div>
     <label class="desc" id="title1" for="Field5">Contact Person</label>
     <div>
-      <input id="Field5" name="contact_person" type="text" class="field text fn" value="" size="8" tabindex="1" placeholder="Contact Person">
+      <input id="Field5" name="contact_person" type="text" class="field text fn" value="{{ old('contact_person') }}" size="8" tabindex="1" placeholder="Contact Person">
       @error('contact_person')
           {{ $message }}
         @enderror
@@ -107,7 +107,7 @@
   <div>
     <label class="desc" id="title1" for="Field6">In date</label>
     <div>
-      <input id="Field6" name="in_date" type="text" class="field text fn" value="" size="8" tabindex="1" placeholder="In Date">
+      <input id="Field6" name="in_date" type="text" class="field text fn" value="{{ old('in_date') }}" size="8" tabindex="1" placeholder="In Date">
       @error('in_date')
           {{ $message }}
         @enderror
