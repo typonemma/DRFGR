@@ -35,6 +35,7 @@ class DashboardAdminController extends Controller
             'ivspMonth' => $ivspMonth,
             'ivspWeek' => $ivspWeek,
             'drf' => $drfAdmin,
+            'ivsp' => $ivspAdmin,
         ]);
     }
 
@@ -109,7 +110,7 @@ class DashboardAdminController extends Controller
     public function showIVSP($id)
     {
         $ivsp = Ivsp::findIVSPById($id);
-        return view('', [
+        return view('sop_gr.ackadm', [
             'ivsp' => $ivsp
         ]);
     }
@@ -120,6 +121,7 @@ class DashboardAdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    // GA KEPAKE
     public function editDRF($id)
     {
         $drf = Drf::findDRFById($id);
@@ -134,6 +136,7 @@ class DashboardAdminController extends Controller
             'ivsp' => $ivsp
         ]);
     }
+    // GAK KEPAKE
     /**
      * Update the specified resource in storage.
      *
@@ -146,14 +149,14 @@ class DashboardAdminController extends Controller
         $update['process'] = 'ACK By Admin';
         $update['number_of_process'] = 1;
         Drf::updateDRFById($update, $id);
-        redirect(route('dashboardadmin.showDRF'))->with('success','DRF has been acknowledged successfully');
+        return redirect()->intended(route('dashboardadmin.index'))->with('success','DRF has been acknowledged successfully');
     }
     public function updateIVSP(Request $request, $id)
     {
         $update['process'] = 'ACK By Admin';
         $update['number_of_process'] = 1;
         Ivsp::updateIVSPById($update, $id);
-        redirect(route('dashboardadmin.showIVSP'))->with('success','IVSP has been acknowledged successfully');
+        return redirect()->intended(route('dashboardadmin.index'))->with('success','IVSP has been acknowledged successfully');
     }
 
     /**

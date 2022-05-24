@@ -23,7 +23,12 @@
             <!--Calling Icon CSS-->
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
         <!-- Styles   -->
-
+        {{-- Session untuk  tampilin message --}}
+        @if (session()->has('success'))
+        <div class="alert alert-success col-lg-8" role="alert">
+            {{ session('success') }}
+        </div>
+        @endif
 
 
     </head>
@@ -78,6 +83,22 @@
                 <i class="uil-eye"></i>
                 <p class="lead">  {{ $d->id }}</p>
                 <a href="{{ route('dashboardadmin.showDRF', $d->id) }}" class="text-secondary">More</a>
+              </div>
+            </div>
+          </div>
+        </section>
+        @empty
+        @endforelse
+
+        @forelse ($ivsp as $i)
+
+        <section class="statis mt-4 text-center">
+          <div class="row">
+            <div class="col-md-12 ">
+              <div class="box  p-3" >
+                <i class="uil-eye"></i>
+                <p class="lead">  {{ $i->id }}</p>
+                <a href="{{ route('dashboardadmin.showDRF', $i->id) }}" class="text-secondary">More</a>
               </div>
             </div>
           </div>

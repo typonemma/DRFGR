@@ -35,23 +35,23 @@
       <div>
         <input id="radioDefault_1" name="for" type="hidden" value="">
         <div>
-          <input id="Field1_0" name="for" type="radio" value="Investigation" tabindex="5" checked="checked">
+          <input id="Field1_0" name="for" type="radio" value="Investigation" tabindex="5" {{ old('for') == 'investigation' ? "checked=checked" : '' }}>
           <label class="choice" for="for">Investigation</label>
         </div>
         <div>
-          <input id="Field5_1" name="for" type="radio" value="Service Note" tabindex="6">
+          <input id="Field5_1" name="for" type="radio" value="Service Note" tabindex="6" {{ old('for') == 'investigation' ? "checked=checked" : '' }}>
           <label class="choice" for="for">Service Note</label>
         </div>
         <div>
-          <input id="Field1_2" name="for" type="radio" value="Repair" tabindex="7">
+          <input id="Field1_2" name="for" type="radio" value="Repair" tabindex="7" {{ old('for') == 'investigation' ? "checked=checked" : '' }}>
           <label class="choice" for="for">Repair</label>
         </div>
         <div>
-          <input id="Field1_3" name="for" type="radio" value="Calibration" tabindex="7">
+          <input id="Field1_3" name="for" type="radio" value="Calibration" tabindex="7" {{ old('for') == 'investigation' ? "checked=checked" : '' }}>
           <label class="choice" for="for">Calibration</label>
         </div>
         <div>
-          <input id="CheckOther" name="for" type="radio" value="Other" tabindex="7" onclick="ShowHideDiv()">
+          <input id="CheckOther" name="for" type="radio" value="Other" tabindex="7" onclick="ShowHideDiv()" {{ old('for') == 'investigation' ? "checked=checked" : '' }}>
           <label class="choice" for="for"  name="Other_A" value="Other">Other</label>
         </div>
         <div id="dvtext" style="display: none">
@@ -65,7 +65,7 @@
   <div>
     <label class="desc" id="title1" for="Field2">Customer Name</label>
     <div>
-      <input id="Field2" name="customer_name" type="text" class="field text fn" value="" size="8" tabindex="1" placeholder="Customer Name">
+      <input id="Field2" name="customer_name" type="text" class="field text fn" value="{{ old('customer_name') }}" size="8" tabindex="1" placeholder="Customer Name">
         @error('customer_name')
           {{ $message }}
         @enderror
