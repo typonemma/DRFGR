@@ -13,7 +13,7 @@ use App\Http\Requests\StoreIVSP;
 
 class DashboardAdminController extends Controller
 {
-    
+
 
     /**
      * Display a listing of the resource.
@@ -102,7 +102,7 @@ class DashboardAdminController extends Controller
     public function showDRF($id)
     {
         $drf = Drf::findDRFById($id);
-        return view('',[
+        return view('sop_drf.ackadmn',[
             'drf' => $drf
         ]);
     }
