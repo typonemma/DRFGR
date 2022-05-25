@@ -11,7 +11,6 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
         <link rel="stylesheet" type="text/css" href="css/navbar.css">
         <link rel="stylesheet" href="{{asset('css/form.css')}}">
-        <link rel="stylesheet" href="{{asset('css/admindashboard.css')}}">
 
             <!--Calling bootstrap-->
             <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -30,8 +29,79 @@
     @include('layouts.navbar')
     <body class="antialiased" style="background-image: #EAD689;">
 
-      <h5 style="font-weight:bold;">Add DRF</h5>
+      <h1 style="font-weight:bold;" class="ml-4 mt-4 FDRF">Fullfill DRF - Only admin </h1>
+      <form class="" action="index.html" method="post">
+          <p class=" mt-4 CWS"  >Current Work Status</p>
+              <div class="CWS-set">
+                <fieldset>
 
+
+
+
+
+                  <div>
+                    <input id="radio" name="cc" type="hidden" value="">
+                    <div>
+                      <input id="Field2_0" name="cc" type="radio" value="Completed" tabindex="5" checked="checked">
+                      <label class="choice" for="CWS">Compeleted</label>
+                    </div>
+                    <div>
+                      <input id="Field2_1" name="cc" type="radio" value="Pending" tabindex="6">
+                      <label class="choice" for="CWS">Pending</label>
+                    </div>
+                    <div>
+                      <input id="Field2_4" name="cc" type="radio" value="Canceled" tabindex="7">
+                      <label class="choice" for="CWS">Canceled</label>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+
+              <div class="gl-add">
+                <label class="desc" id="title1" for="Field2">GL Initial</label>
+                <div>
+                  <input id="Field2" name="customer_name" type="text" class="field text fn" value="{{ old('customer_name') }}" size="8" tabindex="1" placeholder="Customer Name">
+                    @error('customer_name')
+                      {{ $message }}
+                    @enderror
+                </div>
+              </div>
+
+          	<button type="submit" class="btn btn-block btn-small mx-auto" ><i class="bi bi-check-lg"></i>Submit</button>
+
+
+<style media="screen">
+.btn {
+    color: #2A363B;
+    border-radius: 5px;
+    border-color: #2A363B;
+    border-radius: 5px;
+    border: 5px solid #2A363B;
+}
+.btn:hover, .btn:active, .btn.active, .btn.disabled, .btn[disabled] {
+    background-color: #DAC15F;
+}
+.btn-large {
+    padding: 9px 14px;
+    font-size: 15px;
+    line-height: normal;
+    border-radius: 5px;
+    border: 5px solid #2A363B;
+}
+.btn:hover {
+  color: #2A363B;
+  border-radius: 5px;
+  border-color: #2A363B;
+  border-radius: 5px;
+  border: 5px solid #2A363B;
+}
+
+
+.btn-block {
+    width: 50%;
+    display:block;
+}
+</style>
 
 
 

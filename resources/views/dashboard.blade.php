@@ -73,7 +73,7 @@
       @endif
 
 
-        <h5 style="font-weight:bold;" class="mt-4">Dashboard</h5>
+        <h5 style="font-weight:bold;" class="mt-4">In Progress</h5>
         @forelse ($drf as $d)
 
         <section class="statis mt-4 text-center">
