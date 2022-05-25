@@ -49,13 +49,13 @@
   <div>
     <label class="desc" id="title3" for="Field3">Cost Expenses Allocation :</label>
     <div>
-      <input id="Field3" name="cea_project" type="text" class="field text fn" value="" size="8" tabindex="1" placeholder="Project Number">
+      <input id="Field3" name="cea_project" type="text" class="field text fn" value="{{ old('cea_project') }}" size="8" tabindex="1" placeholder="Project Number">
     </div>
     @error('cea_project')
         {{ $message }}
     @enderror
     <div>
-      <input id="Field3" name="cea_svo" type="text" class="field text fn" value="" size="8" tabindex="1" placeholder="SVO Numbers">
+      <input id="Field3" name="cea_svo" type="text" class="field text fn" value="{{ old('cea_svo') }}" size="8" tabindex="1" placeholder="SVO Numbers">
     </div>
     @error('cea_svo')
         {{ $message }}
@@ -66,30 +66,30 @@
   <div>
     <label class="desc" id="title4" for="Field4">Customer Information :</label>
     <div>
-      <input id="Field4" name="ci_company_name" type="text" class="field text fn" value="" size="8" tabindex="1" placeholder="Company Name">
+      <input id="Field4" name="ci_company_name" type="text" class="field text fn" value="{{ old('ci_company_name') }}" size="8" tabindex="1" placeholder="Company Name">
     @error('ci_company_name')
         {{ $message }}
     @enderror
     </div>
     <div>
-      <input id="Field4" name="ci_phone_company" type="text" class="field text fn" value="" size="8" tabindex="1" placeholder="Phone Company">
+      <input id="Field4" name="ci_phone_company" type="text" class="field text fn" value="{{ old('ci_phone_company') }}" size="8" tabindex="1" placeholder="Phone Company">
     @error('ci_phone_company')
         {{ $message }}
     @enderror
     </div>
     <div>
-      <input id="Field4" name="ci_contact_person" type="text" class="field text fn" value="" size="8" tabindex="1" placeholder="Contact Person">
+      <input id="Field4" name="ci_contact_person" type="text" class="field text fn" value="{{ old('ci_contact_person') }}" size="8" tabindex="1" placeholder="Contact Person">
       @error('ci_contact_person')
           {{ $message }}
     @enderror
     </div>
     <div>
-      <input id="Field4" name="ci_email_company" type="text" class="field text fn" value="" size="8" tabindex="1" placeholder="Email Company">
+      <input id="Field4" name="ci_email_company" type="text" class="field text fn" value="{{ old('ci_email_company') }}" size="8" tabindex="1" placeholder="Email Company">
       @error('ci_email_company')
         {{ $message }}
     @enderror
     <div>
-      <input id="Field4" name="ci_address" type="text" class="field text fn" value="" size="8" tabindex="1" placeholder="Address">
+      <input id="Field4" name="ci_address" type="text" class="field text fn" value="{{ old('ci_address') }}" size="8" tabindex="1" placeholder="Address">
       @error('ci_address')
         {{ $message }}
     @enderror
@@ -99,13 +99,13 @@
   <div>
     <label class="desc" id="title5" for="Field5">Dispatch Information</label>
     <div>
-      <input id="Field5" name="di_date" type="text" class="field text fn" value="" size="8" tabindex="1" placeholder="Date : 2022-03-30">
+      <input id="Field5" name="di_date" type="text" class="field text fn" value="{{ old('di_date') }}" size="8" tabindex="1" placeholder="Date : 2022-03-30">
       @error('di_date')
         {{ $message }}
     @enderror
     </div>
     <div>
-      <input id="Field5" name="di_duration" type="text" class="field text fn" value="" size="8" tabindex="1" placeholder="Duration">
+      <input id="Field5" name="di_duration" type="text" class="field text fn" value="{{ old('di_duration') }}" size="8" tabindex="1" placeholder="Duration">
       @error('di_duration')
         {{ $message }}
     @enderror
@@ -149,7 +149,7 @@
   <div>
     <label class="desc" id="title7" for="Field7">Sitework Location</label>
     <div>
-      <input id="Field7" name="sitework_location" type="text" class="field text fn" value="" size="8" tabindex="1" placeholder="Location SiteWork">
+      <input id="Field7" name="sitework_location" type="text" class="field text fn" value="{{ old('sitework_location') }}" size="8" tabindex="1" placeholder="Location SiteWork">
       @error('sitework_location')
         {{ $message }}
       </div>
@@ -328,7 +328,7 @@
     <label class="desc" id="title12" for="Field12">
         Upload File
     </label>
-    <input type="file" name="upload" id="upload" class="upload-box" placeholder="Upload File">
+    <input type="file" name="upload" id="upload" class="upload-box" placeholder="Upload File" >
       @error('description')
         {{ $message }}
 
