@@ -98,7 +98,7 @@
               <div class="box  p-3" >
                 <i class="uil-eye"></i>
                 <p class="lead">  {{ $i->id }}</p>
-                <a href="{{ route('dashboardadmin.showDRF', $i->id) }}" class="text-secondary">More</a>
+                <a href="{{ route('dashboardadmin.showIVSP', $i->id) }}" class="text-secondary">More</a>
               </div>
             </div>
           </div>

@@ -121,7 +121,7 @@ class DashboardAdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    // GA KEPAKE
+
     public function editDRF($id)
     {
         $drf = Drf::findDRFById($id);
@@ -136,7 +136,27 @@ class DashboardAdminController extends Controller
             'ivsp' => $ivsp
         ]);
     }
-    // GAK KEPAKE
+
+    public function updateDRF(Request $request, $id)
+    {
+        $validatedData = $request->validate([
+            'gl_initial' => 'required',
+            'current_work_status' => 'required',
+        ]);
+        Drf::updateDRFById($validatedData, $id);
+        return redirect()->route('dashboardadmin.showDRF', $id)->with('success', 'DRF has been updated');
+    }
+
+    public function updateIVSP(Request $request, $id)
+    {
+        $validatedData = $request->validate([
+            'gl_initial' => 'required',
+            'current_work_status' => 'required',
+        ]);
+        Ivsp::updateIVSPById($validatedData, $id);
+        return redirect()->route('dashboardadmin.showIVSP', $id)->with('success', 'IVSP has been updated');
+    }
+
     /**
      * Update the specified resource in storage.
      *
@@ -144,14 +164,14 @@ class DashboardAdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function updateDRF(Request $request, $id)
+    public function drfProcessAdmin(Request $request, $id)
     {
         $update['process'] = 'ACK By Admin';
         $update['number_of_process'] = 1;
         Drf::updateDRFById($update, $id);
         return redirect()->intended(route('dashboardadmin.index'))->with('success','DRF has been acknowledged successfully');
     }
-    public function updateIVSP(Request $request, $id)
+    public function ivspProcessAdmin(Request $request, $id)
     {
         $update['process'] = 'ACK By Admin';
         $update['number_of_process'] = 1;
