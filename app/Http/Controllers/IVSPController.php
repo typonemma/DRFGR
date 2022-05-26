@@ -96,7 +96,6 @@ class IVSPController extends Controller
             ]);
         }else{
             $ivsp = Ivsp::allIVSPOrderByNumberOfProcesses();
-            dd($ivsp);
             return view('history.ivsphistory', [
                 'ivsp' => $ivsp,
             ]);

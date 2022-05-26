@@ -57,15 +57,15 @@ Route::post('/dashboardadmin/drfprocessadmin/{id}', [DashboardAdminController::c
 Route::post('/dashboardadmin/ivspprocessadmin/{id}', [DashboardAdminController::class, 'ivspProcessAdmin'])->name('dashboardadmin.ivspProcessAdmin')->middleware('admin');
 
 // DRF ADMIN
-Route::resource('/dashboardadmin/drf', DRFController::class)->middleware('admin')->except(['create', 'store','index']);
-Route::get('/dashboardadmin/drf/history', [DRFController::class, 'history'])->name('drf.history')->middleware('admin');
+Route::get('/dashboardadmin/historydrf', [DRFController::class, 'history'])->name('drf.history')->middleware('admin');
 Route::get('/dashboardadmin/drf/sop/{id}', [DRFController::class, 'sop'])->name('drf.sop')->middleware('admin');
+Route::resource('/dashboardadmin/drf', DRFController::class)->middleware('admin')->except(['create', 'store','index']);
 
 
 //IVSP ADMIN
-Route::resource('/dashboardadmin/ivsp', IVSPController::class)->middleware('admin')->except(['edit','index','update','create']);
-Route::get('/dashboardadmin/ivsp/history', [IVSPController::class, 'history'])->name('ivsp.history')->middleware('admin');
+Route::get('/dashboardadmin/historyivsp', [IVSPController::class, 'history'])->name('ivsp.history')->middleware('admin');
 Route::get('/dashboardadmin/ivsp/sop/{id}', [IVSPController::class, 'sop'])->name('ivsp.sop')->middleware('admin');
+Route::resource('/dashboardadmin/ivsp', IVSPController::class)->middleware('admin')->except(['edit','index','update','create']);
 
 
 // END DASHBOARD ADMIN

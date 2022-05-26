@@ -34,7 +34,7 @@
     <body class="antialiased" style="background-image: #EAD689;">
         <div class="row justify-content-md-left picker-date" >
           <div class="picker">
-            <form class="POST" method="GET" action='{{ route('dashboardadmin.historyDRF') }}'>
+            <form class="POST" method="GET" action='{{ route('ivsp.history') }}'>
               <input type="month" name="datepicker" id="start" min="2022-01" value="2022-01">
               <button type="submit" value="submit" id="submit" name="submit" style="border-radius:5px; " class="mt-4 ">Submit </button>
             </form>
@@ -47,7 +47,7 @@
           <div class="card-body">
             <h5 class="card-title">{{ $i->id }}</h5>
             <p class="card-text">{{ $i->ci_company_name }}</p>
-            <a href="{{ route('dashboardadmin.showIVSP') }}/{{ $i->id }}" class="btn btn-primary">Go somewhere</a>
+            <a href="{{ route('drf.show',$i->id) }}" class="btn btn-primary">More</a>
           </div>
         </div>
         @empty

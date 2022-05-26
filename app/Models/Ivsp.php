@@ -110,6 +110,7 @@ class Ivsp extends Model
 
     public static function allIVSPOrderByNumberOfProcesses()
     {
-        return self::orderBy('number_of_process', 'asc');
+        return self::all()
+        ->sortBy('number_of_process');
     }
 }

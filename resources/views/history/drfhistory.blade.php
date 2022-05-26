@@ -32,7 +32,7 @@
     <body class="antialiased" style="background-image: #EAD689;">
       <div class="row justify-content-md-left" style="display: flex;">
         <div class="">
-          <form class="POST" method="GET" action='{{ route('dashboardadmin.historyDRF') }}'>
+          <form class="POST" method="GET" action='{{ route('drf.history') }}'>
             <input type="month" name="datepicker" id="start" min="2022-01" value="{{ $datepicker ? $datepicker : '2022-01' }}">
             <button type="submit" value="submit" id="submit" name="submit" style="border-radius:5px; " class="mt-4 ">Submit </button>
           </form>
@@ -45,7 +45,7 @@
         <div class="card-body">
           <h5 class="card-title">{{ $d->ci_company_name }}</h5>
           <p class="card-text">{{ $d->desc}}</p>
-          <a href="#" class="text-secondary">More</a>
+          <a href="{{ route('ivsp.show',$d->id) }}" class="text-secondary">More</a>
         </div>
       </div>
       @empty

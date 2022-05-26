@@ -94,7 +94,6 @@ class DRFController extends Controller
     //History DRF
     public function history(Request $request)
     {
-        dd('test');
         $monthAndYear = $request->query->get('datepicker');
         if($monthAndYear){
             $month = intval(substr($monthAndYear, 5, 2));
