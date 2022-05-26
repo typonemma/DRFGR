@@ -57,7 +57,7 @@ class DashboardUserController extends Controller
     public function storeIVSP(StoreIVSP $request)
     {
         $validatedData = $request->validated();
-        $lastIVSP = DRF::checkDRFid();
+        $lastIVSP = Ivsp::checkIVSPid();
         if($lastIVSP){
             $number = (int)substr($lastIVSP, -4);
             $number++;

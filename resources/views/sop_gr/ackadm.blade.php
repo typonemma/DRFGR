@@ -33,7 +33,7 @@
 
 
       <div class="row top-tittle mt-4">
-        <h1 class="col-md-8  font-weight-bold id-h1">DRF</h1>
+        <h1 class="col-md-8  font-weight-bold id-h1">IVSP</h1>
         <p class="col-md-2"></p>
 
       </div>
@@ -47,8 +47,10 @@
 
         <div class="row sop_top mt-4">
           <p class="col-md-8 text">Acknowledge by Admin</p>
-            <p class="col-md-2"></p>
-          <button class="col-sm-2 submit-btn" id="submit" style="">Submit</button>
+            <form action="{{ route('dashboardadmin.ivspProcessAdmin',$drf->id) }}" method="post" class="col-md-4">
+              @csrf
+              <button class=" submit-btn" id="submit" style="" type="submit">Submit</button>
+          </form>
         </div>
 
 

@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\DashboardAdminController;
 use App\Http\Controllers\DashboardUserController;
+use App\Http\Controllers\DRFController;
+use App\Http\Controllers\IVSPController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\SearchController;
@@ -49,21 +51,23 @@ Route::get('/logingl', [LoginController::class, 'indexGL'])->name('logingl.index
 
 
 // DASHBOARD ADMIN
-Route::get('/dashboardadmin/formdrf', [DashboardAdminController::class, 'createDRF'])->name('dashboardadmin.createDRF')->middleware('admin');
-Route::get('/dashboardadmin/formivsp', [DashboardAdminController::class, 'createIVSP'])->name('dashboardadmin.createIVSP')->middleware('admin');
-Route::get('/dashboardadmin/editdrf/{id}', [DashboardAdminController::class, 'editDRF'])->name('dashboardadmin.editDRF')->middleware('admin');
-Route::get('/dashboardadmin/editivsp/{id}', [DashboardAdminController::class, 'editIVSP'])->name('dashboardadmin.editIVSP')->middleware('admin');
-Route::get('/dashboardadmin/showdrf/{id}', [DashboardAdminController::class, 'showDRF'])->name('dashboardadmin.showDRF')->middleware('admin');
-Route::get('/dashboardadmin/showivsp/{id}', [DashboardAdminController::class, 'showIVSP'])->name('dashboardadmin.showIVSP')->middleware('admin');
-Route::put('/dashboardadmin/updatedrf/{id}', [DashboardAdminController::class, 'updateDRF'])->name('dashboardadmin.updateDRF')->middleware('admin');
-Route::put('/dashboardadmin/updateivsp/{id}', [DashboardAdminController::class, 'updateIVSP'])->name('dashboardadmin.updateIVSP')->middleware('admin');
-Route::delete('/dashboardadmin/destroydrf/{id}', [DashboardAdminController::class, 'destroyDRF'])->name('dashboardadmin.destroyDRF')->middleware('admin');
-Route::delete('/dashboardadmin/destroyivsp/{id}', [DashboardAdminController::class, 'destroyIVSP'])->name('dashboardadmin.destroyIVSP')->middleware('admin');
+Route::get('/dashboardadmin', [DashboardAdminController::class, 'index'])->name('dashboardadmin.index')->middleware('admin');
 Route::get('/dashboardadmin/history', [DashboardAdminController::class, 'history'])->name('dashboardadmin.history')->middleware('admin');
-Route::get('/dashboardadmin/historyivsp', [DashboardAdminController::class, 'historyIVSP'])->name('dashboardadmin.historyIVSP')->middleware('admin');
-Route::get('/dashboardadmin/historydrf', [DashboardAdminController::class, 'historyDRF'])->name('dashboardadmin.historyDRF')->middleware('admin');
+Route::post('/dashboardadmin/drfprocessadmin', [DashboardAdminController::class, 'drfProcessAdmin'])->name('dashboardadmin.drfProcessAdmin')->middleware('admin');
+Route::post('/dashboardadmin/ivspprocessadmin', [DashboardAdminController::class, 'ivspProcessAdmin'])->name('dashboardadmin.ivspProcessAdmin')->middleware('admin');
 
-Route::resource('dashboardadmin', DashboardAdminController::class)->only('index')->middleware('admin');
+// DRF ADMIN
+Route::resource('/dashboardadmin/drf', DRFController::class)->middleware('admin');
+Route::get('/dashboardadmin/drf/history', [DRFController::class, 'history'])->name('drf.history')->middleware('admin');
+Route::get('/dashboardadmin/drf/sop/{id}', [DRFController::class, 'sop'])->name('drf.sop')->middleware('admin');
+
+
+//IVSP ADMIN
+Route::resource('/dashboardadmin/ivsp', IVSPController::class)->middleware('admin');
+Route::get('/dashboardadmin/ivsp/history', [IVSPController::class, 'history'])->name('ivsp.history')->middleware('admin');
+Route::get('/dashboardadmin/ivsp/sop/{id}', [IVSPController::class, 'sop'])->name('ivsp.sop')->middleware('admin');
+
+
 // END DASHBOARD ADMIN
 
 // DASHBOARD USER
