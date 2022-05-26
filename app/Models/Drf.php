@@ -10,8 +10,17 @@ class Drf extends Model
 {
     use HasFactory;
     public $timestamps = false;
-    protected $table = 'drf';
     public $incrementing = false;
+
+    private static $__admin = 0;
+    private static $__ackGL = 1;
+    private static $__engineer = 2;
+    private static $__qc = 3;
+    private static $__reviewGL = 4;
+    private static $__manager = 5;
+
+
+    protected $table = 'drf';
     protected $keyType = 'string';
     protected $fillable = [
         'id',
@@ -80,27 +89,37 @@ class Drf extends Model
 
     public static function findDRFAdmin()
     {
-        return self::where('number_of_process', 0)
+        return self::where('number_of_process', self::$__admin)
         ->get();
     }
 
-    public static function findDRFGL()
+    public static function findDRFAckGL()
     {
-        return self::where('number_of_process', 1)
+        return self::where('number_of_process', self::$__ackGL)
         ->get();
     }
 
     public static function findDRFEngineer()
     {
-        return self::where('number_of_process', 2)
-        ->orWhere('number_of_process', 3)
+        return self::where('number_of_process', self::$__engineer)
         ->get();
     }
 
-    public static function findDRFManager()
+    public static function findDRFQC()
     {
-        return self::where('number_of_process', 4)
-        ->orWhere('number_of_process', 5)
+        return self::where('number_of_process', self::$__qc)
+        ->get();
+    }
+
+    public static function findDRFReviewGL()
+    {
+        return self::where('number_of_process', self::$__reviewGL)
+        ->get();
+    }
+
+    public static function findDRFReviewManager()
+    {
+        return self::where('number_of_process', self::$__manager)
         ->get();
     }
 }

@@ -8,9 +8,17 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Ivsp extends Model
 {
+    private static $__admin = 0;
+    private static $__ackGL = 1;
+    private static $__engineer = 2;
+    private static $__reviewGL = 3;
+    private static $__reviewManager = 4;
+    private static $__approveManager = 5;
+
     public $timestamps = false;
-    protected $table = 'ivsp';
     public $incrementing = false;
+
+    protected $table = 'ivsp';
     protected $keyType = 'string';
     protected $fillable = [
         'id',
@@ -67,25 +75,35 @@ class Ivsp extends Model
     }
     public static function findIVSPAdmin()
     {
-        return self::where('number_of_process', 0)
+        return self::where('number_of_process', self::$__admin)
         ->get();
     }
-    public static function findIVSPGL()
+    public static function findIVSPAckGL()
     {
-        return self::where('number_of_process', 1)
+        return self::where('number_of_process', self::$__ackGL)
         ->get();
     }
     public static function findIVSPEngineer()
     {
-        return self::where('number_of_process', 2)
-        ->orWhere('number_of_process', 3)
+        return self::where('number_of_process', self::$__engineer)
         ->get();
     }
 
-    public static function findIVSPManager()
+    public function findIVSPReviewGL()
     {
-        return self::where('number_of_process', 4)
-        ->orWhere('number_of_process', 5)
+        return self::where('number_of_process', self::$__reviewGL)
+        ->get();
+    }
+
+    public function findIVSPReviewManager()
+    {
+        return self::where('number_of_process', self::$__reviewManager)
+        ->get();
+    }
+
+    public function findIVSPApproveManager()
+    {
+        return self::where('number_of_process', self::$__approveManager)
         ->get();
     }
 }

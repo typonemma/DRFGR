@@ -47,7 +47,7 @@
 
         <div class="row sop_top mt-4">
           <p class="col-md-8 text">Acknowledge by Admin</p>
-            <form action="{{ route('dashboardadmin.ivspProcessAdmin',$drf->id) }}" method="post" class="col-md-4">
+            <form action="{{ route('dashboardadmin.ivspProcessAdmin',$ivsp->id) }}" method="post" class="col-md-4">
               @csrf
               <button class=" submit-btn" id="submit" style="" type="submit">Submit</button>
           </form>

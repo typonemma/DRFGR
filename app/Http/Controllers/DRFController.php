@@ -58,7 +58,7 @@ class DRFController extends Controller
     public function edit($id)
     {
         $drf = Drf::findDRFById($id);
-        return view('adddrf',[
+        return view('adddrfadmin.adddrf',[
             'drf' => $drf
         ]);
     }

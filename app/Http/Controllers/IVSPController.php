@@ -57,10 +57,7 @@ class IVSPController extends Controller
      */
     public function edit($id)
     {
-        $ivsp = Ivsp::findIVSPById($id);
-        return view('', [
-            'ivsp' => $ivsp
-        ]);
+
     }
 
     /**
@@ -72,12 +69,7 @@ class IVSPController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $validatedData = $request->validate([
-            'gl_initial' => 'required',
-            'current_work_status' => 'required',
-        ]);
-        Ivsp::updateIVSPById($validatedData, $id);
-        return redirect()->route('dashboardadmin.showIVSP', $id)->with('success', 'IVSP has been updated');
+        
     }
 
     /**

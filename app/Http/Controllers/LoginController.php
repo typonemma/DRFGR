@@ -11,7 +11,7 @@ class LoginController extends Controller
     // LOGIN ADMIN
     public function index()
     {
-        return view('login', ['title' => 'Login Admin']);
+        return view('loginregister.login', ['title' => 'Login Admin']);
     }
     public function authenticate(StoreLogin $request)
     {
@@ -39,14 +39,14 @@ class LoginController extends Controller
     // LOGIN GL
     public function indexGL()
     {
-        return view('login', ['title' => 'Login GL']);
+        return view('loginregister.login', ['title' => 'Login GL']);
     }
     // END LOGIN GL
 
     // LOGIN USERS
     public function indexUser()
     {
-        return view('login', ['title' => 'Login User']);
+        return view('loginregister.login', ['title' => 'Login User']);
     }
     // END LOGIN USERS
 

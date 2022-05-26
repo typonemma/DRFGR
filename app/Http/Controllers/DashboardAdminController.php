@@ -26,7 +26,7 @@ class DashboardAdminController extends Controller
         $ivspWeek = Ivsp::findIVSPThisWeek();
         $drfAdmin = Drf::findDRFAdmin();
         $ivspAdmin = Ivsp::findIVSPAdmin();
-        return view('dashboard',[
+        return view('dashboard.dashboard',[
             'drfMonth' => $drfMonth,
             'drfWeek' => $drfWeek,
             'ivspMonth' => $ivspMonth,
@@ -38,7 +38,7 @@ class DashboardAdminController extends Controller
 
     public function history()
     {
-        return view('history');
+        return view('history.history');
     }
 
 

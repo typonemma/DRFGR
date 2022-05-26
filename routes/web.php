@@ -53,17 +53,17 @@ Route::get('/logingl', [LoginController::class, 'indexGL'])->name('logingl.index
 // DASHBOARD ADMIN
 Route::get('/dashboardadmin', [DashboardAdminController::class, 'index'])->name('dashboardadmin.index')->middleware('admin');
 Route::get('/dashboardadmin/history', [DashboardAdminController::class, 'history'])->name('dashboardadmin.history')->middleware('admin');
-Route::post('/dashboardadmin/drfprocessadmin', [DashboardAdminController::class, 'drfProcessAdmin'])->name('dashboardadmin.drfProcessAdmin')->middleware('admin');
-Route::post('/dashboardadmin/ivspprocessadmin', [DashboardAdminController::class, 'ivspProcessAdmin'])->name('dashboardadmin.ivspProcessAdmin')->middleware('admin');
+Route::post('/dashboardadmin/drfprocessadmin/{id}', [DashboardAdminController::class, 'drfProcessAdmin'])->name('dashboardadmin.drfProcessAdmin')->middleware('admin');
+Route::post('/dashboardadmin/ivspprocessadmin/{id}', [DashboardAdminController::class, 'ivspProcessAdmin'])->name('dashboardadmin.ivspProcessAdmin')->middleware('admin');
 
 // DRF ADMIN
-Route::resource('/dashboardadmin/drf', DRFController::class)->middleware('admin');
+Route::resource('/dashboardadmin/drf', DRFController::class)->middleware('admin')->except(['create', 'store','index']);
 Route::get('/dashboardadmin/drf/history', [DRFController::class, 'history'])->name('drf.history')->middleware('admin');
 Route::get('/dashboardadmin/drf/sop/{id}', [DRFController::class, 'sop'])->name('drf.sop')->middleware('admin');
 
 
 //IVSP ADMIN
-Route::resource('/dashboardadmin/ivsp', IVSPController::class)->middleware('admin');
+Route::resource('/dashboardadmin/ivsp', IVSPController::class)->middleware('admin')->except(['edit','index','update','create']);
 Route::get('/dashboardadmin/ivsp/history', [IVSPController::class, 'history'])->name('ivsp.history')->middleware('admin');
 Route::get('/dashboardadmin/ivsp/sop/{id}', [IVSPController::class, 'sop'])->name('ivsp.sop')->middleware('admin');
 
