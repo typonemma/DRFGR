@@ -94,18 +94,20 @@ class DRFController extends Controller
     //History DRF
     public function history(Request $request)
     {
+        dd('test');
         $monthAndYear = $request->query->get('datepicker');
         if($monthAndYear){
             $month = intval(substr($monthAndYear, 5, 2));
             $year = intval(substr($monthAndYear, 0, 4));
             $drf = Drf::findDRFByMonthAndYear($month, $year);
-            return view('drfhistory', [
+            return view('history.drfhistory', [
                 'drf' => $drf,
                 'datepicker' => $monthAndYear,
             ]);
         }else{
-            return view('drfhistory', [
-                'drf' => [],
+            $drf = Drf::allDRFOrderByNumberOfProcesses();
+            return view('history.drfhistory', [
+                'drf' => $drf,
                 'datepicker' => '',
             ]);
         }

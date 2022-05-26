@@ -56,6 +56,7 @@ class Ivsp extends Model
     {
         return self::whereMonth('in_date', $month)
         ->whereYear('in_date', $year)
+        ->orderBy('number_of_process', 'asc')
         ->get();
     }
     public static function findIVSPThisWeek()
@@ -89,21 +90,26 @@ class Ivsp extends Model
         ->get();
     }
 
-    public function findIVSPReviewGL()
+    public static function findIVSPReviewGL()
     {
         return self::where('number_of_process', self::$__reviewGL)
         ->get();
     }
 
-    public function findIVSPReviewManager()
+    public static function findIVSPReviewManager()
     {
         return self::where('number_of_process', self::$__reviewManager)
         ->get();
     }
 
-    public function findIVSPApproveManager()
+    public static function findIVSPApproveManager()
     {
         return self::where('number_of_process', self::$__approveManager)
         ->get();
+    }
+
+    public static function allIVSPOrderByNumberOfProcesses()
+    {
+        return self::orderBy('number_of_process', 'asc');
     }
 }

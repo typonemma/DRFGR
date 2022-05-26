@@ -69,7 +69,7 @@ class IVSPController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
+
     }
 
     /**
@@ -84,18 +84,22 @@ class IVSPController extends Controller
         return redirect()->route('dashboardadmin.showIVSP', $id)->with('success', 'IVSP has been deleted');
     }
 
-    function history(Request $request)
+    public function history(Request $request)
     {
         $monthAndYear = $request->query->get('datepicker');
         if($monthAndYear){
             $month = intval(substr($monthAndYear, 5, 2));
             $year = intval(substr($monthAndYear, 0, 4));
             $ivsp = Ivsp::findIvspByMonthAndYear($month, $year);
-            return view('historyivsp', [
+            return view('history.ivsphistory', [
                 'ivsp' => $ivsp,
             ]);
         }else{
-            return view('ivsphistory');
+            $ivsp = Ivsp::allIVSPOrderByNumberOfProcesses();
+            dd($ivsp);
+            return view('history.ivsphistory', [
+                'ivsp' => $ivsp,
+            ]);
         }
     }
 

@@ -67,8 +67,10 @@ class Drf extends Model
     {
         return self::whereMonth('di_date', $month)
         ->whereYear('di_date', $year)
+        ->orderBy('number_of_process', 'asc')
         ->get();
     }
+    
     public static function findDRFThisWeek()
     {
         return self::whereBetween('di_date', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])
@@ -121,5 +123,10 @@ class Drf extends Model
     {
         return self::where('number_of_process', self::$__manager)
         ->get();
+    }
+
+    public static function allDRFOrderByNumberOfProcesses()
+    {
+        return self::all()->sortBy('number_of_process');
     }
 }
