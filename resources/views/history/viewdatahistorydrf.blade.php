@@ -161,7 +161,7 @@
           <div>
             <form action="{{ route('download.index') }}" method="post">
               @csrf
-              <input type="hidden" name="dokumen_penting" value="{{ $drf->dokumen_pendukung }}">
+              <input type="hidden" name="dokumen_pendukung" value="{{ $drf->dokumen_pendukung }}">
                 <button type="submit" name="button">Download</button>
             </form>
           </div>

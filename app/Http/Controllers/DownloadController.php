@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use Facade\FlareClient\Http\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 class DownloadController extends Controller
 {
     public function index(Request $request){
-        $path = $request->get('path');
-        return Storage::download('drf/' . $path);
+        $file = $request->post('dokumen_pendukung');
+        return Response()->download($file);
     }
 }
