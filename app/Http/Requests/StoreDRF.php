@@ -42,7 +42,8 @@ class StoreDRF extends FormRequest
             'scope_model_code' => 'required',
             'post_work_document' => 'required|max:50',
             'work_type' => 'required|max:50',
-            'description' => 'required'
+            'description' => 'required',
+            'dokumen_pendukung' => 'required|mimes:pdf,doc,docx|max:5120',
         ];
     }
 }

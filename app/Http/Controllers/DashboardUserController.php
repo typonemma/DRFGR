@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Models\IvspNomorModel;
 use App\Http\Requests\StoreDRF;
 use App\Http\Requests\StoreIVSP;
+use Illuminate\Support\Facades\Storage;
 
 class DashboardUserController extends Controller
 {
@@ -46,13 +47,20 @@ class DashboardUserController extends Controller
             $number++;
             $validatedData['id'] = "DRF-" . substr($validatedData['di_date'],2,2) . "-" . str_pad($number,3,"0",STR_PAD_LEFT);
             $id = $validatedData['id'];
+            Storage::upload('DRF', $id, $request->file('dokumen_pendukung'));
+            dd('sukses');
+            $validatedData['dokumen_pendukung'] = $id;
         }else {
             $validatedData['id'] = "DRF-" . substr($validatedData['di_date'],2,2) . "-001";
             $id = $validatedData['id'];
+            Storage::upload('DRF', $id, $request->file('dokumen_pendukung'));
+            $validatedData['dokumen_pendukung'] = $id;
+            dd('sukses');
         }
-
         Drf::create($validatedData);
-        return redirect()->intended(route('dashboarduser.formDRF'))->with('success','DRF has been added successfully. Your id is ' . $id);
+        // return redirect()->intended(route('dashboarduser.formDRF'))->with('success','DRF has been added successfully. Your id is ' . $id);
+
+        
     }
     public function storeIVSP(StoreIVSP $request)
     {

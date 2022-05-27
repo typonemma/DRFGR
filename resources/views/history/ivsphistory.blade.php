@@ -54,7 +54,6 @@
           <h3>Null</h3>
         @endforelse
 
-
     <script>
       $('#datepicker').datepicker({
           uiLibrary: 'bootstrap4'
