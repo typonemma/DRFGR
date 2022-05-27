@@ -45,7 +45,7 @@
         <div class="card-body">
           <h5 class="card-title">{{ $d->ci_company_name }}</h5>
           <p class="card-text">{{ $d->desc}}</p>
-          <a href="{{ route('ivsp.show',$d->id) }}" class="text-secondary">More</a>
+          <a href="{{ route('drf.show',$d->id) }}" class="text-secondary">More</a>
         </div>
       </div>
       @empty

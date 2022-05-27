@@ -46,7 +46,10 @@ class DRFController extends Controller
      */
     public function show($id)
     {
-        
+        $drf = Drf::findDRFById($id);
+        return view('history.viewdatahistorydrf', [
+            'drf' => $drf,
+        ]);
     }
 
     /**

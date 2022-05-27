@@ -46,7 +46,10 @@ class IVSPController extends Controller
      */
     public function show($id)
     {
-        
+        $ivsp = Ivsp::findIVSPById($id);
+        return view('history.viewdatahistorygr', [
+            'ivsp' => $ivsp,
+        ]);
     }
 
     /**
