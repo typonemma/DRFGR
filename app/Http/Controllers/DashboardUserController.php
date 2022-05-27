@@ -24,18 +24,18 @@ class DashboardUserController extends Controller
         $date = strtotime($drf['di_date'] . '. + ' . $drf['di_duration'] . ' days ');
         $drf['estimate'] = date('Y-m-d',$date);
         }
-        return view('dashboarduser', [
+        return view('dashboard.dashboarduser', [
             'drf' => $drf,
             'ivsp' => $ivsp,
         ]);
     }
     public function createDRF()
     {
-        return view('formdrf');
+        return view('form.formdrf');
     }
     public function createIVSP()
     {
-        return view('formivsp');
+        return view('form.formivsp');
     }
     public function storeDRF(StoreDRF $request)
     {
@@ -50,7 +50,7 @@ class DashboardUserController extends Controller
             $validatedData['id'] = "DRF-" . substr($validatedData['di_date'],2,2) . "-001";
             $id = $validatedData['id'];
         }
-        
+
         Drf::create($validatedData);
         return redirect()->intended(route('dashboarduser.formDRF'))->with('success','DRF has been added successfully. Your id is ' . $id);
     }
