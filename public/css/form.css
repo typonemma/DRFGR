@@ -34,13 +34,14 @@ form > div > fieldset > div > div {
 }
 form > div > label,
 legend {
-	width: 30%;
+	width: 45%;
   float: left;
   padding-right: 10px;
+  text-align: left;
 }
 form > div > div,
 form > div > fieldset > div {
-  width:60%;
+  width: 52%;
   float: right;
 }
 form > div > fieldset label {

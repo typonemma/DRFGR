@@ -34,13 +34,13 @@
 
 
       <div class="row top-tittle mt-4">
-        <h1 class="col-md-8  font-weight-bold id-h1">DRF</h1>
+        <h1 class="col-md-8  font-weight-bold id-h1"> {{ $drf->id }}</h1>
         <p class="col-md-2"></p>
 
       </div>
 
       <div class="row top-tittle mt-4">
-        <h2 class="col-md-8  font-weight-bold id-h2">Status : </h2>
+        <h2 class="col-md-8  font-weight-bold id-h2">Status : {{ $drf->process }} </h2>
       </div>
 
 

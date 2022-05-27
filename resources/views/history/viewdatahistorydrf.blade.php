@@ -26,7 +26,7 @@
       <form action="#" method="post">
         @csrf
         <header>
-          <h2>Goods Receive Form</h2>
+          <h2>{{ $drf->id }}</h2>
         </header>
 
         <div class="">
@@ -130,7 +130,7 @@
           <div>
           <label class="desc">Scope Model Code :</label>
           <div>
-            <p class="desc">{{ $drf->scope_model_code }}<</p>
+            <p class="desc">{{ $drf->scope_model_code }}</p>
           </div>
         </div>
 
@@ -152,6 +152,19 @@
           <label class="desc">Description:</label>
           <div>
             <p class="desc">{{ $drf->description }}</p>
+          </div>
+        </div>
+
+
+
+        <div>
+          <label class="desc">Document:</label>
+          <div>
+            <form class="" action="index.html" method="post">
+              <input type="hidden" name="dokumen_penting" value="dokumen_penting">
+                <p class="desc">{{ $drf->dokumen_pendukung }}</p>
+                <button name="button" type="submit">Submit</button>
+            </form>
           </div>
         </div>
 

@@ -16,138 +16,54 @@
 
 
     </head>
-    @include('layouts.usernavbar')
+    @include('layouts.navbar')
 
     <body class="antialiased" style="background-image: #EAD689;">
       <form action="#" method="post">
         @csrf
         <header>
-          <h2>Goods Receive Form</h2>
+          <h2 style="margin-left:5%;">{{ $ivsp -> id }}</h2>
         </header>
 
         <div>
-          <label class="desc">To:</label>
+          <label class="desc">For:</label>
           <div>
-            <p class="desc">Service Dapaterment Head</p>
+            <p class="desc">{{ $ivsp -> for}}</p>
           </div>
         </div>
 
         <div>
-          <label class="desc">CC:</label>
+          <label class="desc">Customer Name :</label>
           <div>
-            <p class="desc"></p>
+            <p class="desc">{{ $ivsp -> customer_name}}</p>
           </div>
         </div>
 
         <div>
-          <label class="desc">Cost Expanses Project Number:</label>
+          <label class="desc">Customer Address :</label>
           <div>
-            <p class="desc"></p>
+            <p class="desc">{{ $ivsp -> customer_address}}</p>
           </div>
         </div>
 
         <div>
-          <label class="desc">Cost Expanses SVO Number:</label>
+          <label class="desc">Customer Telephone :</label>
           <div>
-            <p class="desc"></p>
-          </div>
-        </div>
-
-        <div>
-          <label class="desc">Company Name:</label>
-          <div>
-            <p class="desc"></p>
-          </div>
-        </div>
-
-        <div>
-          <label class="desc">Phone Company:</label>
-          <div>
-            <p class="desc"></p>
+            <p class="desc">{{ $ivsp -> customer_telephone}}</p>
           </div>
         </div>
 
         <div>
           <label class="desc">Contact Person:</label>
           <div>
-            <p class="desc"></p>
+            <p class="desc">{{ $ivsp -> contact_person}}</p>
           </div>
         </div>
 
         <div>
-          <label class="desc">Email Company:</label>
+          <label class="desc">In Date:</label>
           <div>
-            <p class="desc"></p>
-          </div>
-        </div>
-
-        <div>
-          <label class="desc">Adress:</label>
-          <div>
-            <p class="desc"></p>
-          </div>
-        </div>
-
-        <div>
-          <label class="desc"> Dispatch Information Date:</label>
-          <div>
-            <p class="desc"></p>
-          </div>
-        </div>
-
-        <div>
-          <label class="desc">Dispatch Information Duration:</label>
-          <div>
-            <p class="desc"></p>
-          </div>
-        </div>
-
-        <div>
-          <label class="desc">Number of Engineering:</label>
-          <div>
-            <p class="desc"></p>
-          </div>
-        </div>
-
-        <div>
-          <label class="desc">Lodging Recomendation:</label>
-          <div>
-            <p class="desc"></p>
-          </div>
-        </div>
-
-        <div>
-          <label class="desc">Scope Instrument Name:</label>
-          <div>
-            <p class="desc"></p>
-          </div>
-        </div>
-
-          <div>
-          <label class="desc">Scope Model Code :</label>
-          <div>
-            <p class="desc"></p>
-          </div>
-        </div>
-
-        <div>
-          <label class="desc">Post Work Document:</label>
-          <div>
-            <p class="desc"></p>
-          </div>
-        </div>
-
-          <div>
-          <label class="desc">Work Type:</label>
-          <div>
-            <p class="desc"></p>
-          </div>
-        </div>
-
-        <div>
-          <label class="desc">Description:</label>
-          <div>
-            <p class="desc"></p>
+            <p class="desc">{{ $ivsp -> in_date}}</p>
           </div>
         </div>
 
