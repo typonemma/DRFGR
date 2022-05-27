@@ -12,11 +12,15 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
         <link rel="stylesheet" href="{{asset('css/form.css')}}">
-        <!-- Styles -->
+
+
+
+
+
 
 
     </head>
-    @include('layouts.usernavbar')
+    @include('layouts.navbar')
 
     <body class="antialiased" style="background-image: #EAD689;">
       <form action="#" method="post">
@@ -25,7 +29,7 @@
           <h2>Goods Receive Form</h2>
         </header>
 
-        <div>
+        <div class="">
           <label class="desc">To:</label>
           <div>
             <p class="desc">Service Dapaterment Head</p>
@@ -35,119 +39,119 @@
         <div>
           <label class="desc">CC:</label>
           <div>
-            <p class="desc"></p>
+            <p class="desc">{{ $drf->cc }}</p>
           </div>
         </div>
 
         <div>
           <label class="desc">Cost Expanses Project Number:</label>
           <div>
-            <p class="desc"></p>
+            <p class="desc"> {{ $drf->cea_project }}</p>
           </div>
         </div>
 
         <div>
           <label class="desc">Cost Expanses SVO Number:</label>
           <div>
-            <p class="desc"></p>
+            <p class="desc">{{ $drf->cea_svo }}</p>
           </div>
         </div>
 
         <div>
           <label class="desc">Company Name:</label>
           <div>
-            <p class="desc"></p>
+            <p class="desc">{{ $drf->ci_company_name }}</p>
           </div>
         </div>
 
         <div>
           <label class="desc">Phone Company:</label>
           <div>
-            <p class="desc"></p>
+            <p class="desc">{{ $drf->ci_contact_person }}</p>
           </div>
         </div>
 
         <div>
           <label class="desc">Contact Person:</label>
           <div>
-            <p class="desc"></p>
+            <p class="desc">{{ $drf->ci_contact_person }}</p>
           </div>
         </div>
 
         <div>
           <label class="desc">Email Company:</label>
           <div>
-            <p class="desc"></p>
+            <p class="desc">{{ $drf->ci_email_company }}</p>
           </div>
         </div>
 
         <div>
           <label class="desc">Adress:</label>
           <div>
-            <p class="desc"></p>
+            <p class="desc">{{ $drf->ci_address }}</p>
           </div>
         </div>
 
         <div>
           <label class="desc"> Dispatch Information Date:</label>
           <div>
-            <p class="desc"></p>
+            <p class="desc">{{ $drf->di_date }}</p>
           </div>
         </div>
 
         <div>
           <label class="desc">Dispatch Information Duration:</label>
           <div>
-            <p class="desc"></p>
+            <p class="desc"> {{ $drf->di_duration }}</p>
           </div>
         </div>
 
         <div>
           <label class="desc">Number of Engineering:</label>
           <div>
-            <p class="desc"></p>
+            <p class="desc">{{ $drf->lodging_recomendation }} </p>
           </div>
         </div>
 
         <div>
           <label class="desc">Lodging Recomendation:</label>
           <div>
-            <p class="desc"></p>
+            <p class="desc">{{ $drf->lodging_recomendation }} </p>
           </div>
         </div>
 
         <div>
           <label class="desc">Scope Instrument Name:</label>
           <div>
-            <p class="desc"></p>
+            <p class="desc">{{ $drf->scope_instrument_name }}</p>
           </div>
         </div>
 
           <div>
           <label class="desc">Scope Model Code :</label>
           <div>
-            <p class="desc"></p>
+            <p class="desc">{{ $drf->scope_model_code }}<</p>
           </div>
         </div>
 
         <div>
           <label class="desc">Post Work Document:</label>
           <div>
-            <p class="desc"></p>
+            <p class="desc">{{ $drf->post_work_document }} </p>
           </div>
         </div>
 
           <div>
           <label class="desc">Work Type:</label>
           <div>
-            <p class="desc"></p>
+            <p class="desc">{{ $drf->work_type}}</p>
           </div>
         </div>
 
         <div>
           <label class="desc">Description:</label>
           <div>
-            <p class="desc"></p>
+            <p class="desc">{{ $drf->description }}</p>
           </div>
         </div>
 
