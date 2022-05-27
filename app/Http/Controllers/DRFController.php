@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Drf;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class DRFController extends Controller
 {
@@ -91,6 +92,7 @@ class DRFController extends Controller
      */
     public function destroy($id)
     {
+        Storage::delete('drf/'.$id . '.pdf');
         Drf::deleteDRFById($id);
         return redirect()->route('dashboardadmin.index')->with('success', 'DRF has been deleted');
     }

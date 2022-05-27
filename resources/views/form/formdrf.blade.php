@@ -8,7 +8,7 @@
     @include('layouts.usernavbar')
 
     <body class="antialiased" style="background-image: #EAD689;">
-  <form action="{{ route('dashboarduser.storeDRF') }}" method="post">
+  <form action="{{ route('dashboarduser.storeDRF') }}" method="post" enctype="multipart/form-data">
   @csrf
   <header class="ml-4">
     <h2>Dispatch Request Form</h2>

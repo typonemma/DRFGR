@@ -44,6 +44,7 @@ class Drf extends Model
         'description',
         'gl_initial',
         'current_work_status',
+        'dokumen_pendukung'
     ];
     public static function findDRFById($id)
     {
