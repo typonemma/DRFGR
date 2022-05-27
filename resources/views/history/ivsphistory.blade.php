@@ -10,10 +10,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-        <link rel="stylesheet" type="text/css" href="css/navbar.css">
-        <link rel="stylesheet" href="{{asset('css/form.css')}}">
-        <link rel="stylesheet" href="{{asset('css/admindashboard.css')}}">
-        <link rel="stylesheet" href="{{asset('css/history.css')}}">
+          <link rel="stylesheet" href="{{asset('css/form.css')}}">
 
 
             <!--Calling bootstrap-->
@@ -31,6 +28,7 @@
     </head>
 
     @include('layouts.navbar')
+
     <body class="antialiased" style="background-image: #EAD689;">
         <div class="row justify-content-md-left picker-date" >
           <div class="picker">
@@ -42,17 +40,17 @@
         </div>
 
         @forelse ($ivsp as $i)
-        <div class="card" style="width: 18rem;">
-          <img src="..." class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">{{ $i->id }}</h5>
-            <p class="card-text">{{ $i->ci_company_name }}</p>
-            <a href="{{ route('ivsp.show',$i->id) }}" class="btn btn-primary">More</a>
-          </div>
-        </div>
-        @empty
-          <h3>Null</h3>
-        @endforelse
+            <div class="card " style="max-width: 18rem;">
+              <div class="card-header">{{ $i->id }}</div>
+              <div class="card-body">
+                <h5 class="card-title">{{ $i->customer_name }}</h5>
+                <p class="card-text">{{ $i->contact_person }}</p>
+                <a href="{{ route('ivsp.show',$i->id) }}" class="text-secondary">More</a>
+              </div>
+            </div>
+            @empty
+              <h3 class="mt-4 ml-4">Tidak ada apapun bulan ini!</h3>
+            @endforelse
 
     <script>
       $('#datepicker').datepicker({
