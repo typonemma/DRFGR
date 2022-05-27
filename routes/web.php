@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DashboardAdminController;
 use App\Http\Controllers\DashboardUserController;
+use App\Http\Controllers\DownloadController;
 use App\Http\Controllers\DRFController;
 use App\Http\Controllers\IVSPController;
 use Illuminate\Support\Facades\Route;
@@ -69,6 +70,8 @@ Route::resource('/dashboardadmin/ivsp', IVSPController::class)->middleware('admi
 
 
 // END DASHBOARD ADMIN
+
+Route::post('/download', [DownloadController::class, 'index'])->name('download.index')->middleware('auth');
 
 // DASHBOARD USER
 Route::get('/dashboarduser', [DashboardUserController::class, 'index'])->name('dashboarduser.index')->middleware('auth');
