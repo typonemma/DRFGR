@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="{{asset('css/form.css')}}">
     <link rel="stylesheet" href="{{asset('css/userdashboard.css')}}">
 <nav class="navbar navbar-expand-lg navbar-light ">
-    <h1 class="navbar-header mr-4" href="#">Yokogawa</h1>
+    <h1 class="navbar-header mr-4" href="#">YOKOGAWA</h1>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>

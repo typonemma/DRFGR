@@ -328,7 +328,7 @@
     <label class="desc" id="title12" for="Field12">
         Upload File
     </label>
-    <input type="file" name="upload" id="upload" class="upload-box" placeholder="Upload File" >
+    <input type="file" name="dokumen_pendukung" id="upload" class="upload-box" placeholder="Upload File" >
       @error('description')
         {{ $message }}
 
