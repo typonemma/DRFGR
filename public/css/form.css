@@ -40,7 +40,7 @@ legend {
 }
 form > div > div,
 form > div > fieldset > div {
-  width:70%;
+  width:60%;
   float: right;
 }
 form > div > fieldset label {
