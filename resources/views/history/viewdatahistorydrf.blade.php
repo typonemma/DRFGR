@@ -23,7 +23,6 @@
     @include('layouts.navbar')
 
     <body class="antialiased" style="background-image: #EAD689;">
-      <form action="#" method="post">
         @csrf
         <header>
           <h2>{{ $drf->id }}</h2>
@@ -160,15 +159,13 @@
         <div>
           <label class="desc">Document:</label>
           <div>
-            <form class="" action="index.html" method="post">
-              <input type="hidden" name="dokumen_penting" value="dokumen_penting">
-                <p class="desc">{{ $drf->dokumen_pendukung }}</p>
-                <button name="button" type="submit">Submit</button>
+            <form action="{{ route('download.index') }}" method="post">
+              @csrf
+              <input type="hidden" name="dokumen_penting" value="{{ $drf->dokumen_pendukung }}">
+                <button type="submit" name="button">Download</button>
             </form>
           </div>
         </div>
-
-      </form>
 
 <script type="text/javascript">
 
