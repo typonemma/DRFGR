@@ -31,27 +31,37 @@
     @include('layouts.navbar')
 
     <body class="antialiased" style="background-image: #EAD689;">
-        <div class="row justify-content-md-left picker-date" >
+        <div class=" justify-content-md-left picker-date" >
           <div class="picker">
-            <form class="POST" method="GET" action='{{ route('ivsp.history') }}'>
+            <form class="POST" method="GET" action='{{ route('drf.history') }}'>
               <input type="month" name="datepicker" id="start" min="2022-01" value="2022-01">
               <button type="submit" value="submit" id="submit" name="submit" style="border-radius:5px; " class="mt-4 ">Submit </button>
             </form>
           </div>
         </div>
 
+<div class="row">
+
         @forelse ($drf as $d)
-            <div class="card " style="max-width: 18rem;">
-              <div class="card-header">{{ $d->id }}</div>
+
+        <div class="col-lg-6 ">
+            <div class="card "  >
+              <div class="card-header w-100">{{ $d->id }}</div>
               <div class="card-body">
                 <h5 class="card-title">{{ $d->ci_company_name }}</h5>
                 <p class="card-text">{{ $d->ci_phone_company }}</p>
                 <a href="{{ route('drf.show',$d->id) }}" class="text-secondary">More</a>
               </div>
             </div>
+          </div>
+
             @empty
               <h3 class="mt-4 ml-4">Tidak ada apapun bulan ini!</h3>
             @endforelse
+          </div>
+
+
+
 
 
     <script>
