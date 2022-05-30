@@ -109,9 +109,9 @@ class DRFController extends Controller
                 'datepicker' => $monthAndYear,
             ]);
         }else{
-            $drf = Drf::allDRFOrderByNumberOfProcesses();
+            $drf = [];
             return view('history.drfhistory', [
-                'drf' => '',
+                'drf' => $drf,
                 'datepicker' => '',
             ]);
         }

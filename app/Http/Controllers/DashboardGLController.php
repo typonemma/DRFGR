@@ -18,19 +18,27 @@ class DashboardGLController extends Controller
         ]);
     }
 
-    public function showDRF($id)
-    {
-        $drfGL = Drf::findDRFById($id);
-        return view('', [
-            'drf' => $drfGL,
-        ]);
-    }
+    // public function showDRF($id)
+    // {
+    //     $drfGL = Drf::findDRFById($id);
+    //     return view('', [
+    //         'drf' => $drfGL,
+    //     ]);
+    // }
 
-    public function showIVSP($id)
+    // public function showIVSP($id)
+    // {
+    //     $ivspGL = Ivsp::findIVSPById($id);
+    //     return view('', [
+    //         'ivsp' => $ivspGL,
+    //     ]);
+    // }
+
+    public function drfSOPGL($id)
     {
-        $ivspGL = Ivsp::findIVSPById($id);
-        return view('', [
-            'ivsp' => $ivspGL,
+        $drf = Drf::findDRFById($id);
+        return view('sop_drf.ackgl',[
+            'drf' => $drf
         ]);
     }
 
@@ -41,6 +49,7 @@ class DashboardGLController extends Controller
         Drf::updateDRFById($update, $id);
         redirect(route('dashboardadmin.showDRF'))->with('success','DRF has been acknowledged successfully');
     }
+    
     public function updateIVSP(Request $request, $id)
     {
         $update['process'] = 'ACK By GL';

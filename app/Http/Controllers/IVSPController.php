@@ -99,9 +99,9 @@ class IVSPController extends Controller
                 'datepicker' => $monthAndYear,
             ]);
         }else{
-            $ivsp = Ivsp::allIVSPOrderByNumberOfProcesses();
+            $ivsp = [];
             return view('history.ivsphistory', [
-                'ivsp' => '',
+                'ivsp' => [],
                 'datepicker' => '',
             ]);
         }
