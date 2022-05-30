@@ -10,12 +10,18 @@ class DashboardGLController extends Controller
 {
     public function index()
     {
-        $drfGL = Drf::findDRFGL();
-        $ivspGL = Ivsp::findIVSPGL();
+        $drf = Drf::findDRFGL();
+        $ivsp = Ivsp::findIVSPGL();
+        $ivspReviewGL = Ivsp::findIVSPReviewGL();
         return view('dashboard', [
-            'drf' => $drfGL,
-            'ivsp' => $ivspGL,
+            'drf' => $drf,
+            'ivsp' => $ivsp,
         ]);
+    }
+
+    public function history()
+    {
+        return view('history.history');
     }
 
     // public function showDRF($id)
@@ -49,7 +55,7 @@ class DashboardGLController extends Controller
         Drf::updateDRFById($update, $id);
         redirect(route('dashboardadmin.showDRF'))->with('success','DRF has been acknowledged successfully');
     }
-    
+
     public function updateIVSP(Request $request, $id)
     {
         $update['process'] = 'ACK By GL';

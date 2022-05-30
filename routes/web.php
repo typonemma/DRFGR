@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\DashboardAdminController;
+use App\Http\Controllers\DashboardEngineerController;
+use App\Http\Controllers\DashboardGLController;
 use App\Http\Controllers\DashboardUserController;
 use App\Http\Controllers\DownloadController;
 use App\Http\Controllers\DRFController;
@@ -71,9 +73,19 @@ Route::resource('/dashboardadmin/ivsp', IVSPController::class)->middleware('admi
 // END DASHBOARD ADMIN
 
 // DASHBOARD GL
-Route::get('/dashboardgl', [DashboardAdminController::class, 'index'])->name('dashboardgl.index')->middleware('gl');
-Route::get('/dashboardgl/history', [DashboardAdminController::class, 'history'])->name('dashboardgl.history')->middleware('gl');
+Route::get('/dashboardgl', [DashboardGLController::class, 'index'])->name('dashboardgl.index')->middleware('GL');
+Route::get('/dashboardgl/history', [DashboardGLController::class, 'history'])->name('dashboardgl.history')->middleware('GL');
+Route::get('/dashboardgl/drf/sop/{id}', [DashboardGLController::class, 'drfSOPGL'])->name('drf.sopGL')->middleware('GL');
+Route::post('/dashboardgl/drfprocessgl/{id}', [DashboardGLController::class, 'drfAckGL'])->name('dashboardgl.drfProcessGL')->middleware('GL');
+
+Route::get('/dashboardgl/historydrf', [DRFController::class, 'history'])->name('drf.history')->middleware('GL');
+Route::get('/dashboardgl/historyivsp', [IVSPController::class, 'history'])->name('ivsp.history')->middleware('GL');
 // END DASHBOARD GL
+
+// DASHBOARD ENGINEER
+Route::get('/dashboardengineer', [DashboardEngineerController::class, 'index'])->name('dashboardengineer.index')->middleware('engineer');
+Route::get('/dashboardengineer/history', [DashboardEngineerController::class, 'history'])->name('dashboardengineer.history')->middleware('engineer');
+// END DASHBOARD ENGINEER
 
 
 // DASHBOARD USER
