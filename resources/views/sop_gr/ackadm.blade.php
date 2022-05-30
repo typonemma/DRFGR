@@ -43,15 +43,15 @@
         <h2 class="col-md-8  font-weight-bold id-h2">Status : {{ $ivsp->process }} </h2>
       </div>
 
-      <form class="" action="index.html" method="post">
-        <div class="row sop_top mt-4">
-          <p class="col-md-8 text">Acknowledge by Admin</p>
+      <form class="d-flex flex-row" action="index.html" method="post" style="float:left;">
+        <div class=" sop_top mt-4">
+          <p class="col-md-8 text p-2">Acknowledge by Admin</p>
             <form action="{{ route('dashboardadmin.ivspProcessAdmin',$ivsp->id) }}" method="post" class="col-md-4">
               @csrf
               <button class=" submit-btn" id="submit" style="" type="submit">Submit</button>
           </form>
         </div>
-      </form>
+
 
 
 
