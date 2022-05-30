@@ -76,7 +76,11 @@ Route::resource('/dashboardadmin/ivsp', IVSPController::class)->middleware('admi
 Route::get('/dashboardgl', [DashboardGLController::class, 'index'])->name('dashboardgl.index')->middleware('GL');
 Route::get('/dashboardgl/history', [DashboardGLController::class, 'history'])->name('dashboardgl.history')->middleware('GL');
 Route::get('/dashboardgl/drf/sop/{id}', [DashboardGLController::class, 'drfSOPGL'])->name('drf.sopGL')->middleware('GL');
-Route::post('/dashboardgl/drfprocessgl/{id}', [DashboardGLController::class, 'drfAckGL'])->name('dashboardgl.drfProcessGL')->middleware('GL');
+Route::get('/dashboardgl/ivsp/sop/{id}', [DashboardGLController::class, 'ivspSOPGL'])->name('ivsp.sopGL')->middleware('GL');
+Route::post('/dashboardgl/drfackgl/{id}', [DashboardGLController::class, 'drfAckGL'])->name('dashboardgl.drfACKGL')->middleware('GL');
+Route::post('/dashboardgl/ivspackgl/{id}', [DashboardGLController::class, 'ivspAckGL'])->name('dashboardgl.ivspACKGL')->middleware('GL');
+Route::post('/dashboardgl/drfreviewgl/{id}', [DashboardGLController::class, 'drfReviewGL'])->name('dashboardgl.drfReviewGL')->middleware('GL');
+Route::post('/dashboardgl/ivspreviewgl/{id}', [DashboardGLController::class, 'ivspReviewGL'])->name('dashboardgl.ivspReviewGL')->middleware('GL');
 
 Route::get('/dashboardgl/historydrf', [DRFController::class, 'history'])->name('drf.history')->middleware('GL');
 Route::get('/dashboardgl/historyivsp', [IVSPController::class, 'history'])->name('ivsp.history')->middleware('GL');

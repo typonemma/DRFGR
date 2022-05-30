@@ -47,6 +47,14 @@ class DashboardGLController extends Controller
         ]);
     }
 
+    public function ivspSOPGL($id)
+    {
+        $ivsp = Ivsp::findIVSPById($id);
+        return view('sop_gr.ackgl',[
+            'ivsp' => $ivsp
+        ]);
+    }
+
     public function drfAckGL(Request $request, $id)
     {
         $update['process'] = 'ACK By GL';
@@ -55,11 +63,27 @@ class DashboardGLController extends Controller
         redirect(route('dashboardadmin.showDRF'))->with('success','DRF has been acknowledged successfully');
     }
 
-    public function updateIVSP(Request $request, $id)
+    public function drfReviewGL(Request $request, $id)
+    {
+        $update['process'] = 'REVIEW By GL';
+        $update['number_of_process'] = 5;
+        Drf::updateDRFById($update, $id);
+        redirect(route('dashboardadmin.showDRF'))->with('success','DRF has been reviewed by GL successfully');
+    }
+
+    public function ivspAckGL(Request $request, $id)
     {
         $update['process'] = 'ACK By GL';
         $update['number_of_process'] = 2;
         Ivsp::updateIVSPById($update, $id);
         redirect(route('dashboardadmin.showIVSP'))->with('success','IVSP has been acknowledged successfully');
+    }
+
+    public function ivspReviewGL(Request $request, $id)
+    {
+        $update['process'] = 'REVIEW By GL';
+        $update['number_of_process'] = 4;
+        Ivsp::updateIVSPById($update, $id);
+        redirect(route('dashboardadmin.showIVSP'))->with('success','IVSP has been reviewed by GL successfully');
     }
 }

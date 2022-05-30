@@ -44,7 +44,9 @@ class Drf extends Model
         'description',
         'gl_initial',
         'current_work_status',
-        'dokumen_pendukung'
+        'dokumen_pendukung',
+        'start_date',
+        'end_date',
     ];
     public static function findDRFById($id)
     {
@@ -114,7 +116,7 @@ class Drf extends Model
         return self::where('number_of_process', self::$__qc)
         ->get();
     }
-    
+
     public static function findDRFReviewManager()
     {
         return self::where('number_of_process', self::$__manager)

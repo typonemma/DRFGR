@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\Drf;
 use App\Models\Ivsp;
 use Illuminate\Http\Request;
@@ -12,25 +13,41 @@ class DashboardEngineerController extends Controller
     {
         $drf = Drf::findDRFEngineer();
         $ivsp = Ivsp::findIVSPEngineer();
-        return view('dashboard', [
+        return view('dashboard.dashboard', [
             'drf' => $drf,
             'ivsp' => $ivsp,
         ]);
     }
 
-    public function showDRF($id)
+    // public function showDRF($id)
+    // {
+    //     $drf = Drf::findDRFById($id);
+    //     return view('', [
+    //         'drf' => $drf,
+    //     ]);
+    // }
+
+    // public function showIVSP($id)
+    // {
+    //     $ivsp = Ivsp::findIVSPById($id);
+    //     return view('', [
+    //         'ivsp' => $ivsp,
+    //     ]);
+    // }
+
+    public function drfSOPEngineer($id)
     {
         $drf = Drf::findDRFById($id);
-        return view('', [
-            'drf' => $drf,
+        return view('sop_drf.doeng',[
+            'drf' => $drf
         ]);
     }
 
-    public function showIVSP($id)
+    public function ivspSOPEngineer($id)
     {
         $ivsp = Ivsp::findIVSPById($id);
-        return view('', [
-            'ivsp' => $ivsp,
+        return view('sop_gr.doeng',[
+            'ivsp' => $ivsp
         ]);
     }
 
@@ -38,6 +55,7 @@ class DashboardEngineerController extends Controller
     {
         $update['process'] = 'Do By Engineer';
         $update['number_of_process'] = 3;
+        $update['start_date'] = Carbon::now();
         Drf::updateDRFById($update, $id);
         redirect(route('dashboardadmin.showDRF'))->with('success','DRF has been done by Engineer successfully');
     }
@@ -49,21 +67,4 @@ class DashboardEngineerController extends Controller
         Ivsp::updateIVSPById($update, $id);
         redirect(route('dashboardadmin.showIVSP'))->with('success','IVSP has been done by Engineer successfully');
     }
-
-    public function drfReviewByEngineer(Request $request, $id)
-    {
-        $update['process'] = 'Review By Engineer';
-        $update['number_of_process'] = 4;
-        Drf::updateDRFById($update, $id);
-        redirect(route('dashboardadmin.showDRF'))->with('success','DRF has been reviewed by Engineer successfully');
-    }
-
-    public function ivspReviewByEngineer(Request $request, $id)
-    {
-        $update['process'] = 'Review By Engineer';
-        $update['number_of_process'] = 4;
-        Ivsp::updateIVSPById($update, $id);
-        redirect(route('dashboardadmin.showIVSP'))->with('success','IVSP has been reviewed by Engineer successfully');
-    }
-
 }
