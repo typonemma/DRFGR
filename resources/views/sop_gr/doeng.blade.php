@@ -32,6 +32,7 @@
     <body class="antialiased" style="background-image: #EAD689;">
 
 
+
       <div class="row top-tittle mt-4">
         <h1 class="col-md-8  font-weight-bold id-h1">{{ $ivsp->id }}</h1>
         <p class="col-md-2"></p>
@@ -42,15 +43,13 @@
         <h2 class="col-md-8  font-weight-bold id-h2">Status :{{ $ivsp->process }} </h2>
       </div>
 
-
-
-
+      <form class="" action="index.html" method="post">
         <div class="row sop_top mt-4">
           <p class="col-md-8 text">Do by Engineer</p>
             <p class="col-md-2"></p>
           <button class="col-sm-2 submit-btn" id="submit" style="">Submit</button>
         </div>
-
+      </form>
 
 
 
