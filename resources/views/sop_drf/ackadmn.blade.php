@@ -45,11 +45,6 @@
         <h2 class="col-md-8  font-weight-bold id-h2">Status : {{ $drf->process }}</h2>
       </div>
 
-
-
-
-
-
         <div class="row sop_top mt-4">
           <p class="col-md-8 text">Acknowledge by Admin</p>
 
