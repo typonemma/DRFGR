@@ -92,10 +92,26 @@ class DashboardAdminController extends Controller
         return redirect()->intended(route('dashboardadmin.index'))->with('success','IVSP has been acknowledged successfully');
     }
 
+    public function drfSOPAdmin($id)
+    {
+        $drf = Drf::findDRFById($id);
+        return view('sop_drf.ackadmn',[
+            'drf' => $drf
+        ]);
+    }
+
+    public function ivspSOPAdmin($id){
+        $ivsp = Ivsp::findIVSPById($id);
+        return view('sop_gr.ackadm', [
+            'ivsp' => $ivsp
+        ]);
+    }
+
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
 }
