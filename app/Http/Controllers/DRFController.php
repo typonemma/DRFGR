@@ -116,12 +116,5 @@ class DRFController extends Controller
             ]);
         }
     }
-
-    public function sop($id)
-    {
-        $drf = Drf::findDRFById($id);
-        return view('sop_drf.ackadmn',[
-            'drf' => $drf
-        ]);
-    }
+    
 }

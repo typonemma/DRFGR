@@ -107,10 +107,5 @@ class IVSPController extends Controller
         }
     }
 
-    public function sop($id){
-        $ivsp = Ivsp::findIVSPById($id);
-        return view('sop_gr.ackadm', [
-            'ivsp' => $ivsp
-        ]);
-    }
+    
 }
