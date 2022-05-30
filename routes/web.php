@@ -66,15 +66,20 @@ Route::resource('/dashboardadmin/drf', DRFController::class)->middleware('admin'
 
 //IVSP ADMIN
 Route::get('/dashboardadmin/historyivsp', [IVSPController::class, 'history'])->name('ivsp.history')->middleware('admin');
-
 Route::resource('/dashboardadmin/ivsp', IVSPController::class)->middleware('admin')->except(['edit','index','update','create']);
-
 
 // END DASHBOARD ADMIN
 
-Route::post('/download', [DownloadController::class, 'index'])->name('download.index')->middleware('auth');
+// DASHBOARD GL
+Route::get('/dashboardgl', [DashboardAdminController::class, 'index'])->name('dashboardgl.index')->middleware('gl');
+Route::get('/dashboardgl/history', [DashboardAdminController::class, 'history'])->name('dashboardgl.history')->middleware('gl');
+// END DASHBOARD GL
+
 
 // DASHBOARD USER
 Route::get('/dashboarduser', [DashboardUserController::class, 'index'])->name('dashboarduser.index')->middleware('auth');
-Route::get('/dashboardadmin', [DashboardAdminController::class, 'index'])->name('dashboardadmin.index')->middleware('auth');
 // END DASHBOARD USER
+
+// Donwload Route
+Route::post('/download', [DownloadController::class, 'index'])->name('download.index')->middleware('auth');
+// END Donwload Route
