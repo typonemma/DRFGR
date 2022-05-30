@@ -101,7 +101,8 @@ class IVSPController extends Controller
         }else{
             $ivsp = Ivsp::allIVSPOrderByNumberOfProcesses();
             return view('history.ivsphistory', [
-                'ivsp' => $ivsp,
+                'ivsp' => '',
+                'datepicker' => '',
             ]);
         }
     }

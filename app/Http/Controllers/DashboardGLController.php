@@ -34,7 +34,7 @@ class DashboardGLController extends Controller
         ]);
     }
 
-    public function updateDRF(Request $request, $id)
+    public function drfAckGL(Request $request, $id)
     {
         $update['process'] = 'ACK By GL';
         $update['number_of_process'] = 2;
