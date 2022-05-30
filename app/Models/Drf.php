@@ -17,7 +17,6 @@ class Drf extends Model
     private static $__engineer = 2;
     private static $__qc = 3;
     private static $__reviewGL = 4;
-    private static $__manager = 5;
 
 
     protected $table = 'drf';
@@ -114,12 +113,6 @@ class Drf extends Model
     public static function findDRFQC()
     {
         return self::where('number_of_process', self::$__qc)
-        ->get();
-    }
-
-    public static function findDRFReviewManager()
-    {
-        return self::where('number_of_process', self::$__manager)
         ->get();
     }
 

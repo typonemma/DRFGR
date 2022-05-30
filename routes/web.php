@@ -3,6 +3,8 @@
 use App\Http\Controllers\DashboardAdminController;
 use App\Http\Controllers\DashboardEngineerController;
 use App\Http\Controllers\DashboardGLController;
+use App\Http\Controllers\DashboardManagerController;
+use App\Http\Controllers\DashboardQCController;
 use App\Http\Controllers\DashboardUserController;
 use App\Http\Controllers\DownloadController;
 use App\Http\Controllers\DRFController;
@@ -62,12 +64,12 @@ Route::get('/dashboardadmin/drf/sop/{id}', [DashboardAdminController::class, 'dr
 Route::get('/dashboardadmin/ivsp/sop/{id}', [DashboardAdminController::class, 'ivspSOPAdmin'])->name('ivsp.sopAdmin')->middleware('admin');
 
 // DRF ADMIN
-Route::get('/dashboardadmin/historydrf', [DRFController::class, 'history'])->name('drf.history')->middleware('admin');
+Route::get('/historydrf', [DRFController::class, 'history'])->name('drf.history')->middleware(['admin','GL','engineer','QC','manager']);
 Route::resource('/dashboardadmin/drf', DRFController::class)->middleware('admin')->except(['create', 'store','index']);
 
 
 //IVSP ADMIN
-Route::get('/dashboardadmin/historyivsp', [IVSPController::class, 'history'])->name('ivsp.history')->middleware('admin');
+Route::get('/historyivsp', [IVSPController::class, 'history'])->name('ivsp.history')->middleware(['admin','GL','engineer','QC','Manager']);
 Route::resource('/dashboardadmin/ivsp', IVSPController::class)->middleware('admin')->except(['edit','index','update','create']);
 
 // END DASHBOARD ADMIN
@@ -81,15 +83,32 @@ Route::post('/dashboardgl/drfackgl/{id}', [DashboardGLController::class, 'drfAck
 Route::post('/dashboardgl/ivspackgl/{id}', [DashboardGLController::class, 'ivspAckGL'])->name('dashboardgl.ivspACKGL')->middleware('GL');
 Route::post('/dashboardgl/drfreviewgl/{id}', [DashboardGLController::class, 'drfReviewGL'])->name('dashboardgl.drfReviewGL')->middleware('GL');
 Route::post('/dashboardgl/ivspreviewgl/{id}', [DashboardGLController::class, 'ivspReviewGL'])->name('dashboardgl.ivspReviewGL')->middleware('GL');
-
-Route::get('/dashboardgl/historydrf', [DRFController::class, 'history'])->name('drf.history')->middleware('GL');
-Route::get('/dashboardgl/historyivsp', [IVSPController::class, 'history'])->name('ivsp.history')->middleware('GL');
 // END DASHBOARD GL
 
 // DASHBOARD ENGINEER
 Route::get('/dashboardengineer', [DashboardEngineerController::class, 'index'])->name('dashboardengineer.index')->middleware('engineer');
 Route::get('/dashboardengineer/history', [DashboardEngineerController::class, 'history'])->name('dashboardengineer.history')->middleware('engineer');
+Route::get('/dashboardengineer/drf/sop/{id}', [DashboardEngineerController::class, 'drfSOPEngineer'])->name('drf.sopEngineer')->middleware('engineer');
+Route::get('/dashboardengineer/ivsp/sop/{id}', [DashboardEngineerController::class, 'ivspSOPEngineer'])->name('ivsp.sopEngineer')->middleware('engineer');
+Route::post('/dashboardengineer/drfdoengineer/{id}', [DashboardEngineerController::class, 'drfDoByEngineer'])->name('dashboardengineer.drfDoByEngineer')->middleware('engineer');
+Route::post('/dashboardengineer/ivspdoengineer/{id}', [DashboardEngineerController::class, 'ivspDoByEngineer'])->name('dashboardengineer.ivspDoByEngineer')->middleware('engineer');
 // END DASHBOARD ENGINEER
+
+// DASHBOARD QC
+Route::get('/dashboardqc', [DashboardQCController::class, 'index'])->name('dashboardqc.index')->middleware('QC');
+Route::get('/dashboardqc/history', [DashboardQCController::class, 'history'])->name('dashboardqc.history')->middleware('QC');
+Route::get('/dashboardqc/drf/sop/{id}', [DashboardQCController::class, 'drfSOPQC'])->name('drf.sopQC')->middleware('QC');
+Route::post('dashboardqc/drfrevqc/{id}', [DashboardQCController::class, 'drfReviewQC'])->name('dashboardqc.drfReviewQC')->middleware('QC');
+// END DASHBOARD QC
+
+// DASHBOARD MANAGER
+Route::get('/dashboardmanager', [DashboardManagerController::class, 'index'])->name('dashboardmanager.index')->middleware('manager');
+Route::get('/dashboardmanager/history', [DashboardManagerController::class, 'history'])->name('dashboardmanager.history')->middleware('manager');
+Route::get('/dashboardmanager/ivsp/sopreviewmanager/{id}', [DashboardManagerController::class, 'ivspSOPReviewManager'])->name('dashhboardmanager.sopReviewManager')->middleware('manager');
+Route::get('/dashboardmanager/ivsp/sopapprovemanager/{id}', [DashboardManagerController::class, 'ivspSOPApproveManager'])->name('dashhboardmanager.sopApproveManager')->middleware('manager');
+Route::post('/dashboardmanager/ivsp/sopreviewmanager/{id}', [DashboardManagerController::class, 'ivspReviewByManager'])->name('dashhboardmanager.ivspReviewByManager')->middleware('manager');
+Route::post('/dashboardmanager/ivsp/sopapprovemanager/{id}', [DashboardManagerController::class, 'ivspApproveByManager'])->name('dashhboardmanager.ivspApproveByManager')->middleware('manager');
+// END DASHBOARD MANAGER
 
 
 // DASHBOARD USER

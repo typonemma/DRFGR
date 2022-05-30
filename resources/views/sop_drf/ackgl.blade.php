@@ -24,14 +24,9 @@
             <!--Calling Icon CSS-->
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
 
-
-
-
-
     </head>
     @include('layouts.navbar')
     <body class="antialiased" style="background-image: #EAD689;">
-
 
       <div class="row top-tittle mt-4">
         <h1 class="col-md-8  font-weight-bold id-h1"> {{ $drf->id }}</h1>
@@ -43,21 +38,15 @@
         <h2 class="col-md-8  font-weight-bold id-h2">Status :  {{ $drf->process }} </h2>
       </div>
 
-
-
-
         <div class="row sop_top mt-4">
-          <p class="col-md-8 text">Acknowledge by Group Leader</p>
+          @if ($drf->process == "ACK By Admin")
+            <p class="col-md-8 text">Acknowledge by Group Leader</p>
+          @elseif ($drf->process == "REVIEW By QC")
+          <p class="col-md-8 text">Review by Group Leader</p>
+          @endif
             <p class="col-md-2"></p>
           <button class="col-sm-2 submit-btn" id="submit" style="">Submit</button>
         </div>
-
-
-
-
-
-
-
 
     </body>
 </html>

@@ -57,7 +57,7 @@ class DashboardEngineerController extends Controller
         $update['number_of_process'] = 3;
         $update['start_date'] = Carbon::now();
         Drf::updateDRFById($update, $id);
-        redirect(route('dashboardadmin.showDRF'))->with('success','DRF has been done by Engineer successfully');
+        redirect(route('dashboardengineer.index'))->with('success','DRF has been done by Engineer successfully');
     }
 
     public function ivspDoByEngineer(Request $request, $id)
@@ -65,6 +65,6 @@ class DashboardEngineerController extends Controller
         $update['process'] = 'Do By Engineer';
         $update['number_of_process'] = 3;
         Ivsp::updateIVSPById($update, $id);
-        redirect(route('dashboardadmin.showIVSP'))->with('success','IVSP has been done by Engineer successfully');
+        redirect(route('dashboardengineer.index'))->with('success','IVSP has been done by Engineer successfully');
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\Drf;
 use App\Models\Ivsp;
 use Illuminate\Http\Request;
@@ -68,6 +69,7 @@ class DashboardGLController extends Controller
     {
         $update['process'] = 'REVIEW By GL';
         $update['number_of_process'] = 5;
+        $update['end_date'] = Carbon::now();
         Drf::updateDRFById($update, $id);
         redirect(route('dashboardadmin.showDRF'))->with('success','DRF has been reviewed by GL successfully');
     }

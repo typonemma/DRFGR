@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\Drf;
 use App\Models\Ivsp;
 use Illuminate\Http\Request;
@@ -10,36 +11,33 @@ class DashboardManagerController extends Controller
 {
     public function index()
     {
-        $drf = Drf::findDRFManager();
-        $ivsp = Ivsp::findIVSPManager();
+        $ivspReviewManager = Ivsp::findIVSPReviewManager();
+        $ivspApproveManager = Ivsp::findIVSPApproveManager();
         return view('dashboard', [
-            'drf' => $drf,
-            'ivsp' => $ivsp,
+            'ivspReviewManager' => $ivspReviewManager,
+            'ivspApproveManager' => $ivspApproveManager
         ]);
     }
 
-    public function showDRF($id)
+    public function history()
     {
-        $drf = Drf::findDRFById($id);
-        return view('', [
-            'drf' => $drf,
-        ]);
+        return view('history.history');
     }
 
-    public function showIVSP($id)
+    public function ivspSOPReviewManager($id)
     {
         $ivsp = Ivsp::findIVSPById($id);
-        return view('', [
+        return view('sop_gr.rewmgr', [
             'ivsp' => $ivsp,
         ]);
     }
 
-    public function drfReviewByManager(Request $request, $id)
+    public function ivspSOPApproveManager($id)
     {
-        $update['process'] = 'Review By Manager';
-        $update['number_of_process'] = 5;
-        Drf::updateDRFById($update, $id);
-        redirect(route('dashboardadmin.showDRF'))->with('success','DRF has been reviewed by Manager successfully');
+        $ivsp = Ivsp::findIVSPById($id);
+        return view('sop_gr.rewmgr', [
+            'ivsp' => $ivsp,
+        ]);
     }
 
     public function ivspReviewByManager(Request $request, $id)
@@ -47,22 +45,15 @@ class DashboardManagerController extends Controller
         $update['process'] = 'Review By Manager';
         $update['number_of_process'] = 5;
         Ivsp::updateIVSPById($update, $id);
-        redirect(route('dashboardadmin.showIVSP'))->with('success','IVSP has been reviewed by Manager successfully');
-    }
-
-    public function drfApproveByManager(Request $request, $id)
-    {
-        $update['process'] = 'Approve By Manager';
-        $update['number_of_process'] = 6;
-        Drf::updateDRFById($update, $id);
-        redirect(route('dashboardadmin.showDRF'))->with('success','DRF has been approved by Manager successfully');
+        redirect(route('dashboardmanager.index'))->with('success','IVSP has been reviewed by Manager successfully');
     }
 
     public function ivspApproveByManager(Request $request, $id)
     {
         $update['process'] = 'Approve By Manager';
         $update['number_of_process'] = 6;
+        $update['end_date'] = Carbon::now();
         Ivsp::updateIVSPById($update, $id);
-        redirect(route('dashboardadmin.showIVSP'))->with('success','IVSP has been approved by Manager successfully');
+        redirect(route('dashboardmanager.index'))->with('success','IVSP has been approved by Manager successfully');
     }
 }
