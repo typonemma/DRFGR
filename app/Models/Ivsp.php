@@ -34,10 +34,16 @@ class Ivsp extends Model
     ];
     use HasFactory;
 
+    public function ivspNomorModel()
+    {
+        return $this->hasMany(IvspNomorModel::class, 'ivsp_id', 'id');
+    }
+
     public static function findIVSPById($id)
     {
         return self::find($id);
     }
+
     public static function allIVSP()
     {
         return self::all();
@@ -79,20 +85,15 @@ class Ivsp extends Model
         return self::where('number_of_process', self::$__admin)
         ->get();
     }
-    public static function findIVSPAckGL()
+    public static function findIVSPGL()
     {
         return self::where('number_of_process', self::$__ackGL)
+        ->orWhere('number_of_process', self::$__reviewGL)
         ->get();
     }
     public static function findIVSPEngineer()
     {
         return self::where('number_of_process', self::$__engineer)
-        ->get();
-    }
-
-    public static function findIVSPReviewGL()
-    {
-        return self::where('number_of_process', self::$__reviewGL)
         ->get();
     }
 

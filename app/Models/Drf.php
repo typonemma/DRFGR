@@ -96,9 +96,10 @@ class Drf extends Model
         ->get();
     }
 
-    public static function findDRFAckGL()
+    public static function findDRFGL()
     {
         return self::where('number_of_process', self::$__ackGL)
+        ->orWhere('number_of_process', self::$__reviewGL)
         ->get();
     }
 
@@ -113,13 +114,7 @@ class Drf extends Model
         return self::where('number_of_process', self::$__qc)
         ->get();
     }
-
-    public static function findDRFReviewGL()
-    {
-        return self::where('number_of_process', self::$__reviewGL)
-        ->get();
-    }
-
+    
     public static function findDRFReviewManager()
     {
         return self::where('number_of_process', self::$__manager)
