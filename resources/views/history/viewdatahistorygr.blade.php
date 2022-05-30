@@ -65,6 +65,21 @@
           </div>
         </div>
 
+
+        @foreach($ivsp->ivspNomorModel as $inm)
+        <div class="d-flex flex-row">
+          <h5 class="desc p-2"> Model</h5>
+          <div>
+            <p class="desc p-2">Serial Number : {{ $inm->serial_number}}</p>
+            <p class="desc p-2">Instrument Model :{{ $inm->instrument_model}}</p>
+            <p class="desc p-2">Fault Report {{ $inm->fault_report}}</p>
+          </div>
+        </div>
+        @endforeach
+
+
+
+
 <script type="text/javascript">
 
 $(document).ready(function(){

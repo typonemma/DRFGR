@@ -33,6 +33,8 @@
     <body class="antialiased" style="background-image: #EAD689;">
 
 
+
+
       <div class="row top-tittle mt-4">
         <h1 class="col-md-8  font-weight-bold id-h1">{{ $drf->id }}</h1>
         <p class="col-md-2"></p>
@@ -56,7 +58,6 @@
               <button class=" submit-btn" id="submit" style="" type="submit">Submit</button>
           </form>
         </div>
-
 
 
 
