@@ -1,5 +1,5 @@
 button{
-  border-radius: 30px;
+  border-radius: 10px;
   border-color: black;
   padding: 9px 14px;
   font-size: 15px;
@@ -15,7 +15,7 @@ button:hover, button:active{
 
 .row{
   display: flex;
-  float: left;
+
 }
 
 

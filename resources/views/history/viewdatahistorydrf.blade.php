@@ -12,6 +12,7 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
         <link rel="stylesheet" href="{{asset('css/form.css')}}">
+            <link rel="stylesheet" href="{{asset('css/history.css')}}">
 
 
 
@@ -22,18 +23,27 @@
     </head>
     @include('layouts.navbar')
 
+
     <body class="antialiased" style="background-image: #EAD689;">
+  <form>
         @csrf
         <header>
           <h2>{{ $drf->id }}</h2>
         </header>
 
-        <div class="">
-          <label class="desc">To:</label>
+
+
+
+
           <div>
-            <p class="desc">Service Dapaterment Head</p>
+            <label class="desc">To:</label>
+            <div>
+              <p class="desc">Service Departerment Head</p>
+            </div>
           </div>
-        </div>
+
+
+
 
         <div>
           <label class="desc">CC:</label>
@@ -166,6 +176,10 @@
             </form>
           </div>
         </div>
+
+      </div>
+
+
 
 <script type="text/javascript">
 
