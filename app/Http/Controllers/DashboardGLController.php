@@ -12,7 +12,6 @@ class DashboardGLController extends Controller
     {
         $drf = Drf::findDRFGL();
         $ivsp = Ivsp::findIVSPGL();
-        $ivspReviewGL = Ivsp::findIVSPReviewGL();
         return view('dashboard', [
             'drf' => $drf,
             'ivsp' => $ivsp,

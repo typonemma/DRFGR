@@ -47,7 +47,11 @@
 
 
         <div class="row sop_top mt-4">
-          <p class="col-md-8 text">Acknowledge by Group Leader</p>
+          @if ($drf->process == "ACK By Admin")
+            <p class="col-md-8 text">Acknowledge by Group Leader</p>
+          @elseif ($drf->process == "REVIEW By QC")
+          <p class="col-md-8 text">Review by Group Leader</p>
+          @endif
             <p class="col-md-2"></p>
           <button class="col-sm-2 submit-btn" id="submit" style="">Submit</button>
         </div>
