@@ -25,8 +25,6 @@
 
 
     <body class="antialiased" style="background-image: #EAD689;">
-  <form>
-        @csrf
         <header>
           <h2>{{ $drf->id }}</h2>
         </header>

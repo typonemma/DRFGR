@@ -19,55 +19,51 @@
     @include('layouts.navbar')
 
     <body class="antialiased" style="background-image: #EAD689;">
-      <form action="#" method="post">
-        @csrf
         <header>
-          <h2 style="margin-left:5%;">{{ $ivsp -> id }}</h2>
+          <h2 style="margin-left:5%;">{{ $ivsp->id }}</h2>
         </header>
 
         <div>
           <label class="desc">For:</label>
           <div>
-            <p class="desc">{{ $ivsp -> for}}</p>
+            <p class="desc">{{ $ivsp->for}}</p>
           </div>
         </div>
 
         <div>
           <label class="desc">Customer Name :</label>
           <div>
-            <p class="desc">{{ $ivsp -> customer_name}}</p>
+            <p class="desc">{{ $ivsp->customer_name}}</p>
           </div>
         </div>
 
         <div>
           <label class="desc">Customer Address :</label>
           <div>
-            <p class="desc">{{ $ivsp -> customer_address}}</p>
+            <p class="desc">{{ $ivsp->customer_address}}</p>
           </div>
         </div>
 
         <div>
           <label class="desc">Customer Telephone :</label>
           <div>
-            <p class="desc">{{ $ivsp -> customer_telephone}}</p>
+            <p class="desc">{{ $ivsp->customer_telephone}}</p>
           </div>
         </div>
 
         <div>
           <label class="desc">Contact Person:</label>
           <div>
-            <p class="desc">{{ $ivsp -> contact_person}}</p>
+            <p class="desc">{{ $ivsp->contact_person}}</p>
           </div>
         </div>
 
         <div>
           <label class="desc">In Date:</label>
           <div>
-            <p class="desc">{{ $ivsp -> in_date}}</p>
+            <p class="desc">{{ $ivsp->in_date}}</p>
           </div>
         </div>
-
-      </form>
 
 <script type="text/javascript">
 
