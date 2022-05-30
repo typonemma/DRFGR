@@ -33,139 +33,139 @@
 
 
 
-          <div>
-            <label class="desc">To:</label>
+          <div class="d-flex flex-row">
+            <label class=" p-2">To:</label>
             <div>
-              <p class="desc">Service Departerment Head</p>
+              <p class="p-2">Service Departerment Head</p>
             </div>
           </div>
 
 
 
 
-        <div>
-          <label class="desc">CC:</label>
+        <div  class="d-flex flex-row">
+          <label class="desc p-2">CC:</label>
           <div>
-            <p class="desc">{{ $drf->cc }}</p>
+            <p class="desc p-2">{{ $drf->cc }}</p>
           </div>
         </div>
 
-        <div>
-          <label class="desc">Cost Expanses Project Number:</label>
+        <div class="d-flex flex-row">
+          <label class="desc p-2">Cost Expanses Project Number:</label>
           <div>
-            <p class="desc"> {{ $drf->cea_project }}</p>
+            <p class="desc p-2"> {{ $drf->cea_project }}</p>
           </div>
         </div>
 
-        <div>
-          <label class="desc">Cost Expanses SVO Number:</label>
+        <div class="d-flex flex-row">
+          <label class="desc p-2">Cost Expanses SVO Number:</label>
           <div>
-            <p class="desc">{{ $drf->cea_svo }}</p>
+            <p class="desc p-2">{{ $drf->cea_svo }}</p>
           </div>
         </div>
 
-        <div>
-          <label class="desc">Company Name:</label>
+        <div class="d-flex flex-row">
+          <label class="desc p-2">Company Name:</label>
           <div>
-            <p class="desc">{{ $drf->ci_company_name }}</p>
+            <p class="desc p-2">{{ $drf->ci_company_name }}</p>
           </div>
         </div>
 
-        <div>
-          <label class="desc">Phone Company:</label>
+        <div class="d-flex flex-row">
+          <label class="desc p-2">Phone Company:</label>
           <div>
-            <p class="desc">{{ $drf->ci_contact_person }}</p>
+            <p class="desc p-2">{{ $drf->ci_contact_person }}</p>
           </div>
         </div>
 
-        <div>
-          <label class="desc">Contact Person:</label>
+        <div class="d-flex flex-row">
+          <label class="desc p-2">Contact Person:</label>
           <div>
-            <p class="desc">{{ $drf->ci_contact_person }}</p>
+            <p class="desc p-2">{{ $drf->ci_contact_person }}</p>
           </div>
         </div>
 
-        <div>
-          <label class="desc">Email Company:</label>
+        <div class="d-flex flex-row">
+          <label class="desc p-2">Email Company:</label>
           <div>
-            <p class="desc">{{ $drf->ci_email_company }}</p>
+            <p class="desc p-2">{{ $drf->ci_email_company }}</p>
           </div>
         </div>
 
-        <div>
-          <label class="desc">Adress:</label>
+        <div class="d-flex flex-row">
+          <label class="desc p-2">Adress:</label>
           <div>
-            <p class="desc">{{ $drf->ci_address }}</p>
+            <p class="desc p-2">{{ $drf->ci_address }}</p>
           </div>
         </div>
 
-        <div>
-          <label class="desc"> Dispatch Information Date:</label>
+        <div class="d-flex flex-row">
+          <label class="desc p-2"> Dispatch Information Date:</label>
           <div>
-            <p class="desc">{{ $drf->di_date }}</p>
+            <p class="desc p-2">{{ $drf->di_date }}</p>
           </div>
         </div>
 
-        <div>
-          <label class="desc">Dispatch Information Duration:</label>
+        <div class="d-flex flex-row">
+          <label class="desc p-2">Dispatch Information Duration:</label>
           <div>
-            <p class="desc"> {{ $drf->di_duration }}</p>
+            <p class="desc p-2"> {{ $drf->di_duration }}</p>
           </div>
         </div>
 
-        <div>
-          <label class="desc">Number of Engineering:</label>
+        <div class="d-flex flex-row ">
+          <label class="desc p-2">Number of Engineering:</label>
           <div>
-            <p class="desc">{{ $drf->lodging_recomendation }} </p>
+            <p class="desc p-2">{{ $drf->lodging_recomendation }} </p>
           </div>
         </div>
 
-        <div>
-          <label class="desc">Lodging Recomendation:</label>
+        <div class="d-flex flex-row">
+          <label class="desc p-2">Lodging Recomendation:</label>
           <div>
-            <p class="desc">{{ $drf->lodging_recomendation }} </p>
+            <p class="desc p-2">{{ $drf->lodging_recomendation }} </p>
           </div>
         </div>
 
-        <div>
-          <label class="desc">Scope Instrument Name:</label>
+        <div class="d-flex flex-row">
+          <label class="desc p-2">Scope Instrument Name:</label>
           <div>
-            <p class="desc">{{ $drf->scope_instrument_name }}</p>
+            <p class="desc p-2">{{ $drf->scope_instrument_name }}</p>
           </div>
         </div>
 
+          <div class="d-flex flex-row">
+          <label class="desc p-2">Scope Model Code :</label>
           <div>
-          <label class="desc">Scope Model Code :</label>
-          <div>
-            <p class="desc">{{ $drf->scope_model_code }}</p>
+            <p class="desc p-2">{{ $drf->scope_model_code }}</p>
           </div>
         </div>
 
-        <div>
-          <label class="desc">Post Work Document:</label>
+        <div class="d-flex flex-row">
+          <label class="desc p-2">Post Work Document:</label>
           <div>
-            <p class="desc">{{ $drf->post_work_document }} </p>
+            <p class="desc p-2">{{ $drf->post_work_document }} </p>
           </div>
         </div>
 
+          <div class="d-flex flex-row">
+          <label class="desc p-2">Work Type:</label>
           <div>
-          <label class="desc">Work Type:</label>
-          <div>
-            <p class="desc">{{ $drf->work_type}}</p>
+            <p class="desc p-2">{{ $drf->work_type}}</p>
           </div>
         </div>
 
-        <div>
-          <label class="desc">Description:</label>
+        <div class="d-flex flex-row">
+          <label class="desc p-2">Description:</label>
           <div>
-            <p class="desc">{{ $drf->description }}</p>
+            <p class="desc p-2">{{ $drf->description }}</p>
           </div>
         </div>
 
 
 
-        <div>
-          <label class="desc">Document:</label>
+        <div class="d-flex flex-row">
+          <label class="desc p-2">Document:</label>
           <div>
             <form action="{{ route('download.index') }}" method="post">
               @csrf

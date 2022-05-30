@@ -35,14 +35,14 @@
           <div class="picker">
             <form class="POST" method="GET" action='{{ route('ivsp.history') }}'>
               <input type="month" name="datepicker" id="start" min="2022-01" value="{{ $datepicker !== null ? $datepicker : "2022-01" }}">
-              <button type="submit" value="submit" id="submit" name="submit" style="border-radius:5px; " class="mt-4 ">Submit </button>
+              <button type="submit" value="submit" id="submit" name="submit" style="border-radius:5px;" class="mt-4">Submit </button>
             </form>
           </div>
         </div>
 
 <div class="row">
 
-        @forelse ($ivsp as $i)
+        @forelse($ivsp as $i)
 
         <div class="col-lg-6 ">
             <div class="card "  >
