@@ -96,6 +96,7 @@ class IVSPController extends Controller
             $ivsp = Ivsp::findIvspByMonthAndYear($month, $year);
             return view('history.ivsphistory', [
                 'ivsp' => $ivsp,
+                'datepicker' => $monthAndYear,
             ]);
         }else{
             $ivsp = Ivsp::allIVSPOrderByNumberOfProcesses();
