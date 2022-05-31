@@ -25,10 +25,6 @@ use App\Http\Controllers\RegisterController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 // AUTH UMUM
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout')->middleware('auth');
 Route::post('/login', [LoginController::class, 'authenticate'])->name('login.authenticate')->middleware('guest');
@@ -54,6 +50,10 @@ Route::get('/dashboarduser', [DashboardUserController::class, 'index'])->name('d
 Route::get('/logingl', [LoginController::class, 'indexGL'])->name('logingl.index')->middleware('guest');
 // END AUTH GL
 
+// DASHBOARD SUPERADMIN
+Route::resource('/dashboardadmin/admin', AdminController::class)->except(['edit','update'])->middleware('superAdmin');
+// END DASHBOARD SUPERADMIN
+
 
 // DASHBOARD ADMIN
 Route::get('/dashboardadmin', [DashboardAdminController::class, 'index'])->name('dashboardadmin.index')->middleware('admin');
@@ -71,6 +71,19 @@ Route::resource('/dashboardadmin/drf', DRFController::class)->middleware('admin'
 //IVSP ADMIN
 Route::get('/historyivsp', [IVSPController::class, 'history'])->name('ivsp.history')->middleware(['admin','GL','engineer','QC','Manager']);
 Route::resource('/dashboardadmin/ivsp', IVSPController::class)->middleware('admin')->except(['edit','index','update','create']);
+
+// GL CRUD
+Route::resource('/dashboardadmin/gl', GLController::class)->middleware('admin')->except(['edit','update']);
+// END GL CRUD
+// Engineer CRUD
+Route::resource('/dashboardadmin/engineer', EngineerController::class)->middleware('admin')->except(['edit','update']);
+// END Engineer CRUD
+// Manager CRUD
+Route::resource('/dashboardadmin/manager', ManagerController::class)->middleware('admin')->except(['edit','update']);
+// END Manager CRUD
+// QC CRUD
+Route::resource('/dashboardadmin/qc', QCController::class)->middleware('admin')->except(['edit','update']);
+// END QC CRUD
 
 // END DASHBOARD ADMIN
 

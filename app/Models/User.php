@@ -45,6 +45,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    // Admin
     public static function allAdmin()
     {
         return User::where('role_id', '0202')->get();
@@ -59,4 +60,74 @@ class User extends Authenticatable
     {
         return User::where('id', $id)->where('role_id', '0202')->delete();
     }
+    // END Admin
+
+
+    // GL
+    public static function allGL()
+    {
+        return User::where('role_id', '0101')->get();
+    }
+
+    public static function findGL($id)
+    {
+        return User::where('id', $id)->where('role_id', '0101')->first();
+    }
+
+    public static function deleteGL($id)
+    {
+        return User::where('id', $id)->where('role_id', '0101')->delete();
+    }
+    // END GL
+
+    // Engineer
+    public static function allEngineer()
+    {
+        return User::where('role_id', '0303')->get();
+    }
+
+    public static function findEngineer($id)
+    {
+        return User::where('id', $id)->where('role_id', '0303')->first();
+    }
+
+    public static function deleteEngineer($id)
+    {
+        return User::where('id', $id)->where('role_id', '0303')->delete();
+    }
+    // END Engineer
+
+    // QC
+    public static function allQC()
+    {
+        return User::where('role_id', '0505')->get();
+    }
+
+    public static function findQC($id)
+    {
+        return User::where('id', $id)->where('role_id', '0505')->first();
+    }
+
+    public static function deleteQC($id)
+    {
+        return User::where('id', $id)->where('role_id', '0505')->delete();
+    }
+    // END QC
+
+    // Manager
+    public static function allManager()
+    {
+        return User::where('role_id', '0606')->get();
+    }
+
+    public static function findManager($id)
+    {
+        return User::where('id', $id)->where('role_id', '0606')->first();
+    }
+
+    public static function deleteManager($id)
+    {
+        return User::where('id', $id)->where('role_id', '0606')->delete();
+    }
+    // END Manager
 }

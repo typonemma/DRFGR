@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreRegister;
 use App\Models\User;
 use Illuminate\Http\Request;
-use App\Http\Requests\StoreRegister;
 
-class AdminController extends Controller
+class EngineerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +15,9 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $admin = User::allAdmin();
-        return view('addstakeholder.admin.index', [
-            'admin' => $admin,
+        $engineer = User::allEngineer();
+        return view('addstakeholder.engineer.index', [
+            'engineer' => $engineer,
         ]);
     }
 
@@ -28,7 +28,7 @@ class AdminController extends Controller
      */
     public function create()
     {
-        return view('addstakeholder.admin.create');
+        return view('addstakeholder.engineer.create');
     }
 
     /**
@@ -41,9 +41,9 @@ class AdminController extends Controller
     {
         $validatedData = $request->validated();
         $validatedData['password'] = bcrypt($validatedData['password']);
-        $validatedData['role_id'] = '0202';
+        $validatedData['role_id'] = '0303';
         User::create($validatedData);
-        return redirect(route('dashboardsuperadmin.index'))->with('success', 'Admin created successfully');
+        return redirect(route('engineer.index'))->with('success', 'Engineer created successfully');
     }
 
     /**
@@ -54,9 +54,9 @@ class AdminController extends Controller
      */
     public function show($id)
     {
-        $admin = User::findAdmin($id);
-        return view('addstakeholder.admin.show',[
-            'admin' => $admin,
+        $engineer = User::findEngineer($id);
+        return view('addstakeholder.engineer.show',[
+            'engineer' => $engineer,
             ]);
     }
 
@@ -68,7 +68,7 @@ class AdminController extends Controller
      */
     public function edit($id)
     {
-
+        //
     }
 
     /**
@@ -80,7 +80,7 @@ class AdminController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
+        //
     }
 
     /**
@@ -91,7 +91,7 @@ class AdminController extends Controller
      */
     public function destroy($id)
     {
-        User::deleteAdmin($id);
-        return redirect(route('dashboardsuperadmin.index'))->with('success', 'Admin deleted successfully');
+        User::deleteEngineer($id);
+        return redirect(route('engineer.index'))->with('success', 'Engineer deleted successfully');
     }
 }
