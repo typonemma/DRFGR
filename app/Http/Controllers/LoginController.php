@@ -26,6 +26,15 @@ class LoginController extends Controller
             }else if(auth()->user()->role_id == '0101'){
                 $request->session()->regenerate();
                 return redirect()->intended('/dashboardgl');
+            }else if(auth()->user()->role_id == '0303'){
+                $request->session()->regenerate();
+                return redirect()->intended('/dashboardengineer');
+            }else if(auth()->user()->role_id == '0505'){
+                $request->session()->regenerate();
+                return redirect()->intended('/dashboardqc');
+            }else if(auth()->user()->role_id == '0606'){
+                $request->session()->regenerate();
+                return redirect()->intended('/dashboardmanager');
             }
             else{
                 
