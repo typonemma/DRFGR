@@ -65,17 +65,15 @@ button:hover, button:active{
 
   .text{
     font-size: 4vw;
-    margin-left: 20%;
   }
 
   .submit-btn{
     width: 100px !important;
-
     font-size: 4vw;
     margin: 0;
     display: flex;
     justify-content: center;
-    margin-left: 35%;
+    margin-left: 5%;
   }
 
 }

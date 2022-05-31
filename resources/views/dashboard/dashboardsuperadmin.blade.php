@@ -11,8 +11,7 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
         <link rel="stylesheet" type="text/css" href="css/navbar.css">
         <link rel="stylesheet" href="{{asset('css/form.css')}}">
-        <link rel="stylesheet" href="{{asset('css/sopdrfgr.css')}}">
-
+        <link rel="stylesheet" href="{{asset('css/admindashboard.css')}}">
 
             <!--Calling bootstrap-->
             <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -26,35 +25,20 @@
 
 
 
-
-
     </head>
-    @include('layouts.navbar')
+  @include('layouts.superadmin')
     <body class="antialiased" style="background-image: #EAD689;">
-
-
-
-
-      <div class="row top-tittle mt-4">
-        <h1 class="col-md-8  font-weight-bold id-h1">{{ $ivsp->id }}</h1>
-        <p class="col-md-2"></p>
-
-      </div>
-
-      <div class="row top-tittle mt-4">
-        <h2 class="col-md-8  font-weight-bold id-h2">Status : {{ $ivsp->process }} </h2>
-      </div>
-
-      <form class="d-flex flex-row" action="{{ route('dashboardgl.ivspACKGL', $ivsp->id) }}" method="post" style="float:left;">
-        <div class="row sop_top mt-4">
-          <p class="col-md-8 text">Acknowledge by Group Leader</p>
-          <button class="col-sm-4 submit-btn" id="submit" style="">Submit</button>
-        </div>
-      </form>
-
-
-
-
+      <div class="register">
+       <h1>Register</h1>
+           <form method="post" action="{{ route('register.store') }}">
+               @csrf
+               <input type="text" name="name" placeholder="Name" required="required" />
+               <input type="text" name="email" placeholder="Email" required="required" />
+               <input type="password" name="password" placeholder="Password" required="required" />
+               <input type="password" name="retypePassword" placeholder="Retype Password " required="required" />
+               <button type="submit" class="btn btn-primary btn-block btn-large">Register</button>
+           </form>
+       </div>
 
 
 
