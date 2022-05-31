@@ -44,7 +44,7 @@ class DashboardGLController extends Controller
     //     ]);
     // }
 
-    public function drfSOPGL($id)
+    public function drfSOPAckGL($id)
     {
         $drf = Drf::findDRFById($id);
         return view('sop_drf.ackgl',[
@@ -52,10 +52,26 @@ class DashboardGLController extends Controller
         ]);
     }
 
-    public function ivspSOPGL($id)
+    public function drfSOPReviewGL($id)
+    {
+        $drf = Drf::findDRFById($id);
+        return view('sop_drf.rewgl',[
+            'drf' => $drf
+        ]);
+    }
+
+    public function ivspSOPAckGL($id)
     {
         $ivsp = Ivsp::findIVSPById($id);
         return view('sop_gr.ackgl',[
+            'ivsp' => $ivsp
+        ]);
+    }
+
+    public function ivspSOPReviewGL($id)
+    {
+        $ivsp = Ivsp::findIVSPById($id);
+        return view('sop_gr.rewgl',[
             'ivsp' => $ivsp
         ]);
     }

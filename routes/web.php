@@ -77,8 +77,10 @@ Route::resource('/dashboardadmin/ivsp', IVSPController::class)->middleware('admi
 // DASHBOARD GL
 Route::get('/dashboardgl', [DashboardGLController::class, 'index'])->name('dashboardgl.index')->middleware('GL');
 Route::get('/dashboardgl/history', [DashboardGLController::class, 'history'])->name('dashboardgl.history')->middleware('GL');
-Route::get('/dashboardgl/drf/sop/{id}', [DashboardGLController::class, 'drfSOPGL'])->name('drf.sopGL')->middleware('GL');
-Route::get('/dashboardgl/ivsp/sop/{id}', [DashboardGLController::class, 'ivspSOPGL'])->name('ivsp.sopGL')->middleware('GL');
+Route::get('/dashboardgl/drf/sopackgl/{id}', [DashboardGLController::class, 'drfSOPAckGL'])->name('drf.sopAckGL')->middleware('GL');
+Route::get('/dashboardgl/drf/soprevgl/{id}', [DashboardGLController::class, 'drfSOPReviewGL'])->name('drf.sopReviewGL')->middleware('GL');
+Route::get('/dashboardgl/ivsp/sopackgl/{id}', [DashboardGLController::class, 'ivspSOPAckGL'])->name('ivsp.sopAckGL')->middleware('GL');
+Route::get('/dashboardgl/ivsp/soprevgl/{id}', [DashboardGLController::class, 'ivspSOPReviewGL'])->name('ivsp.sopReviewGL')->middleware('GL');
 Route::post('/dashboardgl/drfackgl/{id}', [DashboardGLController::class, 'drfAckGL'])->name('dashboardgl.drfACKGL')->middleware('GL');
 Route::post('/dashboardgl/ivspackgl/{id}', [DashboardGLController::class, 'ivspAckGL'])->name('dashboardgl.ivspACKGL')->middleware('GL');
 Route::post('/dashboardgl/drfreviewgl/{id}', [DashboardGLController::class, 'drfReviewGL'])->name('dashboardgl.drfReviewGL')->middleware('GL');
