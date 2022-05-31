@@ -81,7 +81,7 @@ class DashboardGLController extends Controller
         $update['process'] = 'ACK By GL';
         $update['number_of_process'] = 2;
         Drf::updateDRFById($update, $id);
-        redirect(route('dashboardadmin.showDRF'))->with('success','DRF has been acknowledged successfully');
+        return redirect(route('dashboardgl.index'))->with('success','DRF has been acknowledged successfully');
     }
 
     public function drfReviewGL(Request $request, $id)
@@ -90,7 +90,7 @@ class DashboardGLController extends Controller
         $update['number_of_process'] = 5;
         $update['end_date'] = Carbon::now();
         Drf::updateDRFById($update, $id);
-        redirect(route('dashboardadmin.showDRF'))->with('success','DRF has been reviewed by GL successfully');
+        return redirect(route('dashboardgl.index'))->with('success','DRF has been reviewed by GL successfully');
     }
 
     public function ivspAckGL(Request $request, $id)

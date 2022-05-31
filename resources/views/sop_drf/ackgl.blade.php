@@ -25,7 +25,7 @@
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
 
     </head>
-    @include('layouts.navbar')
+    @include('layouts.navbargl')
     <body class="antialiased" style="background-image: #EAD689;">
 
       <div class="row top-tittle mt-4">
@@ -39,12 +39,11 @@
       </div>
 
 
-      <form class="d-flex flex-row" action="{{ route('dashboardgl.drfACKGL') }}" method="post" style="float:left;">
+      <form class="d-flex flex-row" action="{{ route('dashboardgl.drfACKGL', $drf->id) }}" method="post" style="float:left;">
         @csrf
-        <div class="row sop_top mt-4">
+        <div class="row sop_top mt-4 ">
               <p class="col-md-8 text">Acknowledge by Group Leader</p>
-              <p class="col-md-2"></p>
-            <button class="col-sm-2 submit-btn" id="submit" style="">Submit</button>
+            <button class="col-sm-4 submit-btn" id="submit" style="">Submit</button>
           </div>
       </form>
 

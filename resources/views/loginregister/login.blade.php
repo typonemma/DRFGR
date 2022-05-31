@@ -19,7 +19,7 @@
     </head>
     <body class="antialiased">
        <div class="login">
-        <h1>{{ $title }}</h1>
+        <h1>Login</h1>
             <form method="post" action="{{ route('login.authenticate') }}">
                 @csrf
                 <input type="text" name="email" placeholder="Email" required="required" />
@@ -37,6 +37,9 @@
                 {{ session('loginError') }}
                 <button type="submit" class="btn btn-primary btn-block btn-large">Login</button>
             </form>
+            <div class="d-flex flex-row">
+              <p class="p-2"> Don't have account?  <a href="{{route('register.index')}}" class="register-link p-2">Register Here</a></p>
+            </div>
         </div>
     </body>
 </html>

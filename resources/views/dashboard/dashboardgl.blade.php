@@ -32,7 +32,7 @@
 
 
     </head>
-    @include('layouts.navbar')
+    @include('layouts.navbargl')
     <body class="antialiased" style="background-image: #EAD689;">
 
         <h5 style="font-weight:bold;" class="mt-4">In Progress</h5>
