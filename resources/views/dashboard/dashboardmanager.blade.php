@@ -11,8 +11,7 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
         <link rel="stylesheet" type="text/css" href="css/navbar.css">
         <link rel="stylesheet" href="{{asset('css/form.css')}}">
-        <link rel="stylesheet" href="{{asset('css/sopdrfgr.css')}}">
-
+        <link rel="stylesheet" href="{{asset('css/admindashboard.css')}}">
 
             <!--Calling bootstrap-->
             <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -23,36 +22,57 @@
         		<meta name="viewport" content="width=device-width, initial-scale=1">
             <!--Calling Icon CSS-->
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+        <!-- Styles   -->
+        {{-- Session untuk  tampilin message --}}
+        @if (session()->has('success'))
+        <div class="alert alert-success col-lg-8" role="alert">
+            {{ session('success') }}
+        </div>
+        @endif
+
 
     </head>
     @include('layouts.navbar')
     <body class="antialiased" style="background-image: #EAD689;">
 
-      <div class="row top-tittle mt-4">
-        <h1 class="col-md-8  font-weight-bold id-h1"> {{ $drf->id }}</h1>
-        <p class="col-md-2"></p>
-
-      </div>
-
-      <div class="row top-tittle mt-4">
-        <h2 class="col-md-8  font-weight-bold id-h2">Status :  {{ $drf->process }} </h2>
-      </div>
+        <h5 style="font-weight:bold;" class="mt-4">In Progress</h5>
 
 
-      <form class="d-flex flex-row" action="{{ route('dashboardgl.drfACKGL') }}" method="post" style="float:left;">
-        @csrf
-        <div class="row sop_top mt-4">
-              <p class="col-md-8 text">Acknowledge by Group Leader</p>
-              <p class="col-md-2"></p>
-            <button class="col-sm-2 submit-btn" id="submit" style="">Submit</button>
+        @forelse ($ivspReviewManager as $i)
+
+        <section class="statis mt-4 text-center">
+          <div class="row">
+            <div class="col-md-12 ">
+              <div class="box  p-3" >
+                <i class="uil-eye"></i>
+                <p class="lead">  {{ $i->id }}</p>
+                <a href="{{ route('dashboardmanager.ivspReviewByManager', $i->id) }}" class="text-secondary">More</a>
+              </div>
+            </div>
           </div>
-      </form>
+        </section>
+        @empty
+        @endforelse
 
 
+        <h5 style="font-weight:bold;" class="mt-4">In Review</h5>
 
 
+        @forelse ($ivspApproveManager as $i)
 
-
+        <section class="statis mt-4 text-center">
+          <div class="row">
+            <div class="col-md-12 ">
+              <div class="box  p-3" >
+                <i class="uil-eye"></i>
+                <p class="lead">{{ $i->id }} </p>
+                <a href="{{ route('dashboardmanager.ivspApproveByManager', $i->id) }}" class="text-secondary">More</a>
+              </div>
+            </div>
+          </div>
+        </section>
+        @empty
+        @endforelse
 
 
 

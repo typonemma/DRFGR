@@ -68,11 +68,11 @@
 
         @foreach($ivsp->ivspNomorModel as $inm)
         <div class="d-flex flex-row">
-          <h5 class="desc p-2"> Model</h5>
           <div>
-            <p class="desc p-2">Serial Number : {{ $inm->serial_number}}</p>
-            <p class="desc p-2">Instrument Model :{{ $inm->instrument_model}}</p>
-            <p class="desc p-2">Fault Report {{ $inm->fault_report}}</p>
+            <p class="desc p-2">Model Serial Number : {{ $inm->serial_number}}</p>
+            <p class="desc p-2">Model Instrument Model : {{ $inm->instrument_model}}</p>
+            <p class="desc p-2">Model Fault Report  : {{ $inm->fault_report}}</p>
+            <p class="desc p-2">Deskripsi Rusak Model : {{ $inm->desc}}</p></br>
           </div>
         </div>
         @endforeach
