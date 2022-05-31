@@ -43,7 +43,7 @@
         <h2 class="col-md-8  font-weight-bold id-h2">Status :{{ $ivsp->process }} </h2>
       </div>
 
-          <form class="d-flex flex-row" action="index.html" method="post" style="float:left;">
+          <form class="d-flex flex-row" action="{{ route('') }}" method="post" style="float:left;">
         <div class="row sop_top mt-4">
           <p class="col-md-8 text">Do by Engineer</p>
             <p class="col-md-2"></p>
