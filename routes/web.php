@@ -64,12 +64,12 @@ Route::get('/dashboardadmin/drf/sop/{id}', [DashboardAdminController::class, 'dr
 Route::get('/dashboardadmin/ivsp/sop/{id}', [DashboardAdminController::class, 'ivspSOPAdmin'])->name('ivsp.sopAdmin')->middleware('admin');
 
 // DRF ADMIN
-Route::get('/historydrf', [DRFController::class, 'history'])->name('drf.history')->middleware(['admin','GL','engineer','QC','manager']);
+Route::get('/historydrf', [DRFController::class, 'history'])->name('drf.history')->middleware('allStakeholder');
 Route::resource('/dashboardadmin/drf', DRFController::class)->middleware('admin')->except(['create', 'store','index']);
 
 
 //IVSP ADMIN
-Route::get('/historyivsp', [IVSPController::class, 'history'])->name('ivsp.history')->middleware(['admin','GL','engineer','QC','Manager']);
+Route::get('/historyivsp', [IVSPController::class, 'history'])->name('ivsp.history')->middleware('allStakeholder');
 Route::resource('/dashboardadmin/ivsp', IVSPController::class)->middleware('admin')->except(['edit','index','update','create']);
 
 // GL CRUD
