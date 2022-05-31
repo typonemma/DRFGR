@@ -13,7 +13,7 @@ class DashboardManagerController extends Controller
     {
         $ivspReviewManager = Ivsp::findIVSPReviewManager();
         $ivspApproveManager = Ivsp::findIVSPApproveManager();
-        return view('dashboard', [
+        return view('dashboard.dashboardmanager', [
             'ivspReviewManager' => $ivspReviewManager,
             'ivspApproveManager' => $ivspApproveManager
         ]);
