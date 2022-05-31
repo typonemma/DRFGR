@@ -44,4 +44,19 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public static function allAdmin()
+    {
+        return User::where('role_id', '0202')->get();
+    }
+
+    public static function findAdmin($id)
+    {
+        return User::where('id', $id)->where('role_id', '0202')->first();
+    }
+
+    public static function deleteAdmin($id)
+    {
+        return User::where('id', $id)->where('role_id', '0202')->delete();
+    }
 }

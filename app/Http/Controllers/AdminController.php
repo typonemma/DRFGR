@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreRegister;
 
 class AdminController extends Controller
 {
@@ -13,7 +15,10 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin.index');
+        $admin = User::allAdmin();
+        return view('admin.index', [
+            'admin' => $admin,
+        ]);
     }
 
     /**
@@ -32,13 +37,13 @@ class AdminController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreRegister $request)
     {
-        $validatedData = $request->validate([
-            'name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users',
-            'password' => 'required|min:6|confirmed',
-        ]);
+        $validatedData = $request->validated();
+        $validatedData['password'] = bcrypt($validatedData['password']);
+        $validatedData['role_id'] = '0202';
+        User::create($validatedData);
+        return redirect(route('dashboardsuperadmin.index'))->with('success', 'Admin created successfully');
     }
 
     /**
@@ -49,7 +54,10 @@ class AdminController extends Controller
      */
     public function show($id)
     {
-        //
+        $admin = User::findAdmin($id);
+        return view('admin.show',[
+            'admin' => $admin,
+            ]);
     }
 
     /**
@@ -60,7 +68,7 @@ class AdminController extends Controller
      */
     public function edit($id)
     {
-        //
+
     }
 
     /**
@@ -72,7 +80,7 @@ class AdminController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
     }
 
     /**
@@ -83,6 +91,7 @@ class AdminController extends Controller
      */
     public function destroy($id)
     {
-        //
+        User::deleteAdmin($id);
+        return redirect(route('dashboardsuperadmin.index'))->with('success', 'Admin deleted successfully');
     }
 }
