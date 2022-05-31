@@ -87,10 +87,14 @@ class Ivsp extends Model
         return self::where('number_of_process', self::$__admin)
         ->get();
     }
-    public static function findIVSPGL()
+    public static function findIVSPAckGL()
     {
         return self::where('number_of_process', self::$__ackGL)
-        ->orWhere('number_of_process', self::$__reviewGL)
+        ->get();
+    }
+    public static function findIVSPReviewGL()
+    {
+        return self::where('number_of_process', self::$__reviewGL)
         ->get();
     }
     public static function findIVSPEngineer()

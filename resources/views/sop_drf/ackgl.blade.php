@@ -38,17 +38,25 @@
         <h2 class="col-md-8  font-weight-bold id-h2">Status :  {{ $drf->process }} </h2>
       </div>
 
-      <form class="d-flex flex-row" action="index.html" method="post" style="float:left;">
+      
+      <form class="d-flex flex-row" action="{{ route('dashboardgl.drfACKGL') }}" method="post" style="float:left;">
+        @csrf
         <div class="row sop_top mt-4">
-            @if ($drf->process == "ACK By Admin")
               <p class="col-md-8 text">Acknowledge by Group Leader</p>
-            @elseif ($drf->process == "REVIEW By QC")
-            <p class="col-md-8 text">Review by Group Leader</p>
-            @endif
               <p class="col-md-2"></p>
             <button class="col-sm-2 submit-btn" id="submit" style="">Submit</button>
           </div>
       </form>
+{{-- Bagian Di potong --}}
+            <form class="d-flex flex-row" action="{{ route('dashboardgl.drfReviewGL') }}" method="post" style="float:left;">
+              @csrf
+              <div class="row sop_top mt-4">
+                <p class="col-md-8 text">Review by Group Leader</p>
+                <p class="col-md-2"></p>
+                  <button class="col-sm-2 submit-btn" id="submit" style="">Submit</button>
+                </div>
+            </form>
+              
 
 
 
