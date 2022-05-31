@@ -11,7 +11,7 @@ class DashboardQCController extends Controller
     public function index()
     {
         $drf = Drf::findDRFQC();
-        return view('dashboard.dashboard', [
+        return view('dashboard.dashboardqc', [
             'drf' => $drf,
         ]);
     }
