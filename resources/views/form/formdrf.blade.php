@@ -32,15 +32,15 @@
         <input id="radioDefault_2" name="cc" type="hidden" value="">
         <div>
           <input id="Field2_0" name="cc" type="radio" value="Analyzer, GL" tabindex="5" checked="checked">
-          <label class="choice" for="Field2_0">Analyzer, GL</label>
+          <label class="choice" for="Field2_0">Aditya Saputro (Analyzer, GL)</label>
         </div>
         <div>
           <input id="Field2_1" name="cc" type="radio" value="SLC, GL" tabindex="6">
-          <label class="choice" for="Field2_1">SLC, GL</label>
+          <label class="choice" for="Field2_1">Erga Suwargana (SLC, GL)</label>
         </div>
         <div>
           <input id="Field2_4" name="cc" type="radio" value="PCI, GL" tabindex="7">
-          <label class="choice" for="Field2_4">PCI, GL</label>
+          <label class="choice" for="Field2_4">Gardia Ghautama (PCI, GL)</label>
         </div>
       </div>
     </fieldset>
