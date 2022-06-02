@@ -28,7 +28,7 @@ class StoreIVSP extends FormRequest
             'customer_name' => 'required',
             'customer_address' => 'required',
             'customer_telephone' => 'required|numeric',
-            'contact_person' => 'required|numeric',
+            'contact_person' => 'required',
             'in_date' => 'required|date_format:Y-m-d',
             'desc' => 'required',
             'fault_report' => 'required',

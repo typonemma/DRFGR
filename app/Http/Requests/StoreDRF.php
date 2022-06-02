@@ -30,7 +30,7 @@ class StoreDRF extends FormRequest
             'cea_svo' => 'required|numeric',
             'ci_company_name' => 'required',
             'ci_phone_company' => 'required|numeric|digits_between:10,15',
-            'ci_contact_person' => 'required|numeric',
+            'ci_contact_person' => 'required',
             'ci_email_company' => 'required|email:dns',
             'ci_address' => 'required',
             'di_date' => 'required|date_format:Y-m-d',
