@@ -61,6 +61,37 @@
     </fieldset>
   </div>
 
+  <div>
+    <label class="desc" id="title1" for="Field2">Cost No</label>
+    <div>
+      <input id="Field2" name="cost_no" type="text" class="field text fn" value="{{ old('cost_no') }}" size="8" tabindex="1" placeholder="Customer No (SVO/PJT)">
+        @error('cost_no')
+          {{ $message }}
+        @enderror
+    </div>
+  </div>
+
+  <div>
+    <label class="desc" id="title1" for="Field2">SO :</label>
+    <div>
+      <input id="Field2" name="SO" type="text" class="field text fn" value="{{ old('so') }}" size="8" tabindex="1" placeholder="SO ">
+        @error('SO')
+          {{ $message }}
+        @enderror
+    </div>
+  </div>
+
+  <div>
+    <label class="desc" id="title1" for="Field2">SVO :</label>
+    <div>
+      <input id="Field2" name="SO" type="text" class="field text fn" value="{{ old('svo') }}" size="8" tabindex="1" placeholder="SVO ">
+        @error('SVO')
+          {{ $message }}
+        @enderror
+    </div>
+  </div>
+
+
 
   <div>
     <label class="desc" id="title1" for="Field2">Customer Name</label>
