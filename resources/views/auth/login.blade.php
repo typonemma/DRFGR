@@ -53,12 +53,12 @@
 
                         <div class="row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn" style="background-color:#EAD689; border-color:#2A363B; border-width:5px; border-radius:5px;">
                                     {{ __('Login') }}
                                 </button>
 
                                 @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                                    <a class="btn btn-link" href="{{ route('password.request') }}" style="color:#2A363B;">
                                         {{ __('Forgot Your Password?') }}
                                     </a>
                                 @endif
