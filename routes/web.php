@@ -15,6 +15,8 @@ use App\Http\Controllers\DashboardManagerController;
 use App\Http\Controllers\DashboardEngineerController;
 use Illuminate\Support\Facades\Auth;
 
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,7 +27,6 @@ use Illuminate\Support\Facades\Auth;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Auth::routes(['verify' => true]);
 
 // AUTH UMUM
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout')->middleware('auth');
@@ -37,23 +38,33 @@ Route::get('/loginadmin', [LoginController::class, 'index'])->name('login.index'
 
 // END AUTH ADMIN
 
-// AUTH USER
-Route::get('/loginuser', [LoginController::class, 'indexUser'])->name('loginuser.index')->middleware('guest');
-Route::get('/registeruser', [RegisterController::class, 'index'])->name('register.index')->middleware('guest');
-Route::post('/registeruser', [RegisterController::class, 'store'])->name('register.store')->middleware('guest');
+// DASHBOARD USER
 Route::post('/dashboarduser/storedrf', [DashboardUserController::class, 'storeDRF'])->name('dashboarduser.storeDRF')->middleware(['user','verified']);
 Route::post('/dashboarduser/storeivsp', [DashboardUserController::class, 'storeIVSP'])->name('dashboarduser.storeIVSP')->middleware(['user', 'verified']);
 Route::get('/dashboarduser/formdrf', [DashboardUserController::class, 'createDRF'])->name('dashboarduser.formDRF')->middleware([ 'user', 'verified']);
 Route::get('/dashboarduser/formivsp', [DashboardUserController::class, 'createIVSP'])->name('dashboarduser.formIVSP')->middleware([ 'user', 'verified']);
 Route::get('/dashboarduser', [DashboardUserController::class, 'index'])->name('dashboarduser.index')->middleware(['user', 'verified']);
-// END AUTH USER
+// DASHBOARD USER
 
-// AUTH GL
-Route::get('/logingl', [LoginController::class, 'indexGL'])->name('logingl.index')->middleware('guest');
-// END AUTH GL
 
 // DASHBOARD SUPERADMIN
+// Admin CRUD
 Route::resource('/dashboardadmin/admin', AdminController::class)->except(['edit','update'])->middleware('superAdmin');
+// END Admin CRUD
+// GL CRUD
+Route::resource('/dashboardadmin/gl', GLController::class)->middleware(['admin', 'verified'])->except(['edit','update']);
+// END GL CRUD
+// Engineer CRUD
+Route::resource('/dashboardadmin/engineer', EngineerController::class)->middleware(['admin', 'verified'])->except(['edit','update']);
+// END Engineer CRUD
+// Manager CRUD
+Route::resource('/dashboardadmin/manager', ManagerController::class)->middleware(['admin', 'verified'])->except(['edit','update']);
+// END Manager CRUD
+// QC CRUD
+Route::resource('/dashboardadmin/qc', QCController::class)->middleware(['admin', 'verified'])->except(['edit','update']);
+// END QC CRUD
+
+// END DASHBOARD ADMIN
 // END DASHBOARD SUPERADMIN
 
 
@@ -74,20 +85,7 @@ Route::resource('/dashboardadmin/drf', DRFController::class)->middleware(['admin
 Route::get('/historyivsp', [IVSPController::class, 'history'])->name('ivsp.history')->middleware(['allStakeholder', 'verified']);
 Route::resource('/dashboardadmin/ivsp', IVSPController::class)->middleware(['admin', 'verified'])->except(['edit','index','update','create']);
 
-// GL CRUD
-Route::resource('/dashboardadmin/gl', GLController::class)->middleware(['admin', 'verified'])->except(['edit','update']);
-// END GL CRUD
-// Engineer CRUD
-Route::resource('/dashboardadmin/engineer', EngineerController::class)->middleware(['admin', 'verified'])->except(['edit','update']);
-// END Engineer CRUD
-// Manager CRUD
-Route::resource('/dashboardadmin/manager', ManagerController::class)->middleware(['admin', 'verified'])->except(['edit','update']);
-// END Manager CRUD
-// QC CRUD
-Route::resource('/dashboardadmin/qc', QCController::class)->middleware(['admin', 'verified'])->except(['edit','update']);
-// END QC CRUD
 
-// END DASHBOARD ADMIN
 
 // DASHBOARD GL
 Route::get('/dashboardgl', [DashboardGLController::class, 'index'])->name('dashboardgl.index')->middleware(['GL', 'verified']);
@@ -133,6 +131,8 @@ Route::post('/download', [DownloadController::class, 'index'])->name('download.i
 
 
 
-Auth::routes();
+Auth::routes([
+    'verify' => true
+]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
