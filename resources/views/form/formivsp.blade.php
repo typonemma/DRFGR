@@ -74,7 +74,7 @@
   <div>
     <label class="desc" id="title1" for="Field2">SO :</label>
     <div>
-      <input id="Field2" name="SO" type="text" class="field text fn" value="{{ old('cost_so') }}" size="8" tabindex="1" placeholder="SO ">
+      <input id="Field2" name="SO" type="text" class="field text fn" value="{{ old('so') }}" size="8" tabindex="1" placeholder="SO ">
         @error('SO')
           {{ $message }}
         @enderror
@@ -84,7 +84,7 @@
   <div>
     <label class="desc" id="title1" for="Field2">SVO :</label>
     <div>
-      <input id="Field2" name="SO" type="text" class="field text fn" value="{{ old('cost_svo') }}" size="8" tabindex="1" placeholder="SVO ">
+      <input id="Field2" name="SO" type="text" class="field text fn" value="{{ old('svo') }}" size="8" tabindex="1" placeholder="SVO ">
         @error('SVO')
           {{ $message }}
         @enderror
