@@ -22,23 +22,90 @@
         		<meta name="viewport" content="width=device-width, initial-scale=1">
             <!--Calling Icon CSS-->
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-
+        <!-- Styles   -->
+        {{-- Session untuk  tampilin message --}}
+        @if (session()->has('success'))
+        <div class="alert alert-success col-lg-8" role="alert">
+            {{ session('success') }}
+        </div>
+        @endif
 
 
     </head>
-  @include('layouts.superadmin')
+    @include('layouts.navbar')
     <body class="antialiased" style="background-image: #EAD689;">
-      <div class="register">
-       <h1>Register</h1>
-           <form method="post" action="{{ route('register.store') }}">
-               @csrf
-               <input type="text" name="name" placeholder="Name" required="required" />
-               <input type="text" name="email" placeholder="Email" required="required" />
-               <input type="password" name="password" placeholder="Password" required="required" />
-               <input type="password" name="retypePassword" placeholder="Retype Password " required="required" />
-               <button type="submit" class="btn btn-primary btn-block btn-large">Register</button>
-           </form>
-       </div>
+
+      <h5 style="font-weight:bold;">Dashboard</h5>
+
+      @if (auth()->user()->role_id == '0202')
+      <section class="statis mt-4 text-center">
+        <div class="row">
+          <div class="col-md-6 col-lg-3 mb-4 mb-lg-0">
+            <div class="box  p-3" >
+              <i class="uil-eye"></i>
+              <h3>{{ $ivspWeek }}</h3>
+              <p class="lead">This Week GR</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3 mb-4 mb-lg-0">
+            <div class="box  p-3">
+              <i class="uil-user"></i>
+              <h3>{{ $drfWeek }}</h3>
+              <p class="lead">This Week DRF</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3 mb-4 mb-md-0">
+            <div class="box  p-3">
+              <i class="uil-shopping-cart"></i>
+              <h3>{{ $ivspMonth }}</h3>
+              <p class="lead">This Month GR</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="box  p-3">
+              <i class="uil-feedback"></i>
+              <h3>{{ $drfMonth }}</h3>
+              <p class="lead">This Month DRF</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      @endif
+
+
+        <h5 style="font-weight:bold;" class="mt-4">In Progress</h5>
+        @forelse ($drf as $d)
+
+        <section class="statis mt-4 text-center">
+          <div class="row">
+            <div class="col-md-12 ">
+              <div class="box  p-3" >
+                <i class="uil-eye"></i>
+                <p class="lead">  {{ $d->id }}</p>
+                <a href="{{ route('drf.sopAdmin', $d->id) }}" class="text-secondary">More</a>
+              </div>
+            </div>
+          </div>
+        </section>
+        @empty
+        @endforelse
+
+        @forelse ($ivsp as $i)
+
+        <section class="statis mt-4 text-center">
+          <div class="row">
+            <div class="col-md-12 ">
+              <div class="box  p-3" >
+                <i class="uil-eye"></i>
+                <p class="lead">  {{ $i->id }}</p>
+                <a href="{{ route('ivsp.sopAdmin', $i->id) }}" class="text-secondary">More</a>
+              </div>
+            </div>
+          </div>
+        </section>
+        @empty
+        @endforelse
+
 
 
 
