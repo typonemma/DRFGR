@@ -70,6 +70,5 @@ class Kernel extends HttpKernel
         'QC' => \App\Http\Middleware\QC::class,
         'manager' => \App\Http\Middleware\Manager::class,
         'superAdmin' => \App\Http\Middleware\SuperAdmin::class,
-        'allStakeholder' => \App\Http\Middleware\AllStakeholder::class,
     ];
 }

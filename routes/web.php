@@ -1,16 +1,22 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\GLController;
+use App\Http\Controllers\QCController;
 use App\Http\Controllers\DRFController;
 use App\Http\Controllers\IVSPController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ManagerController;
 use App\Http\Controllers\DownloadController;
+use App\Http\Controllers\EngineerController;
 use App\Http\Controllers\DashboardGLController;
 use App\Http\Controllers\DashboardQCController;
 use App\Http\Controllers\DashboardUserController;
 use App\Http\Controllers\DashboardAdminController;
 use App\Http\Controllers\DashboardManagerController;
 use App\Http\Controllers\DashboardEngineerController;
-use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\DashboardSuperAdminController;
 
 
 
@@ -27,11 +33,11 @@ use Illuminate\Support\Facades\Auth;
 
 
 // DASHBOARD USER
-Route::post('/dashboarduser/storedrf', [DashboardUserController::class, 'storeDRF'])->name('dashboarduser.storeDRF')->middleware(['user','verified']);
-Route::post('/dashboarduser/storeivsp', [DashboardUserController::class, 'storeIVSP'])->name('dashboarduser.storeIVSP')->middleware(['user', 'verified']);
-Route::get('/dashboarduser/formdrf', [DashboardUserController::class, 'createDRF'])->name('dashboarduser.formDRF')->middleware([ 'user', 'verified']);
-Route::get('/dashboarduser/formivsp', [DashboardUserController::class, 'createIVSP'])->name('dashboarduser.formIVSP')->middleware([ 'user', 'verified']);
-Route::get('/dashboarduser', [DashboardUserController::class, 'index'])->name('dashboarduser.index')->middleware(['user', 'verified']);
+Route::post('/dashboard/user/storedrf', [DashboardUserController::class, 'storeDRF'])->name('dashboarduser.storeDRF')->middleware(['user','verified']);
+Route::post('/dashboard/user/storeivsp', [DashboardUserController::class, 'storeIVSP'])->name('dashboarduser.storeIVSP')->middleware(['user', 'verified']);
+Route::get('/dashboard/user/formdrf', [DashboardUserController::class, 'createDRF'])->name('dashboarduser.formDRF')->middleware([ 'user', 'verified']);
+Route::get('/dashboard/user/formivsp', [DashboardUserController::class, 'createIVSP'])->name('dashboarduser.formIVSP')->middleware([ 'user', 'verified']);
+Route::get('/dashboard/user', [DashboardUserController::class, 'index'])->name('dashboarduser.index')->middleware(['user', 'verified']);
 // DASHBOARD USER
 
 
@@ -52,82 +58,73 @@ Route::resource('/dashboard/superadmin/manager', ManagerController::class)->midd
 Route::resource('/dashboard/superadmin/qc', QCController::class)->middleware(['superAdmin', 'verified'])->except(['edit','update']);
 // END QC CRUD
 
-Route::get('/dashboard/superadmin', [DashboardAdminController::class, 'index'])->name('dashboardsuperadmin.index')->middleware(['superAdmin', 'verified']);
-Route::get('/dashboard/superadmin/history', [DashboardAdminController::class, 'history'])->name('dashboardsuperadmin.history')->middleware(['superAdmin', 'verified']);
-Route::post('/dashboard/superadmin/drfprocessadmin/{id}', [DashboardAdminController::class, 'drfProcessAdmin'])->name('dashboardsuperadmin.drfProcessAdmin')->middleware(['superAdmin', 'verified']);
-Route::post('/dashboard/superadmin/ivspprocessadmin/{id}', [DashboardAdminController::class, 'ivspProcessAdmin'])->name('dashboardsuperadmin.ivspProcessAdmin')->middleware(['superAdmin', 'verified']);
-Route::get('/dashboard/superadmin/drf/sop/{id}', [DashboardAdminController::class, 'drfSOPAdmin'])->name('drf.sopSuperAdmin')->middleware(['superAdmin', 'verified']);
-Route::get('/dashboard/superadmin/ivsp/sop/{id}', [DashboardAdminController::class, 'ivspSOPAdmin'])->name('ivsp.sopSuperAdmin')->middleware(['superAdmin', 'verified']);
+Route::get('/dashboard/superadmin', [DashboardSuperAdminController::class, 'index'])->name('dashboardsuperadmin.index')->middleware(['superAdmin', 'verified']);
+Route::get('/dashboard/superadmin/history', [DashboardSuperAdminController::class, 'history'])->name('dashboardsuperadmin.history')->middleware(['superAdmin', 'verified']);
+Route::post('/dashboard/superadmin/drfprocessadmin/{id}', [DashboardSuperAdminController::class, 'drfProcessSuperAdmin'])->name('dashboardsuperadmin.drfProcessAdmin')->middleware(['superAdmin', 'verified']);
+Route::post('/dashboard/superadmin/ivspprocessadmin/{id}', [DashboardSuperAdminController::class, 'ivspProcessSuperAdmin'])->name('dashboardsuperadmin.ivspProcessAdmin')->middleware(['superAdmin', 'verified']);
+Route::get('/dashboard/superadmin/drf/sop/{id}', [DashboardSuperAdminController::class, 'drfSOPSuperAdmin'])->name('drf.sopSuperAdmin')->middleware(['superAdmin', 'verified']);
+Route::get('/dashboard/superadmin/ivsp/sop/{id}', [DashboardSuperAdminController::class, 'ivspSOPSuperAdmin'])->name('ivsp.sopSuperAdmin')->middleware(['superAdmin', 'verified']);
 
-// DRF ADMIN
-Route::get('/historydrf', [DRFController::class, 'history'])->name('drf.history')->middleware(['allStakeholder', 'verified']);
-Route::resource('/dashboardadmin/drf', DRFController::class)->middleware(['admin', 'verified'])->except(['create', 'store','index']);
-
-
-//IVSP ADMIN
-Route::get('/historyivsp', [IVSPController::class, 'history'])->name('ivsp.history')->middleware(['allStakeholder', 'verified']);
-Route::resource('/dashboardadmin/ivsp', IVSPController::class)->middleware(['admin', 'verified'])->except(['edit','index','update','create']);
+// DRF SUPERADMIN
+Route::get('/historydrf', [DRFController::class, 'history'])->name('drf.history')->middleware(['GL','admin','superAdmin', 'verified']);
+Route::resource('/dashboard/superadmin/drf', DRFController::class, ['as' => 'superAdmin'])->middleware(['superAdmin', 'verified'])->except(['create', 'store','index']);
 
 
-// END DASHBOARD ADMIN
+//IVSP SUPERADMIN
+Route::get('/historyivsp', [IVSPController::class, 'history'])->name('ivsp.history')->middleware(['GL','admin','superAdmin', 'verified']);
+Route::resource('/dashboard/superadmin/ivsp', IVSPController::class, ['as' => 'superAdmin'])->middleware(['superAdmin', 'verified'])->except(['edit','index','update','create']);
 // END DASHBOARD SUPERADMIN
 
-
 // DASHBOARD ADMIN
-Route::get('/dashboardadmin', [DashboardAdminController::class, 'index'])->name('dashboardadmin.index')->middleware(['admin', 'verified']);
-Route::get('/dashboardadmin/history', [DashboardAdminController::class, 'history'])->name('dashboardadmin.history')->middleware(['admin', 'verified']);
-Route::post('/dashboardadmin/drfprocessadmin/{id}', [DashboardAdminController::class, 'drfProcessAdmin'])->name('dashboardadmin.drfProcessAdmin')->middleware(['admin', 'verified']);
-Route::post('/dashboardadmin/ivspprocessadmin/{id}', [DashboardAdminController::class, 'ivspProcessAdmin'])->name('dashboardadmin.ivspProcessAdmin')->middleware(['admin', 'verified']);
-Route::get('/dashboardadmin/drf/sop/{id}', [DashboardAdminController::class, 'drfSOPAdmin'])->name('drf.sopAdmin')->middleware(['admin', 'verified']);
-Route::get('/dashboardadmin/ivsp/sop/{id}', [DashboardAdminController::class, 'ivspSOPAdmin'])->name('ivsp.sopAdmin')->middleware(['admin', 'verified']);
+Route::get('/dashboard/admin', [DashboardAdminController::class, 'index'])->name('dashboardadmin.index')->middleware(['admin', 'verified']);
+Route::get('/dashboard/admin/history', [DashboardAdminController::class, 'history'])->name('dashboardadmin.history')->middleware(['admin', 'verified']);
+Route::post('/dashboard/admin/drfprocessadmin/{id}', [DashboardAdminController::class, 'drfProcessAdmin'])->name('dashboardadmin.drfProcessAdmin')->middleware(['admin', 'verified']);
+Route::post('/dashboard/admin/ivspprocessadmin/{id}', [DashboardAdminController::class, 'ivspProcessAdmin'])->name('dashboardadmin.ivspProcessAdmin')->middleware(['admin', 'verified']);
+Route::get('/dashboard/admin/drf/sop/{id}', [DashboardAdminController::class, 'drfSOPAdmin'])->name('drf.sopAdmin')->middleware(['admin', 'verified']);
+Route::get('/dashboard/admin/ivsp/sop/{id}', [DashboardAdminController::class, 'ivspSOPAdmin'])->name('ivsp.sopAdmin')->middleware(['admin', 'verified']);
 
 // DRF ADMIN
-Route::get('/historydrf', [DRFController::class, 'history'])->name('drf.history')->middleware(['allStakeholder', 'verified']);
-Route::resource('/dashboardadmin/drf', DRFController::class)->middleware(['admin', 'verified'])->except(['create', 'store','index']);
-
+Route::resource('/dashboard/admin/drf', DRFController::class, ['as' => 'admin'])->middleware(['admin', 'verified'])->except(['create', 'store','index']);
 
 //IVSP ADMIN
-Route::get('/historyivsp', [IVSPController::class, 'history'])->name('ivsp.history')->middleware(['allStakeholder', 'verified']);
-Route::resource('/dashboardadmin/ivsp', IVSPController::class)->middleware(['admin', 'verified'])->except(['edit','index','update','create']);
-
-
+Route::resource('/dashboard/admin/ivsp', IVSPController::class,  ['as' => 'admin'])->middleware(['admin', 'verified'])->except(['edit','index','update','create']);
 
 // DASHBOARD GL
-Route::get('/dashboardgl', [DashboardGLController::class, 'index'])->name('dashboardgl.index')->middleware(['GL', 'verified']);
-Route::get('/dashboardgl/history', [DashboardGLController::class, 'history'])->name('dashboardgl.history')->middleware(['GL', 'verified']);
-Route::get('/dashboardgl/drf/sopackgl/{id}', [DashboardGLController::class, 'drfSOPAckGL'])->name('drf.sopAckGL')->middleware(['GL', 'verified']);
-Route::get('/dashboardgl/drf/soprevgl/{id}', [DashboardGLController::class, 'drfSOPReviewGL'])->name('drf.sopReviewGL')->middleware(['GL', 'verified']);
-Route::get('/dashboardgl/ivsp/sopackgl/{id}', [DashboardGLController::class, 'ivspSOPAckGL'])->name('ivsp.sopAckGL')->middleware(['GL', 'verified']);
-Route::get('/dashboardgl/ivsp/soprevgl/{id}', [DashboardGLController::class, 'ivspSOPReviewGL'])->name('ivsp.sopReviewGL')->middleware(['GL', 'verified']);
-Route::post('/dashboardgl/drfackgl/{id}', [DashboardGLController::class, 'drfAckGL'])->name('dashboardgl.drfACKGL')->middleware(['GL', 'verified']);
-Route::post('/dashboardgl/ivspackgl/{id}', [DashboardGLController::class, 'ivspAckGL'])->name('dashboardgl.ivspACKGL')->middleware(['GL', 'verified']);
-Route::post('/dashboardgl/drfreviewgl/{id}', [DashboardGLController::class, 'drfReviewGL'])->name('dashboardgl.drfReviewGL')->middleware(['GL', 'verified']);
-Route::post('/dashboardgl/ivspreviewgl/{id}', [DashboardGLController::class, 'ivspReviewGL'])->name('dashboardgl.ivspReviewGL')->middleware(['GL', 'verified']);
+Route::get('/dashboard/gl', [DashboardGLController::class, 'index'])->name('dashboardgl.index')->middleware(['GL', 'verified']);
+Route::get('/dashboard/gl/history', [DashboardGLController::class, 'history'])->name('dashboardgl.history')->middleware(['GL', 'verified']);
+Route::get('/dashboard/gl/drf/sopackgl/{id}', [DashboardGLController::class, 'drfSOPAckGL'])->name('drf.sopAckGL')->middleware(['GL', 'verified']);
+Route::get('/dashboard/gl/drf/soprevgl/{id}', [DashboardGLController::class, 'drfSOPReviewGL'])->name('drf.sopReviewGL')->middleware(['GL', 'verified']);
+Route::get('/dashboard/gl/ivsp/sopackgl/{id}', [DashboardGLController::class, 'ivspSOPAckGL'])->name('ivsp.sopAckGL')->middleware(['GL', 'verified']);
+Route::get('/dashboard/gl/ivsp/soprevgl/{id}', [DashboardGLController::class, 'ivspSOPReviewGL'])->name('ivsp.sopReviewGL')->middleware(['GL', 'verified']);
+Route::post('/dashboard/gl/drfackgl/{id}', [DashboardGLController::class, 'drfAckGL'])->name('dashboardgl.drfACKGL')->middleware(['GL', 'verified']);
+Route::post('/dashboard/gl/ivspackgl/{id}', [DashboardGLController::class, 'ivspAckGL'])->name('dashboardgl.ivspACKGL')->middleware(['GL', 'verified']);
+Route::post('/dashboard/gl/drfreviewgl/{id}', [DashboardGLController::class, 'drfReviewGL'])->name('dashboardgl.drfReviewGL')->middleware(['GL', 'verified']);
+Route::post('/dashboard/gl/ivspreviewgl/{id}', [DashboardGLController::class, 'ivspReviewGL'])->name('dashboardgl.ivspReviewGL')->middleware(['GL', 'verified']);
 // END DASHBOARD GL
 
 // DASHBOARD ENGINEER
-Route::get('/dashboardengineer', [DashboardEngineerController::class, 'index'])->name('dashboardengineer.index')->middleware(['engineer', 'verified']);
-Route::get('/dashboardengineer/history', [DashboardEngineerController::class, 'history'])->name('dashboardengineer.history')->middleware(['engineer', 'verified']);
-Route::get('/dashboardengineer/drf/sop/{id}', [DashboardEngineerController::class, 'drfSOPEngineer'])->name('drf.sopEngineer')->middleware(['engineer', 'verified']);
-Route::get('/dashboardengineer/ivsp/sop/{id}', [DashboardEngineerController::class, 'ivspSOPEngineer'])->name('ivsp.sopEngineer')->middleware(['engineer', 'verified']);
-Route::post('/dashboardengineer/drfdoengineer/{id}', [DashboardEngineerController::class, 'drfDoByEngineer'])->name('dashboardengineer.drfDoByEngineer')->middleware(['engineer', 'verified']);
-Route::post('/dashboardengineer/ivspdoengineer/{id}', [DashboardEngineerController::class, 'ivspDoByEngineer'])->name('dashboardengineer.ivspDoByEngineer')->middleware(['engineer', 'verified']);
+Route::get('/dashboard/engineer', [DashboardEngineerController::class, 'index'])->name('dashboardengineer.index')->middleware(['engineer', 'verified']);
+Route::get('/dashboard/engineer/history', [DashboardEngineerController::class, 'history'])->name('dashboardengineer.history')->middleware(['engineer', 'verified']);
+Route::get('/dashboard/engineer/drf/sop/{id}', [DashboardEngineerController::class, 'drfSOPEngineer'])->name('drf.sopEngineer')->middleware(['engineer', 'verified']);
+Route::get('/dashboard/engineer/ivsp/sop/{id}', [DashboardEngineerController::class, 'ivspSOPEngineer'])->name('ivsp.sopEngineer')->middleware(['engineer', 'verified']);
+Route::post('/dashboard/engineer/drfdoengineer/{id}', [DashboardEngineerController::class, 'drfDoByEngineer'])->name('dashboardengineer.drfDoByEngineer')->middleware(['engineer', 'verified']);
+Route::post('/dashboard/engineer/ivspdoengineer/{id}', [DashboardEngineerController::class, 'ivspDoByEngineer'])->name('dashboardengineer.ivspDoByEngineer')->middleware(['engineer', 'verified']);
 // END DASHBOARD ENGINEER
 
 // DASHBOARD QC
-Route::get('/dashboardqc', [DashboardQCController::class, 'index'])->name('dashboardqc.index')->middleware(['QC', 'verified']);
-Route::get('/dashboardqc/history', [DashboardQCController::class, 'history'])->name('dashboardqc.history')->middleware(['QC', 'verified']);
-Route::get('/dashboardqc/drf/sop/{id}', [DashboardQCController::class, 'drfSOPQC'])->name('drf.sopQC')->middleware(['QC', 'verified']);
-Route::post('dashboardqc/drfrevqc/{id}', [DashboardQCController::class, 'drfReviewQC'])->name('dashboardqc.drfReviewQC')->middleware(['QC', 'verified']);
+Route::get('/dashboard/qc', [DashboardQCController::class, 'index'])->name('dashboardqc.index')->middleware(['QC', 'verified']);
+Route::get('/dashboard/qc/history', [DashboardQCController::class, 'history'])->name('dashboardqc.history')->middleware(['QC', 'verified']);
+Route::get('/dashboard/qc/drf/sop/{id}', [DashboardQCController::class, 'drfSOPQC'])->name('drf.sopQC')->middleware(['QC', 'verified']);
+Route::post('/dashboard/qc/drfrevqc/{id}', [DashboardQCController::class, 'drfReviewQC'])->name('dashboardqc.drfReviewQC')->middleware(['QC', 'verified']);
 // END DASHBOARD QC
 
 // DASHBOARD MANAGER
-Route::get('/dashboardmanager', [DashboardManagerController::class, 'index'])->name('dashboardmanager.index')->middleware(['manager', 'verified']);
-Route::get('/dashboardmanager/history', [DashboardManagerController::class, 'history'])->name('dashboardmanager.history')->middleware(['manager', 'verified']);
-Route::get('/dashboardmanager/ivsp/sopreviewmanager/{id}', [DashboardManagerController::class, 'ivspSOPReviewManager'])->name('dashhboardmanager.sopReviewManager')->middleware(['manager', 'verified']);
-Route::get('/dashboardmanager/ivsp/sopapprovemanager/{id}', [DashboardManagerController::class, 'ivspSOPApproveManager'])->name('dashhboardmanager.sopApproveManager')->middleware(['manager', 'verified']);
-Route::post('/dashboardmanager/ivsp/sopreviewmanager/{id}', [DashboardManagerController::class, 'ivspReviewByManager'])->name('dashhboardmanager.ivspReviewByManager')->middleware(['manager', 'verified']);
-Route::post('/dashboardmanager/ivsp/sopapprovemanager/{id}', [DashboardManagerController::class, 'ivspApproveByManager'])->name('dashhboardmanager.ivspApproveByManager')->middleware(['manager', 'verified']);
+Route::get('/dashboard/manager', [DashboardManagerController::class, 'index'])->name('dashboardmanager.index')->middleware(['manager', 'verified']);
+Route::get('/dashboard/manager/history', [DashboardManagerController::class, 'history'])->name('dashboardmanager.history')->middleware(['manager', 'verified']);
+Route::get('/dashboard/manager/ivsp/sopreviewmanager/{id}', [DashboardManagerController::class, 'ivspSOPReviewManager'])->name('dashhboardmanager.sopReviewManager')->middleware(['manager', 'verified']);
+Route::get('/dashboard/manager/ivsp/sopapprovemanager/{id}', [DashboardManagerController::class, 'ivspSOPApproveManager'])->name('dashhboardmanager.sopApproveManager')->middleware(['manager', 'verified']);
+Route::post('/dashboard/manager/ivsp/sopreviewmanager/{id}', [DashboardManagerController::class, 'ivspReviewByManager'])->name('dashhboardmanager.ivspReviewByManager')->middleware(['manager', 'verified']);
+Route::post('/dashboard/manager/ivsp/sopapprovemanager/{id}', [DashboardManagerController::class, 'ivspApproveByManager'])->name('dashhboardmanager.ivspApproveByManager')->middleware(['manager', 'verified']);
 // END DASHBOARD MANAGER
 
 // Donwload Route
@@ -137,7 +134,5 @@ Route::post('/download', [DownloadController::class, 'index'])->name('download.i
 
 
 Auth::routes([
-    'verify' => true
+    'verify' => true,
 ]);
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

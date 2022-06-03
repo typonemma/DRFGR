@@ -16,9 +16,9 @@ class QC
      */
     public function handle(Request $request, Closure $next)
     {
-        if(auth()->guest() || auth()->user()->role_id != '0505'){
-            return back();
+        if(auth()->user()->role_id == '0505'){
+            return $next($request);
         }
-        return $next($request);
+        return back();
     }
 }
