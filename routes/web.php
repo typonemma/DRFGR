@@ -3,10 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DRFController;
 use App\Http\Controllers\IVSPController;
-use App\Http\Controllers\EmailController;
-use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DownloadController;
-use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardGLController;
 use App\Http\Controllers\DashboardQCController;
 use App\Http\Controllers\DashboardUserController;
@@ -28,15 +25,6 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-// AUTH UMUM
-Route::post('/logout', [LoginController::class, 'logout'])->name('logout')->middleware('auth');
-Route::post('/login', [LoginController::class, 'authenticate'])->name('login.authenticate')->middleware('guest');
-// END AUTH UMUM
-
-// AUTH ADMIN
-Route::get('/loginadmin', [LoginController::class, 'index'])->name('login.index')->middleware('guest');
-
-// END AUTH ADMIN
 
 // DASHBOARD USER
 Route::post('/dashboarduser/storedrf', [DashboardUserController::class, 'storeDRF'])->name('dashboarduser.storeDRF')->middleware(['user','verified']);
@@ -49,20 +37,37 @@ Route::get('/dashboarduser', [DashboardUserController::class, 'index'])->name('d
 
 // DASHBOARD SUPERADMIN
 // Admin CRUD
-Route::resource('/dashboardadmin/admin', AdminController::class)->except(['edit','update'])->middleware('superAdmin');
+Route::resource('/dashboard/superadmin/admin', AdminController::class)->middleware(['superAdmin','verified'])->except(['edit','update']);
 // END Admin CRUD
 // GL CRUD
-Route::resource('/dashboardadmin/gl', GLController::class)->middleware(['admin', 'verified'])->except(['edit','update']);
+Route::resource('/dashboard/superadmin/gl', GLController::class)->middleware(['superAdmin', 'verified'])->except(['edit','update']);
 // END GL CRUD
 // Engineer CRUD
-Route::resource('/dashboardadmin/engineer', EngineerController::class)->middleware(['admin', 'verified'])->except(['edit','update']);
+Route::resource('/dashboard/superadmin/engineer', EngineerController::class)->middleware(['superAdmin', 'verified'])->except(['edit','update']);
 // END Engineer CRUD
 // Manager CRUD
-Route::resource('/dashboardadmin/manager', ManagerController::class)->middleware(['admin', 'verified'])->except(['edit','update']);
+Route::resource('/dashboard/superadmin/manager', ManagerController::class)->middleware(['superAdmin', 'verified'])->except(['edit','update']);
 // END Manager CRUD
 // QC CRUD
-Route::resource('/dashboardadmin/qc', QCController::class)->middleware(['admin', 'verified'])->except(['edit','update']);
+Route::resource('/dashboard/superadmin/qc', QCController::class)->middleware(['superAdmin', 'verified'])->except(['edit','update']);
 // END QC CRUD
+
+Route::get('/dashboard/superadmin', [DashboardAdminController::class, 'index'])->name('dashboardsuperadmin.index')->middleware(['superAdmin', 'verified']);
+Route::get('/dashboard/superadmin/history', [DashboardAdminController::class, 'history'])->name('dashboardsuperadmin.history')->middleware(['superAdmin', 'verified']);
+Route::post('/dashboard/superadmin/drfprocessadmin/{id}', [DashboardAdminController::class, 'drfProcessAdmin'])->name('dashboardsuperadmin.drfProcessAdmin')->middleware(['superAdmin', 'verified']);
+Route::post('/dashboard/superadmin/ivspprocessadmin/{id}', [DashboardAdminController::class, 'ivspProcessAdmin'])->name('dashboardsuperadmin.ivspProcessAdmin')->middleware(['superAdmin', 'verified']);
+Route::get('/dashboard/superadmin/drf/sop/{id}', [DashboardAdminController::class, 'drfSOPAdmin'])->name('drf.sopSuperAdmin')->middleware(['superAdmin', 'verified']);
+Route::get('/dashboard/superadmin/ivsp/sop/{id}', [DashboardAdminController::class, 'ivspSOPAdmin'])->name('ivsp.sopSuperAdmin')->middleware(['superAdmin', 'verified']);
+
+// DRF ADMIN
+Route::get('/historydrf', [DRFController::class, 'history'])->name('drf.history')->middleware(['allStakeholder', 'verified']);
+Route::resource('/dashboardadmin/drf', DRFController::class)->middleware(['admin', 'verified'])->except(['create', 'store','index']);
+
+
+//IVSP ADMIN
+Route::get('/historyivsp', [IVSPController::class, 'history'])->name('ivsp.history')->middleware(['allStakeholder', 'verified']);
+Route::resource('/dashboardadmin/ivsp', IVSPController::class)->middleware(['admin', 'verified'])->except(['edit','index','update','create']);
+
 
 // END DASHBOARD ADMIN
 // END DASHBOARD SUPERADMIN
