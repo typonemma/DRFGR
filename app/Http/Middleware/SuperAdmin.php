@@ -16,7 +16,7 @@ class SuperAdmin
      */
     public function handle(Request $request, Closure $next)
     {
-        if(auth()->guest() || auth()->user()->role_id != '0707'){
+        if(auth()->user()->role_id == '0707'){
             return $next($request);
         }
         return back();
