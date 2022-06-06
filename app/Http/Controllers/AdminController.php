@@ -43,7 +43,7 @@ class AdminController extends Controller
         $validatedData['password'] = bcrypt($validatedData['password']);
         $validatedData['role_id'] = '0202';
         User::create($validatedData);
-        return redirect(route('dashboardsuperadmin.index'))->with('success', 'Admin created successfully');
+        return redirect(route('admin.index'))->with('success', 'Admin created successfully');
     }
 
     /**
@@ -92,6 +92,6 @@ class AdminController extends Controller
     public function destroy($id)
     {
         User::deleteAdmin($id);
-        return redirect(route('dashboardsuperadmin.index'))->with('success', 'Admin deleted successfully');
+        return redirect(route('admin.index'))->with('success', 'Admin deleted successfully');
     }
 }

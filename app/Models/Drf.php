@@ -24,6 +24,7 @@ class Drf extends Model
     protected $fillable = [
         'id',
         'cc',
+        'gl_id',
         'cea_project',
         'cea_svo',
         'ci_company_name',

@@ -25,6 +25,9 @@ class StoreIVSP extends FormRequest
     {
         return [
             'for' => 'required',
+            'cost_no' => 'required',
+            'so' => 'required',
+            'svo' => 'required',
             'customer_name' => 'required',
             'customer_address' => 'required',
             'customer_telephone' => 'required|numeric',

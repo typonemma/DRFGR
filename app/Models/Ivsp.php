@@ -23,6 +23,9 @@ class Ivsp extends Model
     protected $fillable = [
         'id',
         'for',
+        'cost_no',
+        'so',
+        'svo',
         'customer_name',
         'customer_address',
         'customer_telephone',
