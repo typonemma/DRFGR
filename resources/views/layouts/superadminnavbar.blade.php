@@ -32,16 +32,18 @@
           <a class="nav-link" href="{{ url('dashboarduser') }}">Home </a>
         </li>
         <li class="nav-item ">
-          <a class="nav-link" href="{{ url('dashboarduser') }}">History </a>
+          <a class="nav-link" href="{{ url('history') }}">History </a>
         </li>
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Form
+              Add stakeholder
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" href="#">View Admin</a>
-              <a class="dropdown-item" href="#">Add Admin</a>
-              <a class="dropdown-item" href="#">Delete Admin</a>
+              <a class="dropdown-item" href="{{route('admin.index')}}">Admin</a>
+              <a class="dropdown-item" href="{{route('engineer.index')}}">Engineer</a>
+              <a class="dropdown-item" href="{{route('manager.index')}}">Manager</a>
+              <a class="dropdown-item" href="{{route('gl.index')}}">GL</a>
+              <a class="dropdown-item" href="{{route('qc.index')}}">Quality Control</a>
             </div>
           </li>
       </ul>
