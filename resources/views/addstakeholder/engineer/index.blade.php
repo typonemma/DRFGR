@@ -27,10 +27,10 @@
 
       <div class="row center">
         <div class="col-md-12">
-          <h1 class="ml-3">Add Admin </h1>
+          <h1 class="ml-3">Add Engineer </h1>
         </div>
         <div class="col-lg-12 ml-5" >
-          <a href="{{route('admin.create')}}" class="btn"  >Add admin</a>
+          <a href="{{route('engineer.create')}}" class="btn"  >Add Engineer</a>
         </div>
       </div>
 
@@ -38,18 +38,18 @@
       <table id="example" class="display mt-4 ml-5" style="width:100%">
         <thead style="text-align: center">
             <th> No. </th>
-            <th> Nama Admin </th>
+            <th> Nama Engineer </th>
             <th> Email </th>
             <th> Action </th>
         </thead>
-        @foreach ($admin as $ad)
+        @foreach ($engineer as $en)
         <tr style="text-align: center">
             <td>{{ $loop->iteration }}</td>
-            <td>{{ $ad->name }}</td>
-            <td>{{ $ad->email }}</td>
+            <td>{{ $en->name }}</td>
+            <td>{{ $en->email }}</td>
 
             <td class="d-flex">
-                <form action="{{route('admin.destroy', $ad->id)}}" method="post" class=" btn-md d-md-inline">
+                <form action="{{route('admin.destroy', $en->id)}}" method="post" class=" btn-md d-md-inline">
                     @method('delete')
                     @csrf
                     <button class='btn btn-danger btn-lg' onclick="return confirm('Are you sure?')" type="submit">Delete</button>
