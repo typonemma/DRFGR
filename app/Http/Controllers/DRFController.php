@@ -48,7 +48,6 @@ class DRFController extends Controller
     public function showSuperAdmin($id)
     {
         $drf = Drf::findDRFById($id);
-        return view('history.viewdatahistorydrf', [
         return view('history.superadmin.superadminviewdatahistorydrf', [
             'drf' => $drf,
         ]);
