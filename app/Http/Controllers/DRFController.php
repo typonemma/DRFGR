@@ -97,20 +97,60 @@ class DRFController extends Controller
         return redirect()->route('dashboardadmin.index')->with('success', 'DRF has been deleted');
     }
     //History DRF
-    public function history(Request $request)
+    public function historySuperAdmin(Request $request)
     {
         $monthAndYear = $request->query->get('datepicker');
         if($monthAndYear){
             $month = intval(substr($monthAndYear, 5, 2));
             $year = intval(substr($monthAndYear, 0, 4));
             $drf = Drf::findDRFByMonthAndYear($month, $year);
-            return view('history.drfhistory', [
+            return view('history.superadmin.superadmindrfhistory', [
                 'drf' => $drf,
                 'datepicker' => $monthAndYear,
             ]);
         }else{
             $drf = [];
-            return view('history.drfhistory', [
+            return view('history.superadmin.superadmindrfhistory', [
+                'drf' => $drf,
+                'datepicker' => '',
+            ]);
+        }
+    }
+
+    public function historyAdmin(Request $request)
+    {
+        $monthAndYear = $request->query->get('datepicker');
+        if($monthAndYear){
+            $month = intval(substr($monthAndYear, 5, 2));
+            $year = intval(substr($monthAndYear, 0, 4));
+            $drf = Drf::findDRFByMonthAndYear($month, $year);
+            return view('history.admin.drfhistory', [
+                'drf' => $drf,
+                'datepicker' => $monthAndYear,
+            ]);
+        }else{
+            $drf = [];
+            return view('history.admin.drfhistory', [
+                'drf' => $drf,
+                'datepicker' => '',
+            ]);
+        }
+    }
+
+    public function historyGL(Request $request)
+    {
+        $monthAndYear = $request->query->get('datepicker');
+        if($monthAndYear){
+            $month = intval(substr($monthAndYear, 5, 2));
+            $year = intval(substr($monthAndYear, 0, 4));
+            $drf = Drf::findDRFByMonthAndYear($month, $year);
+            return view('history.gl.gldrfhistory', [
+                'drf' => $drf,
+                'datepicker' => $monthAndYear,
+            ]);
+        }else{
+            $drf = [];
+            return view('history.gl.gldrfhistory', [
                 'drf' => $drf,
                 'datepicker' => '',
             ]);

@@ -87,7 +87,47 @@ class IVSPController extends Controller
         return redirect()->route('dashboardadmin.showIVSP', $id)->with('success', 'IVSP has been deleted');
     }
 
-    public function history(Request $request)
+    public function historySuperAdmin(Request $request)
+    {
+        $monthAndYear = $request->query->get('datepicker');
+        if($monthAndYear){
+            $month = intval(substr($monthAndYear, 5, 2));
+            $year = intval(substr($monthAndYear, 0, 4));
+            $ivsp = Ivsp::findIvspByMonthAndYear($month, $year);
+            return view('history.ivsphistory', [
+                'ivsp' => $ivsp,
+                'datepicker' => $monthAndYear,
+            ]);
+        }else{
+            $ivsp = [];
+            return view('history.ivsphistory', [
+                'ivsp' => [],
+                'datepicker' => '',
+            ]);
+        }
+    }
+
+    public function historyAdmin(Request $request)
+    {
+        $monthAndYear = $request->query->get('datepicker');
+        if($monthAndYear){
+            $month = intval(substr($monthAndYear, 5, 2));
+            $year = intval(substr($monthAndYear, 0, 4));
+            $ivsp = Ivsp::findIvspByMonthAndYear($month, $year);
+            return view('history.ivsphistory', [
+                'ivsp' => $ivsp,
+                'datepicker' => $monthAndYear,
+            ]);
+        }else{
+            $ivsp = [];
+            return view('history.ivsphistory', [
+                'ivsp' => [],
+                'datepicker' => '',
+            ]);
+        }
+    }
+
+    public function historyGL(Request $request)
     {
         $monthAndYear = $request->query->get('datepicker');
         if($monthAndYear){
