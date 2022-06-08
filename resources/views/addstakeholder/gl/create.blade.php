@@ -18,7 +18,7 @@
     </head>
       @include('layouts.superadminnavbar')
     <body class="antialiased">
-      <h1 class="ml-3 ">Add gl</h1>
+      <h1 class="ml-3 ">Add GL</h1>
        <div class="register ">
             <form method="post" action="{{ route('gl.store') }}">
                 @csrf

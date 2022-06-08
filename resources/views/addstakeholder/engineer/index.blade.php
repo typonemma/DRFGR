@@ -49,7 +49,7 @@
             <td>{{ $en->email }}</td>
 
             <td class="d-flex">
-                <form action="{{route('admin.destroy', $en->id)}}" method="post" class=" btn-md d-md-inline">
+                <form action="{{route('engineer.destroy', $en->id)}}" method="post" class=" btn-md d-md-inline">
                     @method('delete')
                     @csrf
                     <button class='btn btn-danger btn-lg' onclick="return confirm('Are you sure?')" type="submit">Delete</button>

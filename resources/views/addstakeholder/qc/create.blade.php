@@ -18,7 +18,7 @@
     </head>
       @include('layouts.superadminnavbar')
     <body class="antialiased">
-      <h1 class="ml-3 ">Add qc</h1>
+      <h1 class="ml-3 ">Add QC</h1>
        <div class="register ">
             <form method="post" action="{{ route('qc.store') }}">
                 @csrf
