@@ -21,7 +21,7 @@
 
 
     </head>
-    @include('layouts.navbar')
+    @include('layouts.superadminnavbar')
 
 
     <body class="antialiased" style="background-image: #EAD689;">
