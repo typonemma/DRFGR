@@ -33,7 +33,7 @@
     <body class="antialiased" style="background-image: #EAD689;">
         <div class=" justify-content-md-left picker-date" >
           <div class="picker">
-            <form class="POST" method="GET" action='{{ route('drf.history') }}'>
+            <form class="POST" method="GET" action='{{ route('ivsp.historysuperadmin') }}'>
               <input type="month" name="datepicker" id="start" min="2022-01" value="{{ $datepicker !== null ? $datepicker : "2022-01" }}">
               <button type="submit" value="submit" id="submit" name="submit" style="border-radius:5px; " class="mt-4 ">Submit </button>
             </form>
@@ -41,24 +41,24 @@
         </div>
 
 <div class="row">
+  @forelse ($ivsp as $i)
 
-        @forelse ($drf as $d)
+  <div class="col-lg-6 ">
+      <div class="card "  >
+        <div class="card-header w-100">{{ $i->id }}</div>
+        <div class="card-body">
+          <h5 class="card-title">{{ $i->customer_name }}</h5>
+          <p class="card-text">{{ $i->contact_person }}</p>
+          <a href="{{ route('superAdmin.ivsp.show',$i->id) }}" class="text-secondary">More</a>
+        </div>
+      </div>
+    </div>
 
-        <div class="col-lg-6 ">
-            <div class="card "  >
-              <div class="card-header w-100">{{ $d->id }}</div>
-              <div class="card-body">
-                <h5 class="card-title">{{ $d->ci_company_name }}</h5>
-                <p class="card-text">{{ $d->ci_phone_company }}</p>
-                <a href="{{ route('drf.show',$d->id) }}" class="text-secondary">More</a>
-              </div>
-            </div>
-          </div>
+      @empty
+        <h3 class="mt-4 ml-4">Tidak ada apapun bulan ini!</h3>
+      @endforelse
+    </div>
 
-            @empty
-              <h3 class="mt-4 ml-4">Tidak ada apapun bulan ini!</h3>
-            @endforelse
-          </div>
 
 
 

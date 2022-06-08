@@ -10,6 +10,9 @@
         <li class="nav-item ">
           <a class="nav-link" href="{{route('dashboardgl.index')}}">Home </a>
         </li>
+        <li class="nav-item ">
+          <a class="nav-link" href="{{route('dashboardgl.history')}}">History </a>
+        </li>
       </ul>
     </div>
     <form action="{{ route('logout') }}" method="POST">
