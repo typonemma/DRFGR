@@ -27,7 +27,7 @@
 
       <div class="row center">
         <div class="col-md-12">
-          <h1 class="ml-3">Add qc </h1>
+          <h1 class="ml-3">Add QC </h1>
         </div>
         <div class="col-lg-12 ml-5" >
           <a href="{{route('qc.create')}}" class="btn"  >Add QC</a>

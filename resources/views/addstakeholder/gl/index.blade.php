@@ -27,10 +27,10 @@
 
       <div class="row center">
         <div class="col-md-12">
-          <h1 class="ml-3">Add manager </h1>
+          <h1 class="ml-3">Add GL </h1>
         </div>
         <div class="col-lg-12 ml-5" >
-          <a href="{{route('manager.create')}}" class="btn"  >Add manager</a>
+          <a href="{{route('gl.create')}}" class="btn"  >Add GL</a>
         </div>
       </div>
 
