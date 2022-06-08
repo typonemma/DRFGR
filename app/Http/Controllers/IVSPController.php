@@ -45,9 +45,27 @@ class IVSPController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
+    public function showSuperAdmin($id)
     {
         $ivsp = Ivsp::findIVSPById($id);
         return view('history.viewdatahistorygr', [
+        return view('history.superadmin.superadminviewdatahistorygr', [
+            'ivsp' => $ivsp,
+        ]);
+    }
+
+    public function showAdmin($id)
+    {
+        $ivsp = Ivsp::findIVSPById($id);
+        return view('history.admin.viewdatahistorygr', [
+            'ivsp' => $ivsp,
+        ]);
+    }
+    
+    public function showGL($id)
+    {
+        $ivsp = Ivsp::findIVSPById($id);
+        return view('history.gl.glviewdatahistorygr', [
             'ivsp' => $ivsp,
         ]);
     }
