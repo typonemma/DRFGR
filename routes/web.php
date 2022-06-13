@@ -67,7 +67,7 @@ Route::get('/dashboard/superadmin/ivsp/sop/{id}', [DashboardSuperAdminController
 
 // DRF SUPERADMIN
 Route::get('/dashboard/superadmin/historydrf', [DRFController::class, 'historySuperAdmin'])->name('drf.historysuperadmin')->middleware(['superAdmin', 'verified']);
-Route::resource('/dashboard/superadmin/drf', DRFController::class, ['as' => 'superAdmin'])->middleware(['superAdmin', 'verified'])->except(['create', 'store','index', 'show']);
+Route::resource('/dashboard/superadmin/drf', DRFController::class, ['as' => 'superAdmin'])->except(['create', 'store','index', 'show']);
 Route::get('/dashboard/superadmin/drf/{id}', [DRFController::class, 'showSuperAdmin'])->name('superAdmin.drf.show')->middleware(['superAdmin', 'verified']);
 
 
