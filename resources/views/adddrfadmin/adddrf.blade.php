@@ -30,7 +30,7 @@
     <body class="antialiased" style="background-image: #EAD689;">
 
       <h1 style="font-weight:bold;" class="ml-4 mt-4 FDRF">Fullfill DRF - Only admin </h1>
-      <form class="" action="index.html" method="post">
+      <form class="" action="{{route('admin.drf.update', $drf->id)}}" method="post">
           <p class=" mt-4 CWS"  >Current Work Status</p>
               <div class="CWS-set">
                 <fieldset>

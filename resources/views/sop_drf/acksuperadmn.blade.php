@@ -38,7 +38,7 @@
       <div class="row top-tittle mt-4">
         <h1 class="col-md-8  font-weight-bold id-h1">{{ $drf->id }}</h1>
         <p class="col-md-2"></p>
-        <a class="col-md-2 text-secondary edit"href="{{route ('drf.edit',$drf->id)}}"/></a>
+        <a class="col-md-2 text-secondary edit"href="{{route ('superAdmin.drf.edit',$drf->id)}}">More</a>
       </div>
 
       <div class="row top-tittle mt-4">

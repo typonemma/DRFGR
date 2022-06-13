@@ -30,15 +30,12 @@
     <body class="antialiased" style="background-image: #EAD689;">
 
       <h1 style="font-weight:bold;" class="ml-4 mt-4 FDRF">Fullfill DRF - Only admin </h1>
-      <form class="" action="index.html" method="post">
+      <form class="" action="{{route('superAdmin.drf.update', $drf->id)}}" method="post">
+        @csrf
+        @method('Put')       
           <p class=" mt-4 CWS"  >Current Work Status</p>
               <div class="CWS-set">
                 <fieldset>
-
-
-
-
-
                   <div>
                     <input id="radio" name="cc" type="hidden" value="">
                     <div>
@@ -68,6 +65,8 @@
               </div>
 
           	<button type="submit" class="btn btn-block btn-small mx-auto" ><i class="bi bi-check-lg"></i>Submit</button>
+        </form>
+</body>
 
 
 <style media="screen">

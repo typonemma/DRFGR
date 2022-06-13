@@ -59,7 +59,7 @@ class IVSPController extends Controller
             'ivsp' => $ivsp,
         ]);
     }
-    
+
     public function showGL($id)
     {
         $ivsp = Ivsp::findIVSPById($id);
@@ -110,13 +110,13 @@ class IVSPController extends Controller
             $month = intval(substr($monthAndYear, 5, 2));
             $year = intval(substr($monthAndYear, 0, 4));
             $ivsp = Ivsp::findIvspByMonthAndYear($month, $year);
-            return view('history.ivsphistory', [
+            return view('history.superadmin.superadminivsphistory', [
                 'ivsp' => $ivsp,
                 'datepicker' => $monthAndYear,
             ]);
         }else{
             $ivsp = [];
-            return view('history.ivsphistory', [
+            return view('history.superadmin.superadminivsphistory', [
                 'ivsp' => [],
                 'datepicker' => '',
             ]);
