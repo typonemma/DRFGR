@@ -26,47 +26,57 @@
 
 
     </head>
-    @include('layouts.navbar')
+    @include('layouts.superadminnavbar')
     <body class="antialiased" style="background-image: #EAD689;">
-
-      <h1 style="font-weight:bold;" class="ml-4 mt-4 FDRF">Fullfill DRF - Only admin </h1>
-      <form class="" action="{{route('superAdmin.drf.update', $drf->id)}}" method="post">
-        @csrf
+    
+    <h1 style="font-weight:bold;" class="ml-4 mt-4 FDRF">Fullfill DRF - Only admin </h1>
+    <form class="" action="{{route('superAdmin.drf.update', $drf->id)}}" method="post">
+    @csrf
         @method('Put')       
-          <p class=" mt-4 CWS"  >Current Work Status</p>
-              <div class="CWS-set">
-                <fieldset>
-                  <div>
-                    <input id="radio" name="cc" type="hidden" value="">
-                    <div>
-                      <input id="Field2_0" name="cc" type="radio" value="Completed" tabindex="5" checked="checked">
-                      <label class="choice" for="CWS">Compeleted</label>
-                    </div>
-                    <div>
-                      <input id="Field2_1" name="cc" type="radio" value="Pending" tabindex="6">
-                      <label class="choice" for="CWS">Pending</label>
-                    </div>
-                    <div>
-                      <input id="Field2_4" name="cc" type="radio" value="Canceled" tabindex="7">
-                      <label class="choice" for="CWS">Canceled</label>
-                    </div>
-                  </div>
-                </fieldset>
-              </div>
-
-              <div class="gl-add">
-                <label class="desc" id="title1" for="Field2">GL Initial</label>
+          <p class=" mt-4 CWS" >  Current Work Status</p>
+          <div class="CWS-set">
+            <fieldset>
                 <div>
-                  <input id="Field2" name="customer_name" type="text" class="field text fn" value="{{ old('customer_name') }}" size="8" tabindex="1" placeholder="Customer Name">
-                    @error('customer_name')
-                      {{ $message }}
-                    @enderror
+                  <input id="Field2_0" name="cc" type="radio" value="Completed" tabindex="5" checked="checked">
+                  <label class="choice" for="CWS">Compeleted</label>
                 </div>
-              </div>
-
-          	<button type="submit" class="btn btn-block btn-small mx-auto" ><i class="bi bi-check-lg"></i>Submit</button>
+                <div>
+                  <input id="Field2_1" name="cc" type="radio" value="Pending" tabindex="6">
+                  <label class="choice" for="CWS">Pending</label>
+                </div>
+                <div>
+                  <input id="Field2_4" name="cc" type="radio" value="Canceled" tabindex="7">
+                  <label class="choice" for="CWS">Canceled</label>
+                </div>
+            </fieldset>
+          </div>
+          
+          <div class="gl-add">
+            <label class="desc" id="title1" for="Field2">GL Initial</label>
+            <input id="Field2" name="customer_name" type="text" class="field text fn" value="{{ old('customer_name') }}" size="8" tabindex="1" placeholder="Customer Name">
+            @error('customer_name')
+            {{ $message }}
+            @enderror
+            <button type="submit" class="btn btn-block btn-small mx-auto" ><i class="bi bi-check-lg"></i>Submit</button>
+          </div>
         </form>
-</body>
+       
+          
+          
+        
+     
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <style media="screen">

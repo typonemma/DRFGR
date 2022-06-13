@@ -88,7 +88,7 @@
               <div class="box  p-3" >
                 <i class="uil-eye"></i>
                 <p class="lead">  {{ $i->id }}</p>
-                <a href="{{ route('ivsp.sopAdmin', $i->id) }}" class="text-secondary">More</a>
+                <a href="{{ route('ivsp.sopSuperAdmin', $i->id) }}" class="text-secondary">More</a>
               </div>
             </div>
           </div>
