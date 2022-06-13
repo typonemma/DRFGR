@@ -26,7 +26,11 @@
 
 
     </head>
-    @include('layouts.navbar')
+    @if (auth()->user()->role_id == '0707')
+      @include('layouts.superadminnavbar')
+    @elseif (auth()->user()->role_id == '0202')
+      @include('layouts.navbar')
+    @endif
     <body class="antialiased" style="background-image: #EAD689;">
 
       <h1 style="font-weight:bold;" class="ml-4 mt-4 FDRF">Fullfill DRF - Only admin </h1>
