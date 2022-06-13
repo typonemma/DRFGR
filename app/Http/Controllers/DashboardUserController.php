@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 use App\Models\IvspNomorModel;
 use App\Http\Requests\StoreDRF;
 use App\Http\Requests\StoreIVSP;
-use Illuminate\Support\Facades\Storage;
+use App\Models\User;
 
 class DashboardUserController extends Controller
 {
@@ -32,7 +32,10 @@ class DashboardUserController extends Controller
     }
     public function createDRF()
     {
-        return view('form.formdrf');
+        $gl = User::allGL();
+        return view('form.formdrf', [
+            'gl' => $gl,
+        ]);
     }
     public function createIVSP()
     {

@@ -23,6 +23,7 @@ class Drf extends Model
     protected $keyType = 'string';
     protected $fillable = [
         'id',
+        'to',
         'cc',
         'gl_id',
         'cea_project',
