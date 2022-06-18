@@ -55,10 +55,7 @@ class DRFController extends Controller
 
     public function showAdmin($id)
     {
-        $drf = Drf::findDRFById($id);
-        return view('history.admin.viewdatahistorydrf', [
-            'drf' => $drf,
-        ]);
+        
     }
 
     public function showGL($id)
@@ -77,10 +74,6 @@ class DRFController extends Controller
      */
     public function edit($id)
     {
-        $drf = Drf::findDRFById($id);
-        return view('adddrfadmin.adddrf',[
-            'drf' => $drf
-        ]);
     }
 
     /**
@@ -92,12 +85,7 @@ class DRFController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $validatedData = $request->validate([
-            'gl_initial' => 'required',
-            'current_work_status' => 'required',
-        ]);
-        Drf::updateDRFById($validatedData, $id);
-        return redirect()->route('dashboardadmin.showDRF', $id)->with('success', 'DRF has been updated');
+        
     }
 
     /**
@@ -108,50 +96,12 @@ class DRFController extends Controller
      */
     public function destroy($id)
     {
-        Storage::delete('drf/'.$id . '.pdf');
-        Drf::deleteDRFById($id);
-        return redirect()->route('dashboardadmin.index')->with('success', 'DRF has been deleted');
+       
     }
     //History DRF
-    public function historySuperAdmin(Request $request)
-    {
-        $monthAndYear = $request->query->get('datepicker');
-        if($monthAndYear){
-            $month = intval(substr($monthAndYear, 5, 2));
-            $year = intval(substr($monthAndYear, 0, 4));
-            $drf = Drf::findDRFByMonthAndYear($month, $year);
-            return view('history.superadmin.superadmindrfhistory', [
-                'drf' => $drf,
-                'datepicker' => $monthAndYear,
-            ]);
-        }else{
-            $drf = [];
-            return view('history.superadmin.superadmindrfhistory', [
-                'drf' => $drf,
-                'datepicker' => '',
-            ]);
-        }
-    }
 
-    public function historyAdmin(Request $request)
-    {
-        $monthAndYear = $request->query->get('datepicker');
-        if($monthAndYear){
-            $month = intval(substr($monthAndYear, 5, 2));
-            $year = intval(substr($monthAndYear, 0, 4));
-            $drf = Drf::findDRFByMonthAndYear($month, $year);
-            return view('history.admin.drfhistory', [
-                'drf' => $drf,
-                'datepicker' => $monthAndYear,
-            ]);
-        }else{
-            $drf = [];
-            return view('history.admin.drfhistory', [
-                'drf' => $drf,
-                'datepicker' => '',
-            ]);
-        }
-    }
+
+
 
     public function historyGL(Request $request)
     {
