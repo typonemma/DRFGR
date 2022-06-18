@@ -60,23 +60,6 @@
             <button type="submit" class="btn btn-block btn-small mx-auto" ><i class="bi bi-check-lg"></i>Submit</button>
           </div>
         </form>
-       
-          
-          
-        
-     
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 <style media="screen">
