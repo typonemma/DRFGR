@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreRegister;
+use Illuminate\Auth\Events\Registered;
 
 class GLController extends Controller
 {
@@ -42,7 +43,7 @@ class GLController extends Controller
         $validatedData = $request->validated();
         $validatedData['password'] = bcrypt($validatedData['password']);
         $validatedData['role_id'] = '0101';
-        User::create($validatedData);
+        event(new Registered($user = $this->create($request->all())));
         return redirect(route('gl.index'))->with('success', 'GL created successfully');
     }
 
