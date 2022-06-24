@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Drf;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 
-class DRFController extends Controller
+class IVSPAdminController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -45,21 +43,9 @@ class DRFController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function showSuperAdmin($id)
+    public function show($id)
     {
-    }
-
-    public function showAdmin($id)
-    {
-        
-    }
-
-    public function showGL($id)
-    {
-        $drf = Drf::findDRFById($id);
-        return view('history.gl.glviewdatahistorydrf', [
-            'drf' => $drf,
-        ]);
+        //
     }
 
     /**
@@ -70,6 +56,7 @@ class DRFController extends Controller
      */
     public function edit($id)
     {
+        //
     }
 
     /**
@@ -81,7 +68,7 @@ class DRFController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
+        //
     }
 
     /**
@@ -92,13 +79,6 @@ class DRFController extends Controller
      */
     public function destroy($id)
     {
-       
+        //
     }
-    //History DRF
-
-
-
-
-    
-
 }

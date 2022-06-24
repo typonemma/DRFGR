@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Drf;
+use App\Models\Ivsp;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 
-class DRFSuperAdminController extends Controller
+class IVSPSuperAdminController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -47,9 +46,9 @@ class DRFSuperAdminController extends Controller
      */
     public function show($id)
     {
-        $drf = Drf::findDRFById($id);
-        return view('history.superadmin.superadminviewdatahistorydrf', [
-            'drf' => $drf,
+        $ivsp = Ivsp::findIVSPById($id);
+        return view('history.superadmin.superadminviewdatahistorygr', [
+            'ivsp' => $ivsp,
         ]);
     }
 
@@ -61,10 +60,7 @@ class DRFSuperAdminController extends Controller
      */
     public function edit($id)
     {
-        $drf = Drf::findDRFById($id);
-        return view('adddrfadmin.adddrf',[
-            'drf' => $drf
-        ]);
+        //
     }
 
     /**
@@ -76,12 +72,7 @@ class DRFSuperAdminController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $validatedData = $request->validate([
-            'gl_initial' => 'required',
-            'current_work_status' => 'required',
-        ]);
-        Drf::updateDRFById($validatedData, $id);
-        return redirect()->route('', $id)->with('success', 'DRF has been updated');
+        //
     }
 
     /**
@@ -92,26 +83,25 @@ class DRFSuperAdminController extends Controller
      */
     public function destroy($id)
     {
-        Storage::delete('drf/'.$id . '.pdf');
-        Drf::deleteDRFById($id);
-        return redirect()->route('dashboardsuperadmin.index')->with('success', 'DRF has been deleted');
+        Ivsp::deleteIVSPById($id);
+        return redirect()->route('dashboardadmin.showIVSP', $id)->with('success', 'IVSP has been deleted');
     }
 
-    public function historySuperAdmin(Request $request)
+    public function history(Request $request)
     {
         $monthAndYear = $request->query->get('datepicker');
         if($monthAndYear){
             $month = intval(substr($monthAndYear, 5, 2));
             $year = intval(substr($monthAndYear, 0, 4));
-            $drf = Drf::findDRFByMonthAndYear($month, $year);
-            return view('history.superadmin.superadmindrfhistory', [
-                'drf' => $drf,
+            $ivsp = Ivsp::findIvspByMonthAndYear($month, $year);
+            return view('history.superadmin.superadminivsphistory', [
+                'ivsp' => $ivsp,
                 'datepicker' => $monthAndYear,
             ]);
         }else{
-            $drf = [];
-            return view('history.superadmin.superadmindrfhistory', [
-                'drf' => $drf,
+            $ivsp = [];
+            return view('history.superadmin.superadminivsphistory', [
+                'ivsp' => [],
                 'datepicker' => '',
             ]);
         }

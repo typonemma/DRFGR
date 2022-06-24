@@ -108,4 +108,24 @@ class DashboardGLController extends Controller
         Ivsp::updateIVSPById($update, $id);
         redirect(route('dashboardadmin.showIVSP'))->with('success','IVSP has been reviewed by GL successfully');
     }
+
+    public function historyGL(Request $request)
+    {
+        $monthAndYear = $request->query->get('datepicker');
+        if($monthAndYear){
+            $month = intval(substr($monthAndYear, 5, 2));
+            $year = intval(substr($monthAndYear, 0, 4));
+            $drf = Drf::findDRFByMonthAndYear($month, $year);
+            return view('history.gl.gldrfhistory', [
+                'drf' => $drf,
+                'datepicker' => $monthAndYear,
+            ]);
+        }else{
+            $drf = [];
+            return view('history.gl.gldrfhistory', [
+                'drf' => $drf,
+                'datepicker' => '',
+            ]);
+        }
+    }
 }

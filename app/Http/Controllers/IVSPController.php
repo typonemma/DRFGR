@@ -46,10 +46,7 @@ class IVSPController extends Controller
      */
     public function showSuperAdmin($id)
     {
-        $ivsp = Ivsp::findIVSPById($id);
-        return view('history.superadmin.superadminviewdatahistorygr', [
-            'ivsp' => $ivsp,
-        ]);
+        
     }
 
     public function showAdmin($id)
@@ -99,28 +96,7 @@ class IVSPController extends Controller
      */
     public function destroy($id)
     {
-        Ivsp::deleteIVSPById($id);
-        return redirect()->route('dashboardadmin.showIVSP', $id)->with('success', 'IVSP has been deleted');
-    }
-
-    public function historySuperAdmin(Request $request)
-    {
-        $monthAndYear = $request->query->get('datepicker');
-        if($monthAndYear){
-            $month = intval(substr($monthAndYear, 5, 2));
-            $year = intval(substr($monthAndYear, 0, 4));
-            $ivsp = Ivsp::findIvspByMonthAndYear($month, $year);
-            return view('history.superadmin.superadminivsphistory', [
-                'ivsp' => $ivsp,
-                'datepicker' => $monthAndYear,
-            ]);
-        }else{
-            $ivsp = [];
-            return view('history.superadmin.superadminivsphistory', [
-                'ivsp' => [],
-                'datepicker' => '',
-            ]);
-        }
+        
     }
 
     public function historyAdmin(Request $request)

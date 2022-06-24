@@ -13,7 +13,9 @@ use App\Http\Controllers\EngineerController;
 use App\Http\Controllers\DashboardGLController;
 use App\Http\Controllers\DashboardQCController;
 use App\Http\Controllers\DashboardUserController;
+use App\Http\Controllers\DRFSuperAdminController;
 use App\Http\Controllers\DashboardAdminController;
+use App\Http\Controllers\IVSPSuperAdminController;
 use App\Http\Controllers\DashboardManagerController;
 use App\Http\Controllers\DashboardEngineerController;
 use App\Http\Controllers\DashboardSuperAdminController;
@@ -66,15 +68,13 @@ Route::get('/dashboard/superadmin/drf/sop/{id}', [DashboardSuperAdminController:
 Route::get('/dashboard/superadmin/ivsp/sop/{id}', [DashboardSuperAdminController::class, 'ivspSOPSuperAdmin'])->name('ivsp.sopSuperAdmin')->middleware(['superAdmin', 'verified']);
 
 // DRF SUPERADMIN
-Route::get('/dashboard/superadmin/historydrf', [DRFController::class, 'historySuperAdmin'])->name('drf.historysuperadmin')->middleware(['superAdmin', 'verified']);
-Route::resource('/dashboard/superadmin/drf', DRFController::class, ['as' => 'superAdmin'])->except(['create', 'store','index', 'show']);
-Route::get('/dashboard/superadmin/drf/{id}', [DRFController::class, 'showSuperAdmin'])->name('superAdmin.drf.show')->middleware(['superAdmin', 'verified']);
+Route::get('/dashboard/superadmin/historydrf', [DRFSuperAdminController::class, 'history'])->name('drfsuperadmin.history')->middleware(['superAdmin', 'verified']);
+Route::resource('/dashboard/superadmin/drf', DRFSuperAdminController::class, ['as' => 'superAdmin'])->except(['create', 'store','index'])->middleware(['superAdmin', 'verified']);
 
 
 //IVSP SUPERADMIN
-Route::get('/dashboard/superadmin/historyivsp', [IVSPController::class, 'historySuperAdmin'])->name('ivsp.historysuperadmin')->middleware(['superAdmin', 'verified']);
-Route::resource('/dashboard/superadmin/ivsp', IVSPController::class, ['as' => 'superAdmin'])->middleware(['superAdmin', 'verified'])->except(['edit','index','update','create', 'show']);
-Route::get('/dashboard/superadmin/ivsp/{id}', [IVSPController::class, 'showSuperAdmin'])->name('superAdmin.ivsp.show')->middleware(['superAdmin', 'verified']);
+Route::get('/dashboard/superadmin/historyivsp', [IVSPSuperAdminController::class, 'history'])->name('ivspsuperadmin.history')->middleware(['superAdmin', 'verified']);
+Route::resource('/dashboard/superadmin/ivsp', IVSPSuperAdminController::class, ['as' => 'superAdmin'])->middleware(['superAdmin', 'verified'])->except(['edit','index','update','create']);
 // END DASHBOARD SUPERADMIN
 
 // DASHBOARD ADMIN
