@@ -81,7 +81,7 @@ class DRFSuperAdminController extends Controller
             'current_work_status' => 'required',
         ]);
         Drf::updateDRFById($validatedData, $id);
-        return redirect()->route('superAdmin.drf.edit', $id)->with('success', 'DRF has been updated');
+        return redirect()->route('dashboardsuperadmin.drfProcessAdmin', $id)->with('success', 'DRF has been updated');
     }
 
     /**
