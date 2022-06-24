@@ -97,7 +97,7 @@ class DRFSuperAdminController extends Controller
         return redirect()->route('dashboardsuperadmin.index')->with('success', 'DRF has been deleted');
     }
 
-    public function historySuperAdmin(Request $request)
+    public function history(Request $request)
     {
         $monthAndYear = $request->query->get('datepicker');
         if($monthAndYear){
