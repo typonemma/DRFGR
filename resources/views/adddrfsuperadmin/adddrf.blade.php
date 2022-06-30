@@ -29,23 +29,23 @@
     @include('layouts.superadminnavbar')
     <body class="antialiased" style="background-image: #EAD689;">
     
-    <h1 style="font-weight:bold;" class="ml-4 mt-4 FDRF">Fullfill DRF - Only admin </h1>
+    <h1 style="font-weight:bold;" class="ml-4 mt-4 FDRF">Fullfill DRF - Only Super Admin </h1>
     <form class="" action="{{route('superAdmin.drf.update', $drf->id)}}" method="post">
     @csrf
-        @method('Put')       
+        @method('PUT')       
           <p class=" mt-4 CWS" >  Current Work Status</p>
           <div class="CWS-set">
             <fieldset>
                 <div>
-                  <input id="Field2_0" name="cc" type="radio" value="Completed" tabindex="5" checked="checked">
+                  <input id="Field2_0" name="current_work_status" type="radio" value="Completed" tabindex="5" checked="checked">
                   <label class="choice" for="CWS">Compeleted</label>
                 </div>
                 <div>
-                  <input id="Field2_1" name="cc" type="radio" value="Pending" tabindex="6">
+                  <input id="Field2_1" name="current_work_status" type="radio" value="Pending" tabindex="6">
                   <label class="choice" for="CWS">Pending</label>
                 </div>
                 <div>
-                  <input id="Field2_4" name="cc" type="radio" value="Canceled" tabindex="7">
+                  <input id="Field2_4" name="current_work_status" type="radio" value="Canceled" tabindex="7">
                   <label class="choice" for="CWS">Canceled</label>
                 </div>
             </fieldset>
@@ -53,8 +53,8 @@
           
           <div class="gl-add">
             <label class="desc" id="title1" for="Field2">GL Initial</label>
-            <input id="Field2" name="customer_name" type="text" class="field text fn" value="{{ old('customer_name') }}" size="8" tabindex="1" placeholder="Customer Name">
-            @error('customer_name')
+            <input id="Field2" name="gl_initial" type="text" class="field text fn" value="{{ old('gl_initial') }}" size="8" tabindex="1" placeholder="GL Initial">
+            @error('gl_initial')
             {{ $message }}
             @enderror
             <button type="submit" class="btn btn-block btn-small mx-auto" ><i class="bi bi-check-lg"></i>Submit</button>
