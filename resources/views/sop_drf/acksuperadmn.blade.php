@@ -48,7 +48,7 @@
         <div class="row sop_top mt-4">
           <p class="col-md-8 text">Acknowledge by Admin</p>
 
-            <form action="{{ route('dashboardadmin.drfProcessAdmin',$drf->id) }}" method="post" class="col-md-4">
+            <form action="{{ route('dashboardsuperadmin.drfProcessAdmin',$drf->id) }}" method="post" class="col-md-4">
               @csrf
               <button class=" submit-btn" id="submit" style="" type="submit">Submit</button>
           </form>

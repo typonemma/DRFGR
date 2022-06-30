@@ -20,7 +20,7 @@
         <section class="sect" >
           <div class="row justify-content-md-center" >
             <div class="col-md-6 col-lg-11 mb-12 mb-lg-0 " style="margin-top: 1.5em; display: block" >
-              <a href="{{ route('drf.historysuperadmin') }}" class="button">History DRF</a>
+              <a href="{{ route('drfsuperadmin.history') }}" class="button">History DRF</a>
               {{-- <form action="#">
                 @csrf
                 <input type="submit" value="History DRF" class="box  col-lg-12 text-left"  style="background:#2A363B; border-radius: 10px; height:100px; color:#EAD689; font-size:32px;" />
