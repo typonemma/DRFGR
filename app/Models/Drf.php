@@ -99,16 +99,17 @@ class Drf extends Model
         ->get();
     }
 
-    public static function findDRFAckGL()
+    public static function findDRFAckGL($id)
     {
         return self::where('number_of_process', self::$__ackGL)
-        
+        ->where('gl_id', $id)
         ->get();
     }
 
-    public static function findDRFReviewGL()
+    public static function findDRFReviewGL($id)
     {
         return self::where('number_of_process', self::$__reviewGL)
+        ->where('gl_id', $id)
         ->get();
     }
 

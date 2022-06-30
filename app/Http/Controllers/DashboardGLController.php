@@ -11,9 +11,9 @@ class DashboardGLController extends Controller
 {
     public function index()
     {
-        $drfProgress = Drf::findDRFAckGL();
+        $drfProgress = Drf::findDRFAckGL(auth()->user()->id);
         $ivspProgress = Ivsp::findIVSPAckGL();
-        $drfReview = Drf::findDRFReviewGL();
+        $drfReview = Drf::findDRFReviewGL(auth()->user()->id);
         $ivspReview = Ivsp::findIVSPReviewGL();
         return view('dashboard.dashboardgl', [
             'drfProgress' => $drfProgress,

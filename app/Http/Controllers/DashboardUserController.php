@@ -57,8 +57,6 @@ class DashboardUserController extends Controller
         $validatedData['dokumen_pendukung'] = $request->file('dokumen_pendukung')->storeAs('drf', $id . '.pdf');
         Drf::create($validatedData);
         return redirect()->intended(route('dashboarduser.formDRF'))->with('success','DRF has been added successfully. Your id is ' . $id);
-
-        
     }
     public function storeIVSP(StoreIVSP $request)
     {
