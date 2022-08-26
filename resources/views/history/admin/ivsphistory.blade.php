@@ -33,7 +33,7 @@
     <body class="antialiased" style="background-image: #EAD689;">
         <div class=" justify-content-md-left picker-date" >
           <div class="picker">
-            <form class="POST" method="GET" action='{{ route('ivsp.history') }}'>
+            <form class="POST" method="GET" action="{{ route('ivsp.historyadmin') }}">
               <input type="month" name="datepicker" id="start" min="2022-01" value="{{ $datepicker !== null ? $datepicker : "2022-01" }}">
               <button type="submit" value="submit" id="submit" name="submit" style="border-radius:5px;" class="mt-4">Submit </button>
             </form>
@@ -50,7 +50,8 @@
               <div class="card-body">
                 <h5 class="card-title">{{ $i->customer_name }}</h5>
                 <p class="card-text">{{ $i->contact_person }}</p>
-                <a href="{{ route('ivsp.show',$i->id) }}" class="text-secondary">More</a>
+                <a href="{{ route('admin.ivsp.show',$i->id) }}" class="text-secondary">More</a>
+                <a href="#" class="text-secondary">|  Delete</a>
               </div>
             </div>
           </div>

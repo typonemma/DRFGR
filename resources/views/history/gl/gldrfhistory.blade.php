@@ -33,7 +33,7 @@
     <body class="antialiased" style="background-image: #EAD689;">
         <div class=" justify-content-md-left picker-date" >
           <div class="picker">
-            <form class="POST" method="GET" action='{{ route('drf.historygl') }}'>
+            <form class="POST" method="GET" action="{{ route('drf.historygl') }}">
               <input type="month" name="datepicker" id="start" min="2022-01" value="{{ $datepicker !== null ? $datepicker : "2022-01" }}">
               <button type="submit" value="submit" id="submit" name="submit" style="border-radius:5px; " class="mt-4 ">Submit </button>
             </form>
@@ -50,13 +50,13 @@
               <div class="card-body">
                 <h5 class="card-title">{{ $d->ci_company_name }}</h5>
                 <p class="card-text">{{ $d->ci_phone_company }}</p>
-                <a href="{{ route('drf.show',$d->id) }}" class="text-secondary">More</a>
+                <a href="{{ route('gl.drf.show',$d->id) }}" class="text-secondary">More</a>
               </div>
             </div>
           </div>
 
             @empty
-              <h3 class="mt-4 ml-4">Tidak ada apapun bulan ini!</h3>
+              <h3 class="mt-4 ml-4">Tidak ada apapuan bulan ini!</h3>
             @endforelse
           </div>
 

@@ -33,7 +33,7 @@
     <body class="antialiased" style="background-image: #EAD689;">
         <div class=" justify-content-md-left picker-date" >
           <div class="picker">
-            <form class="POST" method="GET" action='{{ route('drf.history') }}'>
+            <form class="POST" method="GET" action="{{ route('ivsp.historygl') }}">
               <input type="month" name="datepicker" id="start" min="2022-01" value="{{ $datepicker !== null ? $datepicker : "2022-01" }}">
               <button type="submit" value="submit" id="submit" name="submit" style="border-radius:5px; " class="mt-4 ">Submit </button>
             </form>
@@ -42,15 +42,16 @@
 
 <div class="row">
 
-        @forelse ($drf as $d)
+        @forelse ($ivsp as $iv)
 
         <div class="col-lg-6 ">
             <div class="card "  >
-              <div class="card-header w-100">{{ $d->id }}</div>
+              <div class="card-header w-100">{{ $iv->id }}</div>
               <div class="card-body">
-                <h5 class="card-title">{{ $d->ci_company_name }}</h5>
-                <p class="card-text">{{ $d->ci_phone_company }}</p>
-                <a href="{{ route('drf.show',$d->id) }}" class="text-secondary">More</a>
+                <h5 class="card-title">{{ $iv->customer_name }}</h5>
+                <p class="card-text">{{ $iv->contact_person }}</p>
+                <a href="{{ route('gl.ivsp.show',$iv->id) }}" class="text-secondary">More</a>
+                <a href="#" class="text-secondary">|  Delete</a>
               </div>
             </div>
           </div>

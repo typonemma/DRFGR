@@ -19,7 +19,8 @@ use App\Http\Controllers\IVSPSuperAdminController;
 use App\Http\Controllers\DashboardManagerController;
 use App\Http\Controllers\DashboardEngineerController;
 use App\Http\Controllers\DashboardSuperAdminController;
-
+use App\Http\Controllers\DRFAdminController;
+use App\Http\Controllers\IVSPAdminController;
 
 
 /*
@@ -86,9 +87,10 @@ Route::get('/dashboard/admin/drf/sop/{id}', [DashboardAdminController::class, 'd
 Route::get('/dashboard/admin/ivsp/sop/{id}', [DashboardAdminController::class, 'ivspSOPAdmin'])->name('ivsp.sopAdmin')->middleware(['admin', 'verified']);
 
 // DRF ADMIN
-Route::get('/dashboard/admin/historydrf', [DRFController::class, 'historyAdmin'])->name('drf.historyadmin')->middleware(['admin', 'verified']);
-Route::resource('/dashboard/admin/drf', DRFController::class, ['as' => 'admin'])->middleware(['admin', 'verified'])->except(['create', 'store','index', 'show']);
-Route::get('/dashboard/admin/drf/{id}', [DRFController::class, 'showAdmin'])->name('admin.drf.show')->middleware(['admin', 'verified']);
+Route::get('/dashboard/admin/historydrf', [DRFAdminController::class, 'historyAdmin'])->name('drf.historyadmin')->middleware(['admin', 'verified']);
+//Route::get('/dashboard/admin/historydrf', [DRFAdminController::class, 'destroy'])->name('drf.destroyadmin')->middleware(['admin', 'verified']);
+Route::resource('/dashboard/admin/drf', DRFAdminController::class, ['as' => 'admin'])->middleware(['admin', 'verified'])->except(['create', 'store','index', 'show']);
+Route::get('/dashboard/admin/drf/{id}', [DRFAdminController::class, 'showAdmin'])->name('admin.drf.show')->middleware(['admin', 'verified']);
 
 //IVSP ADMIN
 Route::get('/dashboard/admin/historyivsp', [IVSPController::class, 'historyAdmin'])->name('ivsp.historyadmin')->middleware(['admin', 'verified']);
@@ -107,8 +109,10 @@ Route::post('/dashboard/gl/ivspackgl/{id}', [DashboardGLController::class, 'ivsp
 Route::post('/dashboard/gl/drfreviewgl/{id}', [DashboardGLController::class, 'drfReviewGL'])->name('dashboardgl.drfReviewGL')->middleware(['GL', 'verified']);
 Route::post('/dashboard/gl/ivspreviewgl/{id}', [DashboardGLController::class, 'ivspReviewGL'])->name('dashboardgl.ivspReviewGL')->middleware(['GL', 'verified']);
 
-Route::get('/dashboard/gl/historydrf', [DRFController::class, 'historyGL'])->name('drf.historygl')->middleware(['GL', 'verified']);
+Route::get('/dashboard/gl/historydrf', [DashboardGLController::class, 'historyGL'])->name('drf.historygl')->middleware(['GL', 'verified']);
 Route::get('/dashboard/gl/historyivsp', [IVSPController::class, 'historyGL'])->name('ivsp.historygl')->middleware(['GL', 'verified']);
+Route::get('/dashboard/gl/drf/{id}', [DRFAdminController::class, 'showAdmin'])->name('gl.drf.show')->middleware(['GL', 'verified']);
+Route::get('/dashboard/gl/ivsp/{id}', [DRFAdminController::class, 'showAdmin'])->name('gl.ivsp.show')->middleware(['GL', 'verified']);
 // END DASHBOARD GL
 
 // DASHBOARD ENGINEER
@@ -117,7 +121,7 @@ Route::get('/dashboard/engineer/history', [DashboardEngineerController::class, '
 Route::get('/dashboard/engineer/drf/sop/{id}', [DashboardEngineerController::class, 'drfSOPEngineer'])->name('drf.sopEngineer')->middleware(['engineer', 'verified']);
 Route::get('/dashboard/engineer/ivsp/sop/{id}', [DashboardEngineerController::class, 'ivspSOPEngineer'])->name('ivsp.sopEngineer')->middleware(['engineer', 'verified']);
 Route::post('/dashboard/engineer/drfdoengineer/{id}', [DashboardEngineerController::class, 'drfDoByEngineer'])->name('dashboardengineer.drfDoByEngineer')->middleware(['engineer', 'verified']);
-Route::post('/dashboard/engineer/ivspdoengineer/{id}', [DashboardEngineerController::class, 'ivspDoByEngineer'])->name('dashboardengineer.ivspDoByEngineer')->middleware(['engineer', 'verified']);
+
 // END DASHBOARD ENGINEER
 
 // DASHBOARD QC

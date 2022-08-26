@@ -25,24 +25,24 @@ class DashboardGLController extends Controller
 
     public function history()
     {
-        return view('history.history');
+        return view('history.gl.glhistory');
     }
 
-    // public function showDRF($id)
-    // {
-    //     $drfGL = Drf::findDRFById($id);
-    //     return view('', [
-    //         'drf' => $drfGL,
-    //     ]);
-    // }
+     public function showDRF($id)
+    {
+         $drfGL = Drf::findDRFById($id);
+        return view('', [
+            'drf' => $drfGL,
+        ]);
+    }
 
-    // public function showIVSP($id)
-    // {
-    //     $ivspGL = Ivsp::findIVSPById($id);
-    //     return view('', [
-    //         'ivsp' => $ivspGL,
-    //     ]);
-    // }
+    public function showIVSP($id)
+    {
+         $ivspGL = Ivsp::findIVSPById($id);
+        return view('', [
+             'ivsp' => $ivspGL,
+         ]);
+     }
 
     public function drfSOPAckGL($id)
     {

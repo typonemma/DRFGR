@@ -38,7 +38,7 @@ class DashboardAdminController extends Controller
 
     public function history()
     {
-        return view('history.history');
+        return view('history.admin.history');
     }
 
 

@@ -21,30 +21,37 @@
     </div>
   </div>
 
+ 
+
   <div>
-    <fieldset>
 
       <legend id="title2" class="desc">
         CC :
       </legend>
+     
+  </div>
+
+  @forelse ($gl as $g)
+    <div>
+    <fieldset>
+
+    
 
       <div>
-        <input id="radioDefault_2" name="cc" type="hidden" value="">
+        <input id="radioDefault_2" name= "gl_id"  type="hidden" value={{ $g->id }}>
         <div>
-          <input id="Field2_0" name="cc" type="radio" value="Analyzer, GL" tabindex="5" checked="checked">
-          <label class="choice" for="Field2_0">Aditya Saputro (Analyzer, GL)</label>
-        </div>
-        <div>
-          <input id="Field2_1" name="cc" type="radio" value="SLC, GL" tabindex="6">
-          <label class="choice" for="Field2_1">Erga Suwargana (SLC, GL)</label>
-        </div>
-        <div>
-          <input id="Field2_4" name="cc" type="radio" value="PCI, GL" tabindex="7">
-          <label class="choice" for="Field2_4">Gardia Ghautama (PCI, GL)</label>
+          <input id="Field2_0" name="cc" type="radio" value={{$g->name}} tabindex="5" checked="checked">
+          <label class="choice" for="Field2_0">{{$g->name}}</label>
         </div>
       </div>
     </fieldset>
   </div>
+        
+
+            @empty
+           
+            @endforelse
+          
 
   <div>
     <label class="desc" id="title3" for="Field3">Cost Expenses Allocation :</label>

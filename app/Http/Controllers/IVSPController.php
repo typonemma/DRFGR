@@ -106,13 +106,13 @@ class IVSPController extends Controller
             $month = intval(substr($monthAndYear, 5, 2));
             $year = intval(substr($monthAndYear, 0, 4));
             $ivsp = Ivsp::findIvspByMonthAndYear($month, $year);
-            return view('history.ivsphistory', [
+            return view('history.admin.ivsphistory', [
                 'ivsp' => $ivsp,
                 'datepicker' => $monthAndYear,
             ]);
         }else{
             $ivsp = [];
-            return view('history.ivsphistory', [
+            return view('history.admin.ivsphistory', [
                 'ivsp' => [],
                 'datepicker' => '',
             ]);
@@ -126,13 +126,13 @@ class IVSPController extends Controller
             $month = intval(substr($monthAndYear, 5, 2));
             $year = intval(substr($monthAndYear, 0, 4));
             $ivsp = Ivsp::findIvspByMonthAndYear($month, $year);
-            return view('history.ivsphistory', [
+            return view('history.gl.glivsphistory', [
                 'ivsp' => $ivsp,
                 'datepicker' => $monthAndYear,
             ]);
         }else{
             $ivsp = [];
-            return view('history.ivsphistory', [
+            return view('history.gl.glivsphistory', [
                 'ivsp' => [],
                 'datepicker' => '',
             ]);
