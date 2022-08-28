@@ -96,7 +96,8 @@ class IVSPController extends Controller
      */
     public function destroy($id)
     {
-        
+        Ivsp::deleteIVSPById($id);
+        return redirect()->route('dashboardadmin.index')->with('success', 'IVSP has been deleted'); 
     }
 
     public function historyAdmin(Request $request)

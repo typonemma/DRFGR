@@ -90,12 +90,14 @@ Route::get('/dashboard/admin/ivsp/sop/{id}', [DashboardAdminController::class, '
 Route::get('/dashboard/admin/historydrf', [DRFAdminController::class, 'historyAdmin'])->name('drf.historyadmin')->middleware(['admin', 'verified']);
 //Route::get('/dashboard/admin/historydrf', [DRFAdminController::class, 'destroy'])->name('drf.destroyadmin')->middleware(['admin', 'verified']);
 Route::resource('/dashboard/admin/drf', DRFAdminController::class, ['as' => 'admin'])->middleware(['admin', 'verified'])->except(['create', 'store','index', 'show']);
-Route::get('/dashboard/admin/drf/{id}', [DRFAdminController::class, 'showAdmin'])->name('admin.drf.show')->middleware(['admin', 'verified']);
+Route::get('/dashboard/admin/drf/{id}', [DRFAdminController::class, 'show'])->name('admin.drf.show')->middleware(['admin', 'verified']);
+Route::delete('/dashboard/admin/drf/destory/{id}', [DRFAdminController::class, 'destroy'])->name('admin.drf.delete')->middleware(['admin', 'verified']);
 
 //IVSP ADMIN
 Route::get('/dashboard/admin/historyivsp', [IVSPController::class, 'historyAdmin'])->name('ivsp.historyadmin')->middleware(['admin', 'verified']);
 Route::resource('/dashboard/admin/ivsp', IVSPController::class,  ['as' => 'admin'])->middleware(['admin', 'verified'])->except(['edit','index','update','create', 'show']);
 Route::get('/dashboard/admin/ivsp/{id}', [IVSPController::class, 'showAdmin'])->name('admin.ivsp.show')->middleware(['admin', 'verified']);
+Route::delete('/dashboard/admin/ivsp/destory/{id}', [IVSPController::class, 'destroy'])->name('admin.ivsp.delete')->middleware(['admin', 'verified']);
 
 // DASHBOARD GL
 Route::get('/dashboard/gl', [DashboardGLController::class, 'index'])->name('dashboardgl.index')->middleware(['GL', 'verified']);

@@ -72,7 +72,7 @@
               <div class="box  p-3" >
                 <i class="uil-eye"></i>
                 <p class="lead">  {{ $d->id }}</p>
-                <a href="{{ route('drf.sopSuperAdmin', $d->id) }}" class="text-secondary">More</a>
+                <a href="{{ route('drf.sopSuperAdmin', $d->id) }}" class="text-secondary">Moressss</a>
               </div>
             </div>
           </div>

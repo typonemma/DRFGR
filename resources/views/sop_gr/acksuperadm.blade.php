@@ -28,7 +28,7 @@
 
 
     </head>
-    @include('layouts.navbar')
+    @include('layouts.superadminnavbar')
     <body class="antialiased" style="background-image: #EAD689;">
 
 
@@ -45,7 +45,7 @@
 
       <form class="d-flex flex-row" action="index.html" method="post" style="float:left;">
         <div class=" sop_top mt-4">
-          <p class="col-md-8 text p-2">Acknowledge by Admin</p>
+          <p class="col-md-8 text p-2">Acknowledge by Super Admin</p>
             <form action="{{ route('dashboardadmin.ivspProcessAdmin',$ivsp->id) }}" method="post" class="col-md-4">
               @csrf
               <button class=" submit-btn" id="submit" style="" type="submit">Submit</button>

@@ -51,7 +51,11 @@
                 <h5 class="card-title">{{ $d->ci_company_name }}</h5>
                 <p class="card-text">{{ $d->ci_phone_company }}</p>
                 <a href="{{ route('admin.drf.show',$d->id) }}" class="text-secondary">More</a>
-                <a href="#" class="text-secondary">  | Delete</a>
+                <form action="{{ route('admin.drf.destroy',$d->id) }}" method="POST" class="mt-2">
+                  @csrf
+                  @method('DELETE')
+                  <button>Delete</button>
+                </form>
               </div>
             </div>
           </div>

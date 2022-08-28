@@ -51,7 +51,11 @@
                 <h5 class="card-title">{{ $i->customer_name }}</h5>
                 <p class="card-text">{{ $i->contact_person }}</p>
                 <a href="{{ route('admin.ivsp.show',$i->id) }}" class="text-secondary">More</a>
-                <a href="#" class="text-secondary">|  Delete</a>
+                <form action="{{ route('admin.ivsp.destroy',$i->id) }}" method="POST" class="mt-2">
+                  @csrf
+                  @method('DELETE')
+                  <button>Delete</button>
+                </form>
               </div>
             </div>
           </div>

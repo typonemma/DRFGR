@@ -29,7 +29,7 @@
 
 
     </head>
-    @include('layouts.navbar')
+    @include('layouts.superadminnavbar')
     <body class="antialiased" style="background-image: #EAD689;">
 
 
@@ -46,7 +46,7 @@
       </div>
 
         <div class="row sop_top mt-4">
-          <p class="col-md-8 text">Acknowledge by Admin</p>
+          <p class="col-md-8 text">Acknowledge by Super Admin</p>
 
             <form action="{{ route('dashboardadmin.drfProcessAdmin',$drf->id) }}" method="post" class="col-md-4">
               @csrf
